@@ -11,6 +11,8 @@ renv/staging/
 .renv-cache/
 *_cache/
 cache/
+.quarto-cache/
+.quarto-deno/
 data/raw/**
 data/interim/**
 data/processed/**

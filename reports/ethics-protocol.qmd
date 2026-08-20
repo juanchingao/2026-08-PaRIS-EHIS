@@ -1,0 +1,34 @@
+---
+title: "Protocolo para evaluación por el Comité de Ética de la Investigación"
+subtitle: "PaRISEHIS Harmonisation Project"
+date: "2026-08-20"
+lang: es
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: false
+    smooth-scroll: true
+    code-fold: true
+    code-tools: false
+    theme:
+      light: cosmo
+      dark: darkly
+    css: ethics-protocol.css
+    link-external-newwindow: true
+    embed-resources: true
+    self-contained-math: true
+execute:
+  enabled: false
+editor: visual
+---
+
+::: {.callout-note title="Estado del documento"}
+**Borrador v0.1 para adaptación institucional.** Antes de presentarlo deben
+completarse los campos entre corchetes y validarse la base jurídica, la
+seguridad y la posible evaluación de impacto con el Delegado de Protección de
+Datos y el Comité competente.
+:::
+
+{{< include ../documentation/ethics/ethics-protocol-v0.1.md >}}

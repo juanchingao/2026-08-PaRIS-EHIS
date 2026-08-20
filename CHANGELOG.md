@@ -4,6 +4,11 @@
 
 ### Added
 
+- Borrador v0.1 del protocolo para evaluación ética, incluyendo uso secundario,
+  acceso, minimización, seguridad, disclosure, conservación y dispensa de
+  consentimiento pendiente de valoración institucional.
+- Versión Quarto autocontenida y preparada para impresión del protocolo ético.
+
 - Hoja de ruta de reentrada con los pasos, criterios de finalización y piloto
   propuesto para pasar del framework conceptual a mappings validados.
 - Estado actual y prioridades de la próxima sesión incorporados a `AGENTS.md`.

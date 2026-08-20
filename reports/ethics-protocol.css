@@ -1,0 +1,67 @@
+:root {
+  --paris-blue: #1f4e79;
+  --paris-blue-light: #eaf2f8;
+  --paris-gold: #b07d12;
+}
+
+body {
+  line-height: 1.62;
+}
+
+main.content > section.level1 > h1:first-child {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--paris-blue);
+}
+
+h1 {
+  border-bottom: 3px solid var(--paris-blue);
+  padding-bottom: 0.3rem;
+}
+
+h2 {
+  border-bottom: 1px solid #d8e2eb;
+  padding-bottom: 0.2rem;
+  margin-top: 2.2rem;
+}
+
+.quarto-title-banner {
+  background: linear-gradient(120deg, #163a5c, var(--paris-blue));
+}
+
+.callout-note {
+  border-left-color: var(--paris-gold) !important;
+}
+
+table {
+  font-size: 0.94rem;
+}
+
+@media print {
+  #TOC,
+  .quarto-secondary-nav,
+  .quarto-color-scheme-toggle,
+  .quarto-navigation-tool {
+    display: none !important;
+  }
+
+  body {
+    font-size: 10.5pt;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  table,
+  blockquote,
+  .callout {
+    break-inside: avoid;
+  }
+}
