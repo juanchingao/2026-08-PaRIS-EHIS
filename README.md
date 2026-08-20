@@ -66,6 +66,7 @@ No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
 - [Protocolo v0.1](documentation/protocol/protocol-v0.1.md)
 - [Protocolo de revisión narrativa metodológica](research/narrative-review/protocol.md)
 - [Revisión narrativa metodológica v0.1](research/narrative-review/narrative-review-v0.1.md)
+- [Siguientes pasos y punto de reentrada](documentation/planning/next-steps.md)
 - [Plan de búsqueda](research/searches/README.md)
 - [Modelo de datos](documentation/methods/data-model.md)
 - [Procesamiento de reglas de anonimización EHIS](documentation/methods/ehis-anonymisation-processing.md)

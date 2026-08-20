@@ -4,6 +4,10 @@
 
 ### Added
 
+- Hoja de ruta de reentrada con los pasos, criterios de finalización y piloto
+  propuesto para pasar del framework conceptual a mappings validados.
+- Estado actual y prioridades de la próxima sesión incorporados a `AGENTS.md`.
+
 - Protocolo de revisión narrativa metodológica, estrategias reproducibles para
   PubMed y plantillas de selección y extracción.
 - Flujo en R basado en NCBI E-utilities para recuperar, normalizar y deduplicar

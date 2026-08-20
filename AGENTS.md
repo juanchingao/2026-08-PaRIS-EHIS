@@ -49,6 +49,34 @@ representación, derivación y administración. Clases: `DIRECT`, `RECODABLE`,
 - Priorizar OECD, Eurostat, DDI, ISO y publicaciones metodológicas primarias.
 - Los métodos automáticos solo generan candidatos; requieren revisión humana.
 
+## Estado actual (2026-08-20)
+
+- Metadatos normalizados: 195 variables PaRIS Cycle 1 y 154 variables EHIS
+  Wave 3; EHIS Wave 2 se conserva como apoyo histórico.
+- Revisión narrativa: 813 registros PubMed recuperados, 121 revisados por
+  título/resumen, 35 incluidos y 15 fuentes nucleares extraídas.
+- La clasificación bibliográfica inicial requiere confirmación del
+  investigador antes de presentarse como selección definitiva.
+- Protocolo y framework siguen en versión de trabajo; todavía no existen
+  mappings source-to-target validados ni algoritmos aplicados a microdatos.
+- Último punto de reentrada: `documentation/planning/next-steps.md`.
+
+## Prioridad al retomar
+
+1. No ampliar todavía el mapping a todas las variables.
+2. Formalizar valores controlados y reglas de decisión para las siete
+   dimensiones de compatibilidad.
+3. Ejecutar un piloto con edad, sexo/género, salud autopercibida, diabetes,
+   utilización sanitaria, una escala compartida y un PREM PaRIS sin equivalente.
+4. Definir cada variable objetivo antes de asignar variables fuente.
+5. Mantener algoritmos PaRIS y EHIS independientes, con tests sintéticos.
+6. Incorporar microdatos solo después de inventariar archivos, hashes,
+   licencias, códigos de ausencia y componentes del diseño muestral.
+
+No utilizar IRT, linking o equiparación por defecto. Solo considerarlos cuando
+exista constructo común, ítems compartidos, muestra puente u otro anclaje
+defendible, además de evidencia de invariancia y análisis de sensibilidad.
+
 ## Antes de cerrar una tarea
 
 1. Ejecutar pruebas pertinentes.
