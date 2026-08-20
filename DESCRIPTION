@@ -7,6 +7,6 @@ Description: Reproducible infrastructure for the conceptual and empirical
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 4.4.0)
-Imports: cli, dplyr, fs, readr, rlang, tibble, tidyr, yaml
+Imports: cli, dplyr, fs, pdftools, readr, rlang, stringr, tibble, tidyr, xml2, yaml
 Suggests: knitr, quarto, survey, testthat (>= 3.0.0)
 Config/testthat/edition: 3

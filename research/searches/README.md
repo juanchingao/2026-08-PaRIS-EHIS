@@ -1,5 +1,9 @@
 # Plan de búsqueda metodológica
 
+La revisión narrativa metodológica activa se encuentra en
+`research/narrative-review/`. Su protocolo delimita una búsqueda pragmática y
+reproducible, distinta de una revisión sistemática formal.
+
 La búsqueda inicial cubre tres bloques:
 
 1. métodos y estándares de armonización retrospectiva (Maelstrom, DDI,

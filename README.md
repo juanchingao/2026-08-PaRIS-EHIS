@@ -64,8 +64,12 @@ No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
 ## Documentos clave
 
 - [Protocolo v0.1](documentation/protocol/protocol-v0.1.md)
+- [Protocolo de revisión narrativa metodológica](research/narrative-review/protocol.md)
+- [Revisión narrativa metodológica v0.1](research/narrative-review/narrative-review-v0.1.md)
 - [Plan de búsqueda](research/searches/README.md)
 - [Modelo de datos](documentation/methods/data-model.md)
+- [Procesamiento de reglas de anonimización EHIS](documentation/methods/ehis-anonymisation-processing.md)
+- [Procesamiento del codebook PaRIS](documentation/methods/paris-codebook-processing.md)
 - [Registro de cambios](CHANGELOG.md)
 - [Instrucciones para agentes](AGENTS.md)
 
