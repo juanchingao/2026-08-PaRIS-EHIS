@@ -1,0 +1,15 @@
+project:
+  id: parisehis
+  title: PaRISEHIS Harmonisation Project
+  protocol_version: "0.1"
+  default_language: es
+sources:
+  paris:
+    cycle: "1"
+    principal_collection_period: "2023-2024"
+  ehis:
+    wave: "3"
+    principal_collection_period: "2019"
+harmonisation:
+  classes: [DIRECT, RECODABLE, DERIVABLE, PARTIAL, RELATED, NONE]
+  statuses: [PROPOSED, REVIEWED, VALIDATED, REJECTED, UNRESOLVED]

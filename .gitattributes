@@ -1,0 +1,26 @@
+* text=auto
+
+*.R text eol=lf
+*.Rmd text eol=lf
+*.qmd text eol=lf
+*.md text eol=lf
+*.csv text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.lock text eol=lf
+*.Rproj text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.rds binary
+*.RData binary
+*.sav binary
+*.dta binary
+*.parquet binary
+*.feather binary
+*.pdf binary
+*.docx binary
+*.xlsx binary

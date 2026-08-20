@@ -1,0 +1,10 @@
+domain_id,domain_label_es,domain_label_en,definition,status
+SOC,sociodemografía,sociodemographics,Características sociales y demográficas,PROPOSED
+HEALTH,estado de salud,health status,Estado general y específico de salud,PROPOSED
+CHRONIC,enfermedades crónicas,chronic conditions,Condiciones o enfermedades crónicas,PROPOSED
+FUNCTION,funcionamiento,functioning,Capacidad funcional y limitaciones,PROPOSED
+MENTAL,salud mental,mental health,Bienestar y síntomas de salud mental,PROPOSED
+DETERMINANTS,determinantes de salud,health determinants,Conductas y exposiciones relacionadas con salud,PROPOSED
+UTILISATION,utilización sanitaria,healthcare utilisation,Contacto y uso de servicios sanitarios,PROPOSED
+PROM,resultados reportados por pacientes,patient-reported outcomes,Resultados reportados directamente por pacientes,PROPOSED
+PREM,experiencia asistencial,patient-reported experiences,Experiencias de atención reportadas por pacientes,PROPOSED

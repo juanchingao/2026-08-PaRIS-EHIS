@@ -1,0 +1,12 @@
+Package: parisehis
+Title: Retrospective Harmonisation of PaRIS and EHIS
+Version: 0.0.0.9000
+Authors@R: person("PaRISEHIS", "Team", role = c("aut", "cre"), email = "noreply@example.org")
+Description: Reproducible infrastructure for the conceptual and empirical
+    retrospective harmonisation of PaRIS Cycle 1 and EHIS Wave 3.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.4.0)
+Imports: cli, dplyr, fs, readr, rlang, tibble, tidyr, yaml
+Suggests: knitr, quarto, survey, testthat (>= 3.0.0)
+Config/testthat/edition: 3

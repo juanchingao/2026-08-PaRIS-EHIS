@@ -1,0 +1,7 @@
+# Copiar como .Renviron y adaptar solo si las rutas por defecto no sirven.
+PARISEHIS_RAW_DIR=/data/raw/parisehis
+PARISEHIS_INTERIM_DIR=/data/interim/parisehis
+PARISEHIS_DERIVED_DIR=/data/derived/parisehis
+PARISEHIS_OUTPUTS_DIR=/data/outputs/parisehis
+PARISEHIS_LOGS_DIR=/data/logs/parisehis
+R_WORKERS=4
