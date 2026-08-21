@@ -4,6 +4,10 @@
 
 ### Added
 
+- Script reproducible para contar, recuperar y comparar con PubMed las tres
+  búsquedas equivalentes de Scopus mediante `scopusflow`; su ejecución queda
+  pendiente hasta que el entorno permita cargar la dependencia `curl`.
+
 - Cierre documental de la revisión narrativa v0.2, con síntesis consolidada,
   limitaciones explícitas y un registro canónico que separa las propuestas de
   cribado asistido de su confirmación por el investigador.
