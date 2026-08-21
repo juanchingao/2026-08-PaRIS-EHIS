@@ -1,14 +1,20 @@
 # Hoja de ruta para retomar el proyecto
 
-**Actualizada:** 2026-08-20<br>
+**Actualizada:** 2026-08-21<br>
 **Estado:** pendiente<br>
-**Punto de partida:** metadatos PaRIS/EHIS extraídos y revisión narrativa v0.1
+**Punto de partida:** metadatos PaRIS/EHIS extraídos y síntesis narrativa v0.2;
+clasificación bibliográfica pendiente de ratificación del investigador
 
 ## Objetivo de la siguiente etapa
 
 Pasar del framework conceptual a un piloto source-to-target pequeño y
 auditable. El piloto debe comprobar tanto casos armonizables como límites de
 comparabilidad antes de extender el trabajo al inventario completo.
+
+Antes del piloto, el investigador debe completar en
+`research/narrative-review/screening.csv` la decisión, iniciales y fecha de los
+121 registros. Esta ratificación no cambia la síntesis documental, pero es
+necesaria para presentar las cifras de selección como definitivas.
 
 ## Paso 1. Operacionalizar la compatibilidad
 

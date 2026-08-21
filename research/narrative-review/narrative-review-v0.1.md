@@ -1,9 +1,9 @@
 # Revisión narrativa metodológica para la armonización PaRIS–EHIS
 
-**Versión:** 0.1<br>
-**Fecha:** 2026-08-20<br>
-**Estado:** síntesis inicial pendiente de confirmación del investigador y lectura
-completa de las fuentes nucleares.
+**Versión:** 0.2<br>
+**Fecha:** 2026-08-21<br>
+**Estado:** síntesis documental cerrada; la clasificación asistida permanece
+pendiente de confirmación por el investigador.
 
 ## Alcance y procedimiento
 
@@ -18,7 +18,9 @@ documentos nucleares, 10 aplicaciones útiles y 10 métodos especializados.
 
 La revisión es deliberadamente narrativa. No pretende exhaustividad ni realiza
 una evaluación formal del riesgo de sesgo. Las búsquedas, resultados y
-decisiones están versionados y pueden actualizarse.
+propuestas de decisión están versionados. `screening.csv` reserva campos
+separados para la ratificación del investigador y evita presentar la selección
+asistida como una selección humana definitiva.
 
 ## 1. La armonización es un proceso dirigido por preguntas y objetivos
 
@@ -130,7 +132,7 @@ requiere revisar pregunta, instrucciones, universo, periodo, categorías,
 missingness, derivación y notas nacionales. También se registrarán desacuerdos
 y decisiones negativas.
 
-## 7. Validación propuesta
+## 7. Consecuencias para la validación
 
 La validación debe acumular evidencia sin convertir ninguna comprobación en un
 patrón oro aislado:
@@ -162,7 +164,7 @@ global será `DIRECT`, `RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` o `NONE`,
 con un estado independiente de revisión. Los métodos estadísticos complejos no
 elevarán una relación conceptualmente débil a armonización válida.
 
-## 9. Prioridades para el piloto
+## 9. Prioridades derivadas para el piloto
 
 Se propone comenzar con:
 
@@ -176,6 +178,15 @@ Se propone comenzar con:
 
 Este conjunto prueba tanto el éxito como los límites del framework y evita que
 el piloto se seleccione únicamente entre variables fáciles.
+
+## Limitaciones de la revisión
+
+La búsqueda reproducible se concentró en PubMed; las consultas preparadas para
+Scopus y Web of Science no se ejecutaron por requerir acceso institucional. La
+selección fue intencional y no permite estimar exhaustividad. La extracción
+estructurada de las 15 fuentes nucleares se utilizó para la síntesis temática,
+pero las decisiones de cribado siguen identificadas como propuestas hasta que
+el investigador complete los campos correspondientes en `screening.csv`.
 
 ## Conclusión
 

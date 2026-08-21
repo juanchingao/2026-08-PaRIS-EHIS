@@ -4,6 +4,14 @@
 
 ### Added
 
+- Cierre documental de la revisión narrativa v0.2, con síntesis consolidada,
+  limitaciones explícitas y un registro canónico que separa las propuestas de
+  cribado asistido de su confirmación por el investigador.
+- Interfaz HTML autocontenida para revisar los 121 registros, guardar el
+  progreso en el navegador, actualizar la matriz con autorización explícita y
+  recordar el archivo autorizado para actualizaciones posteriores, además de
+  exportar copias de las decisiones confirmadas a CSV.
+
 - Primer borrador de la introducción del manuscrito en Quarto, revisado para
   incorporar precedentes de armonización y comparaciones entre encuestas
   identificados en la revisión narrativa, los dominios del piloto y evidencia

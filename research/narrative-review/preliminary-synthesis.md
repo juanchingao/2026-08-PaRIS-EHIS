@@ -1,7 +1,7 @@
-# Síntesis metodológica preliminar
+# Síntesis metodológica de trabajo
 
-**Estado:** borrador de trabajo basado en las fuentes nucleares; requiere
-cribado humano y ampliación temática.
+**Estado:** documento histórico resumido. La síntesis consolidada se encuentra
+en `narrative-review-v0.1.md`; el cribado requiere ratificación humana.
 
 ## Cribado inicial de candidatos
 
@@ -50,7 +50,7 @@ otras con diferencias previsibles de formulación, referencia y población. Un
 PROM o PREM complejo se añadirá después para probar explícitamente el límite
 entre `PARTIAL`, `RELATED` y una armonización psicométrica defendible.
 
-## Cuestiones todavía abiertas
+## Cuestiones trasladadas al piloto
 
 - Definición operativa y puntuación de cada dimensión de compatibilidad.
 - Umbral para aceptar una pérdida de información como `RECODABLE`.

@@ -54,6 +54,7 @@ reviewed <- candidates |>
     ),
     reviewer = "Codex; title/abstract review for investigator confirmation",
     review_date = as.character(Sys.Date()),
+    decision_status = "PENDING_INVESTIGATOR_CONFIRMATION",
     notes = paste0(
       "Title and abstract reviewed. Initial relevance score: ", relevance_score
     )
@@ -61,12 +62,56 @@ reviewed <- candidates |>
   dplyr::select(
     record_id, pmid, doi, title, abstract, authors, journal, year,
     publication_types, pubmed_url, strategy_id, relevance_score,
-    stage, decision, reason, reviewer, review_date, notes
+    stage, decision, reason, reviewer, review_date, decision_status, notes
   )
 
 readr::write_csv(
   reviewed, file.path(review_dir, "reviewed-screening.csv"), na = ""
 )
+
+# Keep a concise, canonical decision log separate from bibliographic metadata.
+# The investigator can edit `investigator_decision`, initials and date without
+# those confirmations being overwritten by this script.
+confirmation_path <- file.path(review_dir, "screening.csv")
+previous_confirmation <- if (file.exists(confirmation_path)) {
+  readr::read_csv(confirmation_path, show_col_types = FALSE)
+} else {
+  tibble::tibble()
+}
+
+screening <- reviewed |>
+  dplyr::transmute(
+    record_id, pmid, title, stage,
+    proposed_decision = decision,
+    proposed_reason = reason,
+    proposed_reviewer = reviewer,
+    proposed_review_date = review_date
+  )
+
+if (all(c(
+  "record_id", "investigator_decision", "investigator_initials",
+  "confirmation_date", "investigator_notes"
+) %in% names(previous_confirmation))) {
+  screening <- screening |>
+    dplyr::left_join(
+      previous_confirmation |>
+        dplyr::select(
+          record_id, investigator_decision, investigator_initials,
+          confirmation_date, investigator_notes
+        ),
+      by = "record_id"
+    )
+} else {
+  screening <- screening |>
+    dplyr::mutate(
+      investigator_decision = NA_character_,
+      investigator_initials = NA_character_,
+      confirmation_date = NA_character_,
+      investigator_notes = NA_character_
+    )
+}
+
+readr::write_csv(screening, confirmation_path, na = "")
 summary <- reviewed |>
   dplyr::count(decision, name = "records") |>
   dplyr::arrange(factor(decision, levels = c("INCLUDE", "BACKGROUND", "EXCLUDE")))
@@ -75,5 +120,5 @@ readr::write_csv(
 )
 message(
   paste(paste0(summary$decision, "=", summary$records), collapse = "; "),
-  ". Decisions require investigator confirmation."
+  ". Proposed decisions require investigator confirmation in screening.csv."
 )

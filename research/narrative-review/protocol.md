@@ -71,8 +71,15 @@ semántica y estudios clínicos sin relación metodológica con encuestas o medi
 reportadas por pacientes.
 
 La selección será intencional, iterativa y saturada por temas, no basada en un
-diagrama PRISMA. Cada decisión sobre los registros preseleccionados quedará en
-`screening.csv` con una justificación breve.
+diagrama PRISMA. `reviewed-screening.csv` conserva los metadatos y la propuesta
+de clasificación asistida; `screening.csv` es el registro canónico y separa
+esas propuestas de la decisión, fecha e identidad del investigador. Ninguna
+celda vacía en los campos de confirmación se interpretará como aceptación.
+La interfaz autocontenida `screening-review.html` facilita esta revisión,
+conserva el progreso localmente y permite actualizar el registro canónico con
+autorización explícita del navegador o exportar una copia de respaldo. Tras la
+primera selección, la interfaz conserva el acceso al archivo para las
+actualizaciones posteriores mientras el navegador mantenga el permiso.
 
 ## Extracción y síntesis
 
