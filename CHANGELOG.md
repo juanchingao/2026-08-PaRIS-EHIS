@@ -4,6 +4,12 @@
 
 ### Added
 
+- Primer borrador de la introducción del manuscrito en Quarto, revisado para
+  incorporar precedentes de armonización y comparaciones entre encuestas
+  identificados en la revisión narrativa, los dominios del piloto y evidencia
+  específica sobre salud autopercibida, diabetes y métodos estadísticos, con
+  bibliografía reproducible y formatos HTML, DOCX y PDF.
+
 - Borrador v0.1 del protocolo para evaluación ética, incluyendo uso secundario,
   acceso, minimización, seguridad, disclosure, conservación y dispensa de
   consentimiento pendiente de valoración institucional.

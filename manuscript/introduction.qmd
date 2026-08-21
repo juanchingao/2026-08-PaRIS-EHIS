@@ -1,0 +1,42 @@
+---
+title: "Armonización retrospectiva de PaRIS Cycle 1 y EHIS Wave 3"
+subtitle: "Borrador de introducción para manuscrito"
+date: last-modified
+lang: es
+bibliography: references.bib
+csl: biomed-central.csl
+link-citations: true
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    theme:
+      light: cosmo
+      dark: darkly
+    embed-resources: true
+    self-contained-math: true
+  docx:
+    toc: false
+  pdf:
+    toc: false
+execute:
+  enabled: false
+editor: visual
+---
+
+# Introducción
+
+Las encuestas internacionales son una fuente esencial para conocer la salud de las poblaciones y evaluar el funcionamiento de los sistemas sanitarios. El programa *Patient-Reported Indicator Surveys* (PaRIS) de la OCDE incorpora la perspectiva de las personas usuarias de atención primaria mediante medidas de resultados y experiencias comunicados por los pacientes. Su primer ciclo recogió datos en 2023–2024 de más de 107 000 personas de 45 años o más en 19 países y presta especial atención a quienes viven con condiciones crónicas [@oecd2025deliver; @oecd2026puf; @valderas2025]. La *European Health Interview Survey* (EHIS) ofrece una perspectiva poblacional complementaria: su tercera ola se realizó principalmente en 2019 entre personas de 15 años o más residentes en hogares privados e incluyó información sobre estado de salud, atención sanitaria, determinantes de la salud y características sociodemográficas [@eurostat2022quality; @eurostat2024metadata]. PaRIS y EHIS comparten áreas temáticas como la salud autopercibida, las condiciones crónicas, la salud mental y la utilización sanitaria, pero el solapamiento temático no implica que contengan las mismas variables ni que sus resultados sean directamente intercambiables. Difieren en finalidad, población, selección de participantes, periodos de referencia, formulación de las preguntas, categorías de respuesta y modos de administración.
+
+Diversas iniciativas internacionales han aplicado la armonización retrospectiva para posibilitar el uso conjunto de varias encuestas o estudios. Este proceso requiere determinar qué conceptos y variables objetivo son relevantes, evaluar si cada fuente puede generarlos y, cuando sea necesario, transformar y documentar las variables originales. En BioSHaRE se definieron 96 variables objetivo y se evaluó su generación a partir de ocho estudios poblacionales; se obtuvieron variables en formato común para el 73 % de las combinaciones estudiadas [@doiron2013]. MINDMAP armonizó seis cohortes mediante un esquema común definido con anterioridad, la evaluación del potencial de cada fuente y algoritmos específicos y documentados [@wey2021]. Estas experiencias muestran que la armonización requiere separar la definición de la variable objetivo de su implementación en cada fuente y registrar de forma explícita cuándo una variable común no puede generarse.
+
+La evidencia metodológica indica que la armonización retrospectiva debe partir de una pregunta de investigación y de variables objetivo definidas antes de examinar las variables disponibles en cada fuente [@fortier2017; @doiron2013; @wey2021]. La comparabilidad debe evaluarse considerando no solo el concepto, sino también la medida, la población, el periodo de referencia, la representación y las condiciones de administración [@morris2018]. Incluso entre instrumentos que pretenden medir un mismo atributo se han observado diferencias en la formulación, la dirección de las respuestas, la codificación y el tratamiento de los valores ausentes, por lo que la revisión conceptual y preestadística debe preceder a cualquier transformación o enlace estadístico [@chen2021]. La validación debe combinar la revisión del contenido, la comprobación de los algoritmos específicos de cada fuente y análisis de sensibilidad a las poblaciones y decisiones de recodificación; la semejanza entre distribuciones puede apoyar la plausibilidad de los resultados, pero no demostrar equivalencia.
+
+Existen experiencias comparativas con EHIS que muestran la relevancia de estas diferencias. Las estimaciones de limitación de actividad obtenidas mediante EHIS, la Encuesta Social Europea y EU-SILC variaron en prevalencia, desigualdades educativas y ordenación de los países [@rubioValverde2019]. Asimismo, la comparación de EHIS, la Encuesta Europea de Calidad de Vida y SHARE identificó tendencias comunes, pero también discrepancias en la prevalencia estimada de cuidados informales [@turSinai2020]. Estos resultados muestran que indicadores aparentemente relacionados pueden conducir a conclusiones distintas según la encuesta utilizada.
+
+Los dominios potencialmente comunes presentan problemas de comparabilidad diferentes. En variables como la edad y el sexo/género pueden existir diferencias de representación, categorización y población, mientras que la salud autopercibida, la diabetes y la utilización sanitaria añaden variaciones en la formulación, el horizonte temporal y el contexto asistencial. Las versiones europea y estadounidense de la pregunta de salud autopercibida no son directamente intercambiables, aunque representen una dimensión de salud común [@jurges2008]. En diabetes, DataSHaPER mostró que era posible generar una variable común en 47 de 53 estudios, pero solo después de establecer una definición y unas reglas de correspondencia explícitas [@fortier2011]. Para las medidas de bienestar, síntomas depresivos y experiencias asistenciales, la proximidad temática tampoco establece por sí sola un constructo o una métrica común. Una revisión de alcance reciente distingue entre transformaciones de variables observadas y métodos para constructos latentes, y señala que la elección depende del tipo de variable objetivo, la escala original y la existencia de ítems solapados que permitan establecer una métrica común [@zhang2026].
+
+No se han identificado estudios que hayan armonizado retrospectivamente PaRIS Cycle 1 y EHIS Wave 3, por lo que se desconoce qué variables pueden representar objetivos comunes, qué transformaciones requieren y en qué poblaciones pueden interpretarse de forma comparable.
+
+El objetivo de este estudio es desarrollar y aplicar un marco multidimensional, transparente y reproducible para determinar qué información de PaRIS Cycle 1 y EHIS Wave 3 puede utilizarse de forma comparativa, qué transformaciones requiere y qué limitaciones conceptuales, metodológicas y poblacionales condicionan su interpretación.
