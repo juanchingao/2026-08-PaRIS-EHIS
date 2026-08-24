@@ -1,5 +1,8 @@
 # Hoja de ruta de la web pública PaRIS–EHIS
 
+> **Estado desde 2026-08-24:** desarrollo funcional en pausa. Solo se mantiene
+> la página del protocolo para documentar la reorientación científica.
+
 ## Propósito
 
 Ofrecer una vista clara y verificable del avance sin publicar materiales

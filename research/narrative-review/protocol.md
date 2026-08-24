@@ -1,5 +1,10 @@
 # Protocolo de revisión narrativa metodológica
 
+> **Estado desde 2026-08-24: en pausa.** El corpus, las decisiones JALR y las
+> estrategias se conservan, pero R2 y el tercer revisor LLM no continuarán
+> mientras se confirma la reorientación motivada por el informe OECD 2026
+> (DOI `10.1787/acf46da9-en`).
+
 **Título:** Métodos para la armonización retrospectiva aplicables a PaRIS
 Cycle 1 y EHIS Wave 3<br>
 **Versión:** 0.1<br>

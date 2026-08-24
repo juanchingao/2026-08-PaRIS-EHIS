@@ -1,5 +1,8 @@
 # Tercer revisor automático
 
+> **Estado desde 2026-08-24: en pausa.** No enviar lotes, descargar resultados
+> ni importar evaluaciones a D1 mientras se decide la reorientación del proyecto.
+
 Esta carpeta versiona el contrato científico del tercer revisor LLM. Los
 resultados del modelo no son decisiones humanas, no adjudican desacuerdos y no
 autorizan exclusiones automáticas.

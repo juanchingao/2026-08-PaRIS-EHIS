@@ -7,11 +7,11 @@ if (length(missing)) {
        ". Restore or update the renv environment first.", call. = FALSE)
 }
 
-methods_dir <- file.path(project_paths$root, "documentation", "methods")
+source_dir <- file.path(project_paths$raw, "documentation", "ehis")
 metadata_dir <- project_paths$metadata
 
-w2_file <- file.path(methods_dir, "EHIS wave 2 variables and anonymisation rules.docx.pdf")
-w3_file <- file.path(methods_dir, "EHIS wave 3 anonymisation rules.docx")
+w2_file <- file.path(source_dir, "ehis-wave2-anonymisation-rules.pdf")
+w3_file <- file.path(source_dir, "ehis-wave3-anonymisation-rules.docx")
 
 normalise_text <- function(x) {
   x <- stringr::str_replace_all(x, "[\u00a0\u2007\u202f]", " ")

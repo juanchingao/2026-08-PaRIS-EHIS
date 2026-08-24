@@ -49,7 +49,18 @@ representación, derivación y administración. Clases: `DIRECT`, `RECODABLE`,
 - Priorizar OECD, Eurostat, DDI, ISO y publicaciones metodológicas primarias.
 - Los métodos automáticos solo generan candidatos; requieren revisión humana.
 
-## Estado actual (2026-08-23)
+## Estado actual (2026-08-24)
+
+- El alcance está en reorientación. OECD publicó el 15 de julio de 2026 el
+  policy paper `10.1787/acf46da9-en`, que ya compara PaRIS, EHIS, IHP, PVS y
+  SHARE mediante mapeo de dominios, crosswalk, recodificación, restricción
+  poblacional y postestratificación.
+- La propuesta activa es una réplica metodológica y análisis de robustez de la
+  comparación PaRIS–EHIS, inicialmente para salud autopercibida y
+  hospitalización. El protocolo de trabajo es
+  `documentation/protocol/protocol.md`.
+- R2, la corrida LLM, la ampliación masiva del mapping y nuevos cambios de la
+  web de cribado están en pausa hasta confirmación del nuevo alcance.
 
 - Metadatos normalizados: 195 variables PaRIS Cycle 1 y 154 variables EHIS
   Wave 3; EHIS Wave 2 se conserva como apoyo histórico.
@@ -76,21 +87,23 @@ representación, derivación y administración. Clases: `DIRECT`, `RECODABLE`,
 - Las guías Maelstrom estructuran el ciclo del proyecto; el modelo dimensional,
   las clases y la prohibición de inferir equivalencia siguen siendo específicos
   y vinculantes para PaRIS–EHIS.
-- Protocolo y framework siguen en versión de trabajo; todavía no existen
+- El protocolo v0.1 queda como antecedente histórico. Todavía no existen
   mappings source-to-target validados ni algoritmos aplicados a microdatos.
 - Último punto de reentrada: `documentation/planning/next-steps.md`.
 
 ## Prioridad al retomar
 
-1. No ampliar todavía el mapping a todas las variables.
-2. Formalizar valores controlados y reglas de decisión para las siete
-   dimensiones de compatibilidad.
-3. Ejecutar un piloto con edad, sexo/género, salud autopercibida, diabetes,
-   utilización sanitaria, una escala compartida y un PREM PaRIS sin equivalente.
-4. Definir cada variable objetivo antes de asignar variables fuente.
-5. Mantener algoritmos PaRIS y EHIS independientes, con tests sintéticos.
-6. Incorporar microdatos solo después de inventariar archivos, hashes,
-   licencias, códigos de ausencia y componentes del diseño muestral.
+1. Confirmar o modificar el alcance de réplica y robustez del protocolo v0.2.
+2. Inventariar acceso, versiones, hashes, licencias y variables de diseño de los
+   microdatos necesarios para los trece países candidatos.
+3. Reconstruir y congelar la especificación OECD para salud autopercibida y
+   hospitalización sin consultar distribuciones propias.
+4. Aclarar definiciones, pesos, celdas, missingness y tablas numéricas con OECD
+   cuando sea posible.
+5. Completar el assessment preestadístico de los dos indicadores primarios y
+   someterlo a segunda revisión.
+6. Mantener algoritmos PaRIS y EHIS independientes, con tests sintéticos, antes
+   de ejecutar la réplica o cualquier sensibilidad.
 
 No utilizar IRT, linking o equiparación por defecto. Solo considerarlos cuando
 exista constructo común, ítems compartidos, muestra puente u otro anclaje

@@ -1,5 +1,9 @@
 # Gobernanza del cribado con dos investigadores y un agente automático
 
+> **Estado desde 2026-08-24: en pausa.** La arquitectura y las decisiones se
+> conservan, pero no se iniciarán R2 ni la corrida LLM hasta que JALR confirme
+> el alcance del protocolo v0.2.
+
 ## Unidad y decisiones
 
 La unidad es la referencia bibliográfica deduplicada. Los valores permitidos

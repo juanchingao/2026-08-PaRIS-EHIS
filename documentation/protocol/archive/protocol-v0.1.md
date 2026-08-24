@@ -1,5 +1,11 @@
 # Protocolo de investigación
 
+> **Versión histórica, sustituida el 24 de agosto de 2026.** El informe OECD
+> 2026 (DOI `10.1787/acf46da9-en`) ya ejecuta la comparación general que
+> justificaba este alcance. El trabajo activo se define en
+> `documentation/protocol/protocol.md`; esta versión se conserva para
+> trazabilidad y no debe guiar nuevos análisis.
+
 ## Título provisional
 
 **Armonización retrospectiva de las encuestas PaRIS y European Health

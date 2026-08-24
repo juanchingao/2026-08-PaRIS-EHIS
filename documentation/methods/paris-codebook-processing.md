@@ -2,11 +2,12 @@
 
 ## Documento fuente
 
-`Data_dictionary_codebook_PaRIS_combined_15COU_PUF202605_V0.xlsx`
+`data/raw/documentation/paris/paris-cycle1-puf-codebook-202605-v0.xlsx`
 
 El archivo se registra mediante SHA-256 en `data/metadata/source_manifest.csv`.
 La procedencia se atribuye a OECD por el contenido del documento, pero la
-licencia y URL de procedencia deben verificarse antes de redistribuirlo.
+licencia y URL de procedencia deben verificarse antes de redistribuirlo. El
+original se mantiene en `data/raw`, inmutable y excluido de Git.
 
 ## Estructura del libro
 

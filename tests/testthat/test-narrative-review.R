@@ -170,12 +170,13 @@ test_that("included evidence is tiered and core sources are extracted", {
   extraction <- readr::read_csv(
     file.path(review_dir, "evidence-extraction.csv"), show_col_types = FALSE
   )
-  expect_equal(nrow(evidence_map), 35)
-  expect_equal(sum(evidence_map$evidence_tier == "CORE"), 15)
+  expect_equal(nrow(evidence_map), length(unique(evidence_map$record_id)))
+  expect_true(all(evidence_map$evidence_tier %in% c("CORE", "APPLIED", "SPECIALISED")))
   expect_equal(sum(evidence_map$evidence_tier == "APPLIED"), 10)
   expect_equal(sum(evidence_map$evidence_tier == "SPECIALISED"), 10)
-  expect_equal(nrow(extraction), 15)
+  expect_equal(nrow(extraction), sum(evidence_map$evidence_tier == "CORE"))
   expect_setequal(extraction$record_id, evidence_map$record_id[evidence_map$evidence_tier == "CORE"])
+  expect_true("DOI-10.1787-acf46da9-en" %in% extraction$record_id)
 })
 
 test_that("screening review app is self-contained and current", {

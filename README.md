@@ -10,12 +10,15 @@ qué poblaciones. Una conclusión de no comparabilidad es un resultado válido.
 
 ## Estado
 
-La búsqueda bibliográfica multibase y el cribado priorizado están completados:
-1.783 referencias únicas recuperadas y 1.076 referencias únicas cribadas, con
-103 `INCLUDE`, 361 `BACKGROUND` y 612 `EXCLUDE`. Se han normalizado 195
-variables PaRIS Cycle 1 y 154 variables EHIS Wave 3. El framework conceptual y
-el piloto source-to-target siguen en preparación; no se han incorporado
-microdatos ni se han validado mappings.
+El proyecto está en **reorientación científica** desde el 24 de agosto de 2026.
+El informe OECD 2026 `10.1787/acf46da9-en` ya ejecuta la comparación general
+PaRIS–EHIS que motivaba el protocolo inicial. La propuesta activa es una réplica
+independiente y análisis de robustez para salud autopercibida y hospitalización.
+
+La búsqueda bibliográfica multibase, las 1.076 decisiones JALR, la interfaz de
+doble revisión y el lote LLM se conservan, pero están en pausa. Se han
+normalizado 195 variables PaRIS Cycle 1 y 154 variables EHIS Wave 3; todavía no
+se han incorporado microdatos ni validado mappings source-to-target.
 
 ## Arquitectura
 
@@ -24,7 +27,8 @@ microdatos ni se han validado mappings.
 ├── scripts/                   # pipeline numerado
 ├── config/                    # rutas y configuración científica
 ├── data/
-│   ├── raw/{paris,ehis}/      # originales inmutables; nunca se versionan
+│   ├── raw/{paris,ehis,documentation}/
+│   │                           # originales inmutables; nunca se versionan
 │   ├── interim/               # datos temporales; no se versionan
 │   ├── processed/             # datos analíticos; no se versionan
 │   └── metadata/              # metadatos normalizados versionables
@@ -33,8 +37,8 @@ microdatos ni se han validado mappings.
 │   ├── mappings/              # source variable -> target variable
 │   ├── algorithms/            # reglas de transformación
 │   └── decisions/             # decisiones documentadas
-├── research/{searches,sources}/
-├── documentation/{protocol,methods}/
+├── research/                  # revisión vigente y material histórico archivado
+├── documentation/            # protocolo, métodos, planificación e inventarios
 ├── reports/                   # informes reproducibles
 ├── manuscript/                # futuro manuscrito
 ├── website/                   # sitio Quarto multipágina para Cloudflare Workers
@@ -50,14 +54,15 @@ microdatos ni se han validado mappings.
    residen dentro del repositorio.
 3. Ejecute `renv::restore()`.
 4. Compruebe el entorno con `source("scripts/01_validate_environment.R")`.
-5. Deposite originales sin modificar en `data/raw/paris/` y `data/raw/ehis/`,
-   o en la ruta externa configurada.
+5. Deposite microdatos sin modificar en `data/raw/paris/` y `data/raw/ehis/`.
+   La documentación fuente local se organiza por encuesta bajo
+   `data/raw/documentation/`, o en la ruta externa configurada.
 
 No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
 `PARISEHIS_INTERIM_DIR`, `PARISEHIS_DERIVED_DIR`, `PARISEHIS_OUTPUTS_DIR` y
 `PARISEHIS_LOGS_DIR` adaptan la ejecución a Windows, Ubuntu o un entorno seguro.
 
-### Búsqueda en Scopus
+### Búsqueda en Scopus (flujo en pausa)
 
 La búsqueda requiere una clave de la API de Elsevier. Guárdela únicamente en
 el `.Renviron` local, que está excluido de Git:
@@ -86,13 +91,17 @@ Si la institución exige autenticación adicional fuera de su red, añada
 
 ## Documentos clave
 
-- [Protocolo v0.1](documentation/protocol/protocol-v0.1.md)
+- [Índice de documentación](documentation/README.md)
+- [Protocolo vigente: réplica y robustez](documentation/protocol/protocol.md)
+- [Evaluación del informe OECD 2026](documentation/protocol/sources/oecd-2026-comparison-assessment.md)
+- [Protocolo v0.1 histórico](documentation/protocol/archive/protocol-v0.1.md)
 - [Protocolo de revisión narrativa metodológica](research/narrative-review/protocol.md)
-- [Revisión narrativa metodológica v0.1](research/narrative-review/narrative-review-v0.1.md)
+- [Revisión narrativa metodológica v0.1, histórica](research/narrative-review/archive/narrative-review-v0.1.md)
 - [Siguientes pasos y punto de reentrada](documentation/planning/next-steps.md)
 - [Protocolo para comité de ética v0.1](documentation/ethics/ethics-protocol-v0.1.md)
 - [Versión Quarto del protocolo ético](reports/ethics-protocol.qmd)
-- [Plan de búsqueda](research/searches/README.md)
+- [Índice de investigación](research/README.md)
+- [Mapa de scripts](scripts/README.md)
 - [Modelo de datos](documentation/methods/data-model.md)
 - [Procesamiento de reglas de anonimización EHIS](documentation/methods/ehis-anonymisation-processing.md)
 - [Procesamiento del codebook PaRIS](documentation/methods/paris-codebook-processing.md)

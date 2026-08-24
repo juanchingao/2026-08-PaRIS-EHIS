@@ -1,7 +1,8 @@
 project:
   id: parisehis
   title: PaRISEHIS Harmonisation Project
-  protocol_version: "0.1"
+  protocol_version: "0.2"
+  scope_status: proposed_reorientation
   default_language: es
 sources:
   paris:

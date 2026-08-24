@@ -2,12 +2,13 @@
 
 ## Documentos fuente
 
-- `EHIS wave 2 variables and anonymisation rules.docx.pdf`
-- `EHIS wave 3 anonymisation rules.docx`
+- `data/raw/documentation/ehis/ehis-wave2-anonymisation-rules.pdf`
+- `data/raw/documentation/ehis/ehis-wave3-anonymisation-rules.docx`
 
 Ambos documentos se registran mediante SHA-256 en
 `data/metadata/source_manifest.csv`. La procedencia y licencia exactas quedan
-pendientes de verificación antes de redistribuir los originales.
+pendientes de verificación antes de redistribuir los originales. Por esa razón
+se mantienen en `data/raw`, que es inmutable y está excluido de Git.
 
 ## Extracción reproducible
 

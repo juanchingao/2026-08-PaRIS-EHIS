@@ -1,196 +1,194 @@
 # Hoja de ruta para retomar el proyecto
 
-**Actualizada:** 2026-08-24<br>
-**Estado:** JALR finalizado; interfaz privada y tercer revisor LLM preparados;
-R2 y síntesis pendientes<br>
-**Punto de partida:** metadatos PaRIS/EHIS extraídos y síntesis narrativa v0.2;
-clasificación PubMed ratificada; Scopus y Embase deduplicados
+**Actualizada:** 2026-08-24
 
-## Objetivo de la siguiente etapa
+**Estado:** reorientación científica; alcance anterior en pausa
 
-Pasar del framework conceptual a un piloto source-to-target pequeño y
-auditable. El piloto debe comprobar tanto casos armonizables como límites de
-comparabilidad antes de extender el trabajo al inventario completo.
+**Punto de reentrada:** confirmar el protocolo v0.2 antes de analizar microdatos
 
-El investigador completó en `research/narrative-review/screening.csv` la
-decisión, iniciales y fecha de los 121 registros: 35 `INCLUDE`, 29 `BACKGROUND`
-y 57 `EXCLUDE`. Posteriormente se recuperaron 1.178 registros Scopus únicos:
-443 coincidían con el corpus PubMed y 735 son candidatos nuevos. Estos últimos
-requieren priorización y cribado humano antes de cerrar la selección conjunta.
-La exportación Embase añadió 879 registros únicos, de los cuales 644 ya estaban
-en PubMed o Scopus y 235 fueron nuevos. El corpus combinado contiene 1.783
-registros únicos; 970 candidatos externos al corpus PubMed inicial pasaron a
-priorización y cribado.
+## Cambio que obliga a replantear el proyecto
 
-La priorización determinista inicial clasificó esos 970 candidatos en 16
-`HIGH`, 184 `MEDIUM` y 770 `LOW`. El investigador ratificó los 200 registros
-`HIGH`/`MEDIUM` y revisó después los restantes `LOW`. El resultado se depuró
-en 14 grupos duplicados: se conservaron 955 referencias únicas y se marcaron
-15 copias sin eliminarlas, para mantener la trazabilidad. El cribado
-suplementario finalizó con 68 `INCLUDE`, 332 `BACKGROUND` y 555 `EXCLUDE`.
-Sumado a PubMed, el corpus cribado contiene 1.076 referencias únicas: 103
-`INCLUDE`, 361 `BACKGROUND` y 612 `EXCLUDE`.
+El 15 de julio de 2026, OECD publicó *Comparing patient-reported outcome and
+experience measures in international health surveys* (DOI
+[`10.1787/acf46da9-en`](https://doi.org/10.1787/acf46da9-en)). El informe ya
+realiza la comparación general PaRIS–EHIS prevista originalmente: mapea
+dominios, cruza ítems, armoniza respuestas, restringe poblaciones y
+postestratifica resultados.
 
-Antes de iniciar el piloto se debe consolidar la evidencia de las 103
-inclusiones, deduplicar versiones de una misma publicación y ampliar el mapa y
-la extracción estructurada. Solo las fuentes con consecuencia metodológica
-explícita deben modificar las reglas del framework.
+No se continuará la armonización amplia como si este informe no existiera. La
+contribución recomendada pasa a ser una réplica independiente y un análisis de
+robustez de las comparaciones PaRIS–EHIS, inicialmente para salud autopercibida
+y hospitalización.
 
-La corrida independiente de la tercera columna está preparada localmente para
-los 1.076 registros: 343 disponen de título y resumen y 733 solo de título. El
-lote excluye decisiones humanas y propuestas previas. Antes de ejecutarlo debe
-confirmarse si la licencia permite procesar externamente los 955 registros
-Scopus/Embase marcados como restringidos; después se configurará la clave,
-se congelará la salida y se precargará en D1 sin revelarla hasta completar R2.
+Documentos de reentrada:
 
-## Paso 1. Operacionalizar la compatibilidad
+- `documentation/protocol/protocol.md`;
+- `documentation/protocol/sources/oecd-2026-comparison-assessment.md`;
+- `documentation/protocol/sources/manifest.csv`;
+- `website/protocolo.qmd`.
 
-Definir valores controlados para:
+## Trabajo conservado pero suspendido
 
-- `concept_compatibility`;
-- `measure_compatibility`;
-- `population_compatibility`;
-- `time_compatibility`;
-- `representation_compatibility`;
-- `derivation_compatibility`;
-- `administration_compatibility`.
+Los siguientes artefactos no se eliminan y continúan siendo trazables:
 
-Propuesta inicial: `EXACT`, `COMPATIBLE`, `PARTIAL`, `INCOMPATIBLE`, `UNKNOWN`
-y `NOT_APPLICABLE`. Deben documentarse las reglas que convierten el perfil
-dimensional en `DIRECT`, `RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` o
-`NONE`. No automatizar la clase global hasta revisar el piloto.
+- corpus de 1.076 referencias únicas con decisiones JALR;
+- búsquedas PubMed, Scopus y Embase y sus resúmenes;
+- interfaz privada, D1 y control de acceso;
+- contrato y lote local del tercer revisor LLM;
+- metadatos normalizados PaRIS/EHIS;
+- modelo dimensional, clases y reglas de seguridad.
 
-**Terminado cuando:** los vocabularios, definiciones, ejemplos y combinaciones
-prohibidas estén documentados y validados mediante tests.
+Hasta nueva decisión no se ejecutarán R2, la corrida LLM, la ampliación masiva
+del mapping ni cambios funcionales de la web de cribado.
 
-## Paso 2. Construir el catálogo conceptual piloto
+## Fase 0. Confirmar la contribución
 
-Crear solamente los dominios, conceptos, medidas y universos necesarios para
-los casos piloto. Distinguir siempre concepto, instrumento, ítem, variable
-fuente y variable derivada.
+Decidir formalmente si el objetivo principal será:
 
-**Terminado cuando:** cada variable fuente piloto pueda enlazarse sin ambigüedad
-a un concepto, una medida y un universo versionados.
+> Reproducir las comparaciones PaRIS–EHIS publicadas por OECD (2026) y evaluar
+> su sensibilidad a decisiones de medición, población, ponderación, diseño y
+> missingness.
 
-## Paso 3. Seleccionar y documentar los casos piloto
+La propuesta no es buscar una estimación «correcta» única, sino distinguir
+resultados robustos, sensibles, no evaluables y discrepantes.
 
-| Caso | Función metodológica |
-|---|---|
-| Edad | Bandas, top-coding, población y anonimización |
-| Sexo/género | Diferencias conceptuales y de categorías |
-| Salud autopercibida | Recodificación ordinal y dirección de escala |
-| Diabetes | Diagnóstico, horizonte temporal y filtros |
-| Utilización sanitaria | Periodo, denominador y contacto asistencial |
-| PHQ-8 u otra escala compartida | Scoring, missingness e invariancia |
-| PREM exclusivo de PaRIS | Control negativo `RELATED`/`NONE` |
+**Terminado cuando:** JALR aprueba el título, la pregunta principal, los dos
+indicadores primarios y el carácter confirmatorio de la réplica.
 
-Para cada caso, extraer pregunta, instrucciones, universo, filtros, periodo,
-categorías, missingness, derivación y notas nacionales. Confirmar primero que
-la escala elegida existe realmente y es utilizable en ambas fuentes.
+## Fase 1. Inventario de viabilidad
 
-**Terminado cuando:** existe una ficha comparativa revisable por cada caso.
+Crear una matriz país–fuente con:
 
-## Paso 4. Definir variables objetivo independientes
+- versión y licencia de PaRIS PUF y EHIS Wave 3;
+- disponibilidad de los trece países candidatos;
+- variables de salud autopercibida, hospitalización, cronicidad y contacto;
+- edad, sexo y variables de elegibilidad;
+- peso final, estrato, PSU y práctica PaRIS;
+- códigos de ausencia y desviaciones nacionales;
+- tamaño y hash de cada archivo.
 
-Especificar por objetivo:
+No incorporar ficheros a `data/raw` hasta revisar licencia y almacenamiento.
 
-- identificador y etiqueta;
-- concepto y definición;
-- universo;
-- periodo de referencia;
-- tipo y representación;
-- política de ausencia;
-- usos permitidos y límites interpretativos.
+**Terminado cuando:** se conoce qué comparaciones son legal y técnicamente
+reproducibles y cuáles quedarían `NOT_ASSESSABLE`.
 
-No adoptar automáticamente la definición de PaRIS o EHIS. Si un concepto exige
-dos horizontes incompatibles, crear dos objetivos o concluir que no existe un
-objetivo común válido.
+## Fase 2. Especificación de réplica OECD
 
-**Terminado cuando:** los objetivos pueden evaluarse sin consultar todavía los
-valores observados en los microdatos.
+Reconstruir, sin consultar resultados propios:
 
-## Paso 5. Evaluar mappings y registrar decisiones
+1. definiciones exactas de los dos indicadores;
+2. población original de cada encuesta;
+3. edad de 45 o más años;
+4. definición de enfermedad crónica;
+5. definición de contacto sanitario reciente;
+6. países y exclusiones;
+7. ponderación original y postestratificación;
+8. estándar demográfico;
+9. missingness y denominadores;
+10. estimación de varianza.
 
-Crear una fila source-to-target por encuesta y objetivo. Completar las siete
-dimensiones, clase global, estado, justificación y evidencia documental.
-Justificación obligatoria para `PARTIAL`, `RELATED`, `NONE` y `UNKNOWN`.
+Registrar explícitamente las ambigüedades del informe: cuatro frente a ocho
+celdas edad-sexo, *top-two* frente a *top-three-box*, combinación de pesos,
+selección de indicadores y ausencia de código público identificado.
 
-Los mappings críticos deberían contar con segunda revisión. Registrar
-discrepancias y consenso en el decision log.
+**Terminado cuando:** existe una especificación congelada, ejecutable y revisada.
 
-**Terminado cuando:** cada objetivo piloto tiene una decisión explícita para
-PaRIS y EHIS, incluyendo decisiones negativas.
+## Fase 3. Solicitar aclaraciones y materiales
 
-## Paso 6. Implementar algoritmos por fuente
+Preparar una consulta breve a los autores u OECD solicitando, si pueden
+compartirse:
 
-Desarrollar por separado:
+- código o pseudocódigo;
+- variables y versiones de los conjuntos;
+- definiciones de cronicidad y contacto;
+- construcción de pesos y celdas;
+- reglas de missingness;
+- tablas numéricas detrás de las figuras.
+
+La falta de respuesta no bloqueará una réplica parcial, pero impedirá etiquetar
+como `DISCREPANT` lo que solo sea `NOT_ASSESSABLE`.
+
+**Terminado cuando:** se archiva la respuesta o se documenta la fecha límite sin
+respuesta.
+
+## Fase 4. Assessment preestadístico
+
+Para cada indicador y encuesta completar las siete dimensiones:
+
+- concepto;
+- medida;
+- población;
+- periodo;
+- representación;
+- derivación;
+- administración.
+
+Definir las variables objetivo independientemente y asignar clase `DIRECT`,
+`RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` o `NONE`. La segunda persona
+investigadora revisará los mappings primarios.
+
+**Terminado cuando:** ninguna regla depende de la distribución observada.
+
+## Fase 5. Algoritmos y tests sintéticos
+
+Implementar por separado:
 
 ```text
-PaRIS source -> target variable
-EHIS source  -> target variable
+PaRIS source -> population funnel -> target indicator -> survey estimate
+EHIS source  -> population funnel -> target indicator -> survey estimate
 ```
 
-Cada algoritmo debe declarar entradas, categorías esperadas, política de
-missingness, salida y versión; fallar ante códigos desconocidos; conservar
-trazabilidad; y disponer de tests sintéticos con casos normales y extremos.
+Los tests cubrirán categorías válidas, códigos desconocidos, no aplicable,
+ausencia, fronteras de edad, cronicidad, contacto, pesos, celdas vacías y
+trazabilidad.
 
-**Terminado cuando:** los algoritmos piloto pasan tests sin necesitar los
-microdatos originales.
+**Terminado cuando:** los algoritmos pasan sin usar microdatos reales.
 
-## Paso 7. Incorporar microdatos de forma controlada
+## Fase 6. Congelar el plan estadístico
 
-Cuando estén disponibles en `data/raw`:
+Preespecificar:
 
-1. revisar licencia, almacenamiento y disclosure;
-2. inventariar archivos, versión, tamaño y hash;
-3. comprobar nombres, tipos y códigos frente al diccionario;
-4. identificar pesos, estratos, PSU y diseño de varianza;
-5. registrar divergencias nacionales;
-6. mantener los originales inmutables y fuera de Git.
+- estimando principal y tolerancia de réplica;
+- poblaciones del embudo;
+- codificaciones ordinales y binarias;
+- estándar PaRIS y estándares de sensibilidad;
+- incorporación del diseño complejo;
+- tratamiento de missingness;
+- exclusiones de países;
+- cuadrícula multiespecificación;
+- clases `REPRODUCED`, `APPROXIMATELY_REPRODUCED`, `SENSITIVE`,
+  `NOT_ASSESSABLE` y `DISCREPANT`.
 
-**Terminado cuando:** existe un informe de ingestión sin modificar los archivos
-fuente y se conocen las limitaciones de análisis por país.
+**Terminado cuando:** el plan tiene fecha, hash y aprobación antes de generar
+estimaciones del resultado.
 
-## Paso 8. Validación empírica y sensibilidad
+## Fase 7. Réplica y robustez
 
-Aplicar los algoritmos y evaluar rangos, frecuencias, missingness, denominadores,
-coherencia interna, países y trazabilidad. Comparar:
+Ejecutar por este orden:
 
-1. poblaciones originales;
-2. restricción común por edad;
-3. aproximación al contacto con atención primaria;
-4. máxima población común reproducible.
+1. control de ingestión y flujo de participantes;
+2. estimaciones con diseño original;
+3. réplica de la especificación OECD;
+4. sensibilidades preespecificadas;
+5. revisión de discrepancias;
+6. control de disclosure;
+7. síntesis y discusión.
 
-Usar pesos y diseño complejo cuando estén disponibles. La similitud de
-distribuciones será control de plausibilidad, no prueba de equivalencia.
+La similitud con las cifras OECD no validará por sí sola el mapping. Una
+diferencia residual tampoco se atribuirá automáticamente al sistema sanitario.
 
-Para escalas, considerar invariancia, DIF o linking únicamente si hay anclaje
-metodológicamente defendible.
+## Indicadores adicionales
 
-**Terminado cuando:** cada objetivo piloto tiene resultados de calidad,
-sensibilidad y una decisión revisada sobre su uso comparativo.
+Tabaquismo, alcohol, fruta, verdura y acceso solo se evaluarán después de cerrar
+los dos indicadores primarios. Serán exploratorios salvo enmienda prospectiva.
+Los PREMs PaRIS sin equivalente EHIS se conservarán como controles negativos.
 
-## Paso 9. Cerrar la versión 0.2
+## Decisiones inmediatas de JALR
 
-Actualizar protocolo, modelo, catálogos, mappings, algoritmos, revisión
-narrativa y limitaciones. Congelar versiones de datos, mappings y código
-utilizadas en el piloto.
+1. Aprobar o modificar el alcance de réplica y robustez.
+2. Confirmar salud autopercibida y hospitalización como indicadores primarios.
+3. Decidir si se intentarán los trece países o un subconjunto predefinido.
+4. Confirmar qué microdatos y variables de diseño están disponibles.
+5. Autorizar la preparación de la consulta metodológica a OECD.
 
-## Archivos de reentrada
-
-- `documentation/protocol/protocol-v0.1.md`
-- `research/narrative-review/narrative-review-v0.1.md`
-- `research/narrative-review/evidence-map.csv`
-- `data/metadata/paris_cycle1_puf_dictionary.csv`
-- `data/metadata/ehis_wave3_anonymisation_dictionary.csv`
-- `harmonisation/mappings/source_to_target.csv`
-- `harmonisation/catalogues/target_variables.csv`
-- `harmonisation/decisions/decision_log.csv`
-
-## Precauciones
-
-- No mapear por nombre o similitud textual sin revisar el significado.
-- No colapsar códigos de ausencia heterogéneos.
-- No confundir equivalencia de medida con igualdad de distribuciones.
-- No mezclar la definición de variables con ponderación o estimación.
-- No subir microdatos, derivados individuales ni documentación restringida.
+No se reanudará ningún flujo suspendido hasta resolver la primera decisión.

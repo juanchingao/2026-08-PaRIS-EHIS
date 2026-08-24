@@ -8,8 +8,8 @@ if (length(missing)) {
 }
 
 source_file <- file.path(
-  project_paths$root, "documentation", "methods",
-  "Data_dictionary_codebook_PaRIS_combined_15COU_PUF202605_V0.xlsx"
+  project_paths$raw, "documentation", "paris",
+  "paris-cycle1-puf-codebook-202605-v0.xlsx"
 )
 source_id <- "PARIS-C1-PUF202605-CODEBOOK"
 

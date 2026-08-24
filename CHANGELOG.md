@@ -4,6 +4,14 @@
 
 ### Added
 
+- Protocolo v0.2 de reorientación hacia una réplica independiente y análisis de
+  robustez de la comparación PaRIS–EHIS publicada por OECD en julio de 2026,
+  con estimandos, embudo poblacional, diseño complejo, missingness, sensibilidad
+  multiespecificación y clasificación prospectiva de reproducibilidad.
+- Ingesta trazable del policy paper OECD `10.1787/acf46da9-en`: PDF CC BY 4.0,
+  manifiesto con SHA-256, extracción local no versionada, evaluación crítica y
+  registro como fuente nuclear del proyecto.
+
 - Preparación reproducible del tercer revisor LLM para los 1.076 registros
   efectivos: criterios multiprompt versionados, esquema JSON estricto, lote
   local para Responses/Batch, manifiesto con hashes y adaptadores separados para
@@ -61,6 +69,25 @@
   candidatos nuevos pendientes de cribado.
 
 ### Changed
+
+- Reorganizado el repositorio sin renumerar el pipeline: el protocolo v0.2 pasa
+  a ser `documentation/protocol/protocol.md`, las versiones sustituidas y los
+  scaffolds iniciales se archivan, y se añaden índices para documentación,
+  investigación y scripts.
+- Trasladadas a `data/raw/documentation/` las fuentes PaRIS/EHIS cuya licencia
+  de redistribución no está confirmada. Los scripts `02` y `03` leen ahora esos
+  originales ignorados e inmutables; sus hashes y derivados versionables se
+  mantienen en `data/metadata/`.
+- Normalizados los nombres del inventario de países y de la fuente pública OECD,
+  que queda acompañada por manifiesto y evaluación en
+  `documentation/protocol/sources/`.
+- Puestos en pausa R2, la corrida del tercer revisor LLM, la ampliación masiva
+  del mapping y los cambios de la web de cribado. El objetivo general de
+  armonización se conserva como antecedente, pero no guiará nuevos análisis
+  mientras se confirma la reorientación.
+- Actualizados la página Quarto del protocolo, la hoja de ruta y el estado del
+  proyecto para distinguir benchmark OECD, réplica, sensibilidades y análisis
+  exploratorios.
 
 - Finalizado el cribado suplementario de 955 referencias únicas: 68 `INCLUDE`,
   332 `BACKGROUND` y 555 `EXCLUDE`. El cribado combinado contiene 1.076

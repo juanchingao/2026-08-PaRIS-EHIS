@@ -1,5 +1,9 @@
 # Plan de búsqueda metodológica
 
+> **Archivo histórico.** Estas tablas vacías preceden al flujo multibase y no
+> deben recibir datos nuevos. El registro real se encuentra en
+> `research/narrative-review/`.
+
 La revisión narrativa metodológica activa se encuentra en
 `research/narrative-review/`. Su protocolo delimita una búsqueda pragmática y
 reproducible, distinta de una revisión sistemática formal.
@@ -11,10 +15,9 @@ La búsqueda inicial cubre tres bloques:
 2. diseño, población, cuestionarios, metadatos y acceso de PaRIS Cycle 1;
 3. diseño, implementación nacional, variables y microdatos de EHIS Wave 3.
 
-Antes de ejecutar una búsqueda, registrar la consulta exacta en
-`search_log.csv`. Incorporar fuentes a `../sources/sources.csv` y documentar el
-cribado en `screening.csv`. No sobrescribir búsquedas: añadir una fila cuando
-cambien consulta, filtros o fecha.
+Las instrucciones siguientes describen el diseño inicial y se conservan solo
+para trazabilidad. Sus tablas `search-log.csv`, `sources.csv` y `screening.csv`
+no forman parte del flujo vigente.
 
 ## Preguntas iniciales
 
