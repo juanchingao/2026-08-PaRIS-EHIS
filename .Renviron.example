@@ -5,3 +5,15 @@ PARISEHIS_DERIVED_DIR=/data/derived/parisehis
 PARISEHIS_OUTPUTS_DIR=/data/outputs/parisehis
 PARISEHIS_LOGS_DIR=/data/logs/parisehis
 R_WORKERS=4
+
+# Clave privada para la búsqueda reproducible en Scopus. No versionar .Renviron.
+# SCOPUS_API_KEY=replace_with_your_elsevier_api_key
+# SCOPUS_INST_TOKEN=replace_with_your_institutional_token
+# EMBASE_API_KEY=replace_with_your_embase_api_key
+# EMBASE_INST_TOKEN=replace_with_your_embase_institutional_token
+
+# Tercer revisor LLM. La clave nunca se versiona. El permiso de transferencia
+# debe activarse explícitamente solo si la licencia de Scopus/Embase lo permite.
+# OPENAI_API_KEY=replace_with_your_openai_api_key
+# AI_SCREENING_MODEL=gpt-5.6-terra
+# AI_SCREENING_ALLOW_RESTRICTED_UPLOAD=YES

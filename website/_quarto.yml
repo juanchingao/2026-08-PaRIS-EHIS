@@ -1,0 +1,35 @@
+project:
+  type: default
+  output-dir: _site
+  render:
+    - protocolo.qmd
+  resources:
+    - index.html
+    - referencias.html
+    - favicon.svg
+    - data
+    - app.js
+    - references.js
+    - styles.css
+    - _headers
+
+lang: es
+bibliography: ../manuscript/references.bib
+csl: ../manuscript/biomed-central.csl
+link-citations: true
+
+format:
+  html:
+    theme: cosmo
+    css: protocol.css
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    link-external-newwindow: true
+    code-copy: true
+    highlight-style: github
+    include-before-body: protocol-nav.html
+    include-in-header: protocol-head.html
+
+execute:
+  enabled: false

@@ -1,0 +1,7 @@
+source_database,priority_tier,abstract_available,records
+Embase,HIGH,TRUE,13
+Embase,MEDIUM,TRUE,170
+Embase,LOW,TRUE,52
+Scopus,HIGH,FALSE,3
+Scopus,MEDIUM,FALSE,14
+Scopus,LOW,FALSE,718

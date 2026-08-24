@@ -10,8 +10,12 @@ qué poblaciones. Una conclusión de no comparabilidad es un resultado válido.
 
 ## Estado
 
-Infraestructura inicial. El protocolo está en versión 0.1 y aún no se han
-incorporado microdatos ni inventarios reales de variables.
+La búsqueda bibliográfica multibase y el cribado priorizado están completados:
+1.783 referencias únicas recuperadas y 1.076 referencias únicas cribadas, con
+103 `INCLUDE`, 361 `BACKGROUND` y 612 `EXCLUDE`. Se han normalizado 195
+variables PaRIS Cycle 1 y 154 variables EHIS Wave 3. El framework conceptual y
+el piloto source-to-target siguen en preparación; no se han incorporado
+microdatos ni se han validado mappings.
 
 ## Arquitectura
 
@@ -33,6 +37,7 @@ incorporado microdatos ni inventarios reales de variables.
 ├── documentation/{protocol,methods}/
 ├── reports/                   # informes reproducibles
 ├── manuscript/                # futuro manuscrito
+├── website/                   # sitio Quarto multipágina para Cloudflare Workers
 ├── outputs/{tables,figures}/  # resultados regenerables
 ├── tests/testthat/            # pruebas sin microdatos
 └── logs/                      # registros de ejecución
@@ -51,6 +56,24 @@ incorporado microdatos ni inventarios reales de variables.
 No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
 `PARISEHIS_INTERIM_DIR`, `PARISEHIS_DERIVED_DIR`, `PARISEHIS_OUTPUTS_DIR` y
 `PARISEHIS_LOGS_DIR` adaptan la ejecución a Windows, Ubuntu o un entorno seguro.
+
+### Búsqueda en Scopus
+
+La búsqueda requiere una clave de la API de Elsevier. Guárdela únicamente en
+el `.Renviron` local, que está excluido de Git:
+
+```text
+SCOPUS_API_KEY=replace_with_your_elsevier_api_key
+```
+
+Compruebe primero los recuentos, sin recuperar registros completos:
+
+```r
+Rscript --vanilla scripts/09_search_scopus_narrative_review.R --count-only
+```
+
+Si la institución exige autenticación adicional fuera de su red, añada
+`SCOPUS_INST_TOKEN` al mismo archivo. Nunca registre ni imprima ninguna clave.
 
 ## Flujo previsto
 
@@ -73,8 +96,14 @@ No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
 - [Modelo de datos](documentation/methods/data-model.md)
 - [Procesamiento de reglas de anonimización EHIS](documentation/methods/ehis-anonymisation-processing.md)
 - [Procesamiento del codebook PaRIS](documentation/methods/paris-codebook-processing.md)
+- [Alineación con Maelstrom Research](documentation/methods/maelstrom-alignment.md)
+- [Gobernanza del doble cribado y agente automático](documentation/methods/screening-governance.md)
+- [Arquitectura privada en Cloudflare](cloudflare/README.md)
 - [Registro de cambios](CHANGELOG.md)
 - [Instrucciones para agentes](AGENTS.md)
+- [Hoja de ruta de la web pública](documentation/planning/public-website-roadmap.md)
+- [Instrucciones del sitio público](website/README.md)
+- [Web pública desplegada](https://paris-ehis-progress.paris-ehis.workers.dev)
 
 ## Seguridad
 

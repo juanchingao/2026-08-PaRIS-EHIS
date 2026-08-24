@@ -81,6 +81,38 @@ autorización explícita del navegador o exportar una copia de respaldo. Tras la
 primera selección, la interfaz conserva el acceso al archivo para las
 actualizaciones posteriores mientras el navegador mantenga el permiso.
 
+La búsqueda suplementaria en Scopus se ejecuta como subconsultas atómicas para
+evitar truncamiento y conservar la procedencia de cada término. Los resultados
+se deduplican primero por identificador Scopus y después contra PubMed por DOI
+normalizado o, si no existe coincidencia de DOI, por título normalizado exacto.
+Los registros exclusivos de Scopus son candidatos y no decisiones de inclusión.
+
+Embase.com se buscó manualmente con estrategias equivalentes y exportación RIS
+completa. Los archivos, recuentos y su asignación a estrategias se conservan en
+`embase-export-manifest.csv`. La importación deduplica primero por identificador
+Embase, con DOI, PMID y título como respaldos, y después compara con PubMed y
+Scopus. Los registros exclusivos de Embase también requieren cribado humano.
+
+Los candidatos exclusivos de Scopus y Embase se priorizan mediante reglas
+deterministas versionadas que registran puntuación y señales coincidentes. Los
+niveles `HIGH`, `MEDIUM` y `LOW` ordenan el trabajo, pero nunca se traducen
+automáticamente a `INCLUDE`, `BACKGROUND` o `EXCLUDE`. Los registros Scopus sin
+resumen se identifican explícitamente como cribado basado solo en título.
+Tras la revisión humana de `HIGH` y `MEDIUM`, los registros `LOW` reciben una
+propuesta determinista separada, con razón y nivel de confianza. Estas
+propuestas son ayudas de cribado y solo se convierten en decisiones al
+completarse los campos `investigator_*`.
+
+Como tercera capa independiente se preparará una corrida LLM de cribado
+`multiprompt` sobre los 1.076 registros deduplicados. Cada criterio de inclusión
+y exclusión se resolverá de forma explícita mediante salida JSON validada. El
+input excluirá decisiones JALR/R2, propuestas previas y puntuaciones de
+prioridad. Los 733 registros Scopus sin resumen se analizarán como `TITLE_ONLY`:
+la ausencia de abstract nunca justificará una exclusión y la incertidumbre se
+marcará para revisión humana. La corrida se congelará antes de revelar las dos
+decisiones humanas y quedará versionada por modelo, prompt, criterios, hash de
+input y commit.
+
 ## Extracción y síntesis
 
 Para cada fuente nuclear se recogerán: diseño, fuentes armonizadas, unidad,

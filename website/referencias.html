@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Referencias y decisiones del cribado PaRIS–EHIS.">
+  <title>Referencias · PaRIS–EHIS</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PaRIS–EHIS, inicio">
+      <span class="brand-mark">P·E</span>
+      <span>PaRIS–EHIS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Avance</a>
+      <a href="referencias.html" aria-current="page">Referencias</a>
+      <a href="protocolo.html">Protocolo</a>
+    </nav>
+  </header>
+
+  <main class="reference-page">
+    <section class="page-hero">
+      <p class="eyebrow">Evidencia y decisiones</p>
+      <h1>Referencias del proyecto</h1>
+      <p class="lead">Una vista trazable del corpus y de las tres capas de revisión: propuesta automática, revisión JALR e investigador 2.</p>
+    </section>
+
+    <section class="reference-section" aria-labelledby="reference-heading">
+      <div class="privacy-note">
+        <div>
+          <strong id="access-state">Vista pública</strong>
+          <span id="access-description">Se muestran metadatos PubMed públicos. Las decisiones y los registros licenciados requieren acceso autorizado.</span>
+        </div>
+        <a class="access-button" id="access-link" href="/api/login">Acceso privado · código OTP</a>
+      </div>
+
+      <div class="section-heading reference-heading">
+        <div>
+          <p class="eyebrow">Corpus bibliográfico</p>
+          <h2 id="reference-heading">Buscar y filtrar</h2>
+        </div>
+      </div>
+
+      <div class="reference-controls">
+        <label class="search-control">Buscar<input id="reference-search" type="search" placeholder="Título, DOI, PMID o revista" autocomplete="off"></label>
+        <label>Base<select id="source-filter"><option value="">Todas</option></select></label>
+        <label>Resultado final<select id="decision-filter"><option value="">Todos</option><option>INCLUDE</option><option>BACKGROUND</option><option>EXCLUDE</option><option value="PENDING">Pendiente</option></select></label>
+        <label id="review-filter-control" hidden>Mi revisión<select id="review-filter"><option value="">Todas</option><option value="REVIEWED">Realizada</option><option value="PENDING">Pendiente</option></select></label>
+      </div>
+
+      <div class="reference-summary" id="reference-summary" aria-live="polite">Cargando referencias…</div>
+      <div class="review-feedback" id="review-feedback" aria-live="polite"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Referencia</th><th>Base</th><th>IA sistemática</th><th>JALR</th><th>Investigador 2</th><th>Resultado final</th></tr></thead>
+          <tbody id="reference-rows"></tbody>
+        </table>
+      </div>
+      <div class="pagination" id="reference-pagination" aria-label="Paginación de referencias">
+        <button id="previous-page" type="button">Anterior</button>
+        <span id="page-status">—</span>
+        <button id="next-page" type="button">Siguiente</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>PaRIS–EHIS Harmonisation Project · Las decisiones automáticas requieren confirmación humana</footer>
+  <script src="references.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "paris-ehis-progress",
+  "main": "cloudflare/worker.js",
+  "account_id": "a897a135c121c212bedca1f9b1483d99",
+  "compatibility_date": "2026-08-23",
+  "vars": {
+    "ACCESS_AUD": "f7f3da9fc4c2b8f142f054e9a1e91015458663154a3be4337a8b5b5bf985ac5b",
+    "ACCESS_TEAM_DOMAIN": "damp-wave-d8eb.cloudflareaccess.com",
+    "AI_MODEL_RUN_ID": "openai-systematic-screening-v1"
+  },
+  "assets": {
+    "directory": "./website/_site",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
+    "not_found_handling": "404-page"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "paris-ehis-review",
+      "database_id": "71df87b8-26b4-4619-a530-c9e1e60fc40e"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+---
+title: "Protocolo científico"
+subtitle: "Armonización retrospectiva PaRIS Cycle 1–EHIS Wave 3"
+date: "2026-08-24"
+date-modified: last-modified
+comments:
+  hypothesis:
+    theme: clean
+    openSidebar: false
+    showHighlights: always
+toc: true
+number-sections: true
+---
+
+::: {.callout-warning title="Estado del documento"}
+Protocolo de trabajo v0.3. No contiene resultados del análisis de armonización.
+Los resaltados y anotaciones Hypothesis están habilitados para revisión crítica.
+:::
+
+# Introducción
+
+Las encuestas internacionales son esenciales para describir la salud poblacional
+y evaluar los sistemas sanitarios. PaRIS incorpora resultados y experiencias
+comunicados por personas usuarias de atención primaria, mientras EHIS aporta una
+perspectiva poblacional sobre estado de salud, utilización, determinantes y
+características sociodemográficas [@oecd2025deliver; @eurostat2022quality;
+@valderas2025]. Su proximidad temática no implica intercambiabilidad: difieren
+en objetivos, población, periodos, formulación, representación y administración.
+
+La armonización retrospectiva exige definir primero las variables objetivo,
+evaluar después el potencial de cada fuente y documentar los algoritmos
+específicos [@fortier2017; @doiron2013; @wey2021]. La comparación debe separar
+concepto, medida, población, periodo, representación, derivación y administración
+[@morris2018; @chen2021]. Las discrepancias observadas entre EHIS y otras
+encuestas europeas muestran que indicadores relacionados pueden producir
+estimaciones e interpretaciones diferentes [@rubioValverde2019; @turSinai2020].
+
+No se han identificado estudios que armonicen retrospectivamente PaRIS Cycle 1
+y EHIS Wave 3. El objetivo es desarrollar y aplicar un marco multidimensional,
+transparente y reproducible que determine qué información puede compararse, qué
+transformaciones requiere y cuáles son sus límites.
+
+# Métodos
+
+## Diseño
+
+Estudio metodológico de armonización retrospectiva. La armonización conceptual
+precederá a cualquier validación empírica y seguirá las etapas Maelstrom:
+protocolo, selección de fuentes, DataSchema y potencial, procesamiento, calidad,
+difusión y preservación [@fortier2017].
+
+## Fuentes y población
+
+Se utilizarán metadatos de PaRIS Cycle 1 y EHIS Wave 3. EHIS Wave 2 se conservará
+como apoyo histórico. Antes de incorporar microdatos se inventariarán archivos,
+hashes, licencias, códigos de ausencia, pesos, estratos y conglomerados.
+
+## Modelo conceptual y DataSchema
+
+El modelo mínimo es:
+
+`domain → concept → measure → source_variable → assessment → target_variable → algorithm → harmonised_variable`
+
+Cada variable objetivo se definirá independientemente de las fuentes. El
+assessment separará las siete dimensiones de compatibilidad. Las clases globales
+serán `DIRECT`, `RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` y `NONE`; los
+estados serán `PROPOSED`, `REVIEWED`, `VALIDATED`, `REJECTED` y `UNRESOLVED`.
+
+## Búsqueda y selección de evidencia
+
+Se realizaron búsquedas reproducibles en PubMed, Scopus y Embase; Web of Science
+permanece registrada para acceso manual. Dos investigadores podrán realizar
+cribado independiente y cegado. Los desacuerdos se resolverán por adjudicación.
+Una corrida LLM multiprompt independiente y versionada constituirá la tercera
+capa del corpus actual. Recibirá solo título, resumen disponible, base y etapa;
+nunca decisiones humanas ni prioridades previas. ASReview/ELAS-lang se evaluará
+separadamente para priorizar actualizaciones futuras, sin presentarlo como
+revisor independiente si aprende de etiquetas del mismo corpus. Ningún agente
+adjudicará automáticamente y sus resultados permanecerán cegados hasta completar
+ambas revisiones humanas.
+
+## Casos piloto
+
+El piloto abarcará edad, sexo/género, salud autopercibida, diabetes, utilización
+sanitaria, una escala compartida y un PREM PaRIS sin equivalente. Cada caso
+documentará pregunta, universo, filtros, periodo, categorías, missingness,
+derivación y diferencias nacionales.
+
+## Algoritmos y validación
+
+PaRIS y EHIS tendrán algoritmos independientes, funciones reutilizables y tests
+sintéticos. La validación examinará fidelidad conceptual, implementación,
+missingness, diseño muestral y sensibilidad. La semejanza distributiva solo
+podrá apoyar plausibilidad; nunca demostrará equivalencia.
+
+## Gestión y seguridad
+
+`data/raw` será inmutable. Los datos restringidos no se versionarán. D1 guarda
+referencias, decisiones y abstracts autorizados como contenido `RESTRICTED`,
+protegido por Cloudflare Access, allowlist de correos y OTP. Toda decisión
+conservará agente, versión, fecha y procedencia.
+
+# Discusión y limitaciones previstas
+
+El marco prioriza validez y trazabilidad sobre el número de variables declaradas
+comparables. Las principales limitaciones previsibles son diferencias de
+población, finalidad, representación y administración; documentación incompleta;
+y ausencia de anclajes defendibles para escalas. IRT, linking o equiparación no
+se utilizarán por defecto. Solo se considerarán con constructo común, ítems
+compartidos o muestra puente, evidencia de invariancia y sensibilidad.
+
+La doble revisión y el tercer agente permiten cuantificar acuerdo y errores, pero
+no eliminan el juicio científico. Se informarán falsos negativos, rendimiento por
+base/idioma y disponibilidad de resumen, además del acuerdo entre revisores.
+
+# Ética y difusión
+
+El proyecto utiliza secundariamente fuentes documentales y, en fases posteriores,
+microdatos sujetos a sus licencias. La web pública mostrará métodos, citas y
+resultados agregados aprobados; nunca microdatos, credenciales, abstracts
+restringidos ni resultados con riesgo de disclosure.
+
+# Anexos
+
+## Anexo A. Estrategias de búsqueda
+
+{{< include generated/search-strategies.md >}}
+
+## Anexo B. Modelo de doble revisión
+
+- `IA`: propuesta congelada de ASReview/LLM.
+- `JALR`: primera revisión humana ya disponible.
+- `Investigador 2`: revisión humana independiente.
+- `Resultado final`: consenso exacto o adjudicación documentada.
+
+## Anexo C. Trazabilidad
+
+Cada variable armonizada deberá enlazar fuente, assessment, target, algoritmo,
+versión de datos y commit. Los códigos de ausencia estructural, no aplicable,
+rechazo, desconocido y no recogido permanecerán separados.
+
+# Referencias

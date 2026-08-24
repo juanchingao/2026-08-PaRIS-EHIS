@@ -1,0 +1,5 @@
+source_file,strategy_id,records_exported,expected_results,export_date,notes
+records (4).ris,NR-EMBASE-01,471,471,2026-08-22,Complete export
+records (3).ris,NR-EMBASE-01,200,471,2026-08-22,Partial duplicate export retained for provenance
+records (2).ris,NR-EMBASE-02,177,177,2026-08-22,Complete export
+records (1).ris,NR-EMBASE-03,231,231,2026-08-22,Complete export

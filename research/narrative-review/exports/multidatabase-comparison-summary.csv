@@ -1,0 +1,7 @@
+metric,records
+pubmed_unique,813
+scopus_unique,1178
+scopus_new_vs_pubmed,735
+embase_unique,879
+embase_new_vs_pubmed_scopus,235
+combined_unique,1783

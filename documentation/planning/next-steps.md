@@ -1,9 +1,10 @@
 # Hoja de ruta para retomar el proyecto
 
-**Actualizada:** 2026-08-21<br>
-**Estado:** pendiente<br>
+**Actualizada:** 2026-08-24<br>
+**Estado:** JALR finalizado; interfaz privada y tercer revisor LLM preparados;
+R2 y síntesis pendientes<br>
 **Punto de partida:** metadatos PaRIS/EHIS extraídos y síntesis narrativa v0.2;
-clasificación bibliográfica pendiente de ratificación del investigador
+clasificación PubMed ratificada; Scopus y Embase deduplicados
 
 ## Objetivo de la siguiente etapa
 
@@ -11,10 +12,36 @@ Pasar del framework conceptual a un piloto source-to-target pequeño y
 auditable. El piloto debe comprobar tanto casos armonizables como límites de
 comparabilidad antes de extender el trabajo al inventario completo.
 
-Antes del piloto, el investigador debe completar en
-`research/narrative-review/screening.csv` la decisión, iniciales y fecha de los
-121 registros. Esta ratificación no cambia la síntesis documental, pero es
-necesaria para presentar las cifras de selección como definitivas.
+El investigador completó en `research/narrative-review/screening.csv` la
+decisión, iniciales y fecha de los 121 registros: 35 `INCLUDE`, 29 `BACKGROUND`
+y 57 `EXCLUDE`. Posteriormente se recuperaron 1.178 registros Scopus únicos:
+443 coincidían con el corpus PubMed y 735 son candidatos nuevos. Estos últimos
+requieren priorización y cribado humano antes de cerrar la selección conjunta.
+La exportación Embase añadió 879 registros únicos, de los cuales 644 ya estaban
+en PubMed o Scopus y 235 fueron nuevos. El corpus combinado contiene 1.783
+registros únicos; 970 candidatos externos al corpus PubMed inicial pasaron a
+priorización y cribado.
+
+La priorización determinista inicial clasificó esos 970 candidatos en 16
+`HIGH`, 184 `MEDIUM` y 770 `LOW`. El investigador ratificó los 200 registros
+`HIGH`/`MEDIUM` y revisó después los restantes `LOW`. El resultado se depuró
+en 14 grupos duplicados: se conservaron 955 referencias únicas y se marcaron
+15 copias sin eliminarlas, para mantener la trazabilidad. El cribado
+suplementario finalizó con 68 `INCLUDE`, 332 `BACKGROUND` y 555 `EXCLUDE`.
+Sumado a PubMed, el corpus cribado contiene 1.076 referencias únicas: 103
+`INCLUDE`, 361 `BACKGROUND` y 612 `EXCLUDE`.
+
+Antes de iniciar el piloto se debe consolidar la evidencia de las 103
+inclusiones, deduplicar versiones de una misma publicación y ampliar el mapa y
+la extracción estructurada. Solo las fuentes con consecuencia metodológica
+explícita deben modificar las reglas del framework.
+
+La corrida independiente de la tercera columna está preparada localmente para
+los 1.076 registros: 343 disponen de título y resumen y 733 solo de título. El
+lote excluye decisiones humanas y propuestas previas. Antes de ejecutarlo debe
+confirmarse si la licencia permite procesar externamente los 955 registros
+Scopus/Embase marcados como restringidos; después se configurará la clave,
+se congelará la salida y se precargará en D1 sin revelarla hasta completar R2.
 
 ## Paso 1. Operacionalizar la compatibilidad
 

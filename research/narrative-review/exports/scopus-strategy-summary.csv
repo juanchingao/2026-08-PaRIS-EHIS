@@ -1,0 +1,4 @@
+strategy_id,scopus_unique,matched_pubmed,not_in_pubmed
+NR-SCOPUS-01,503,152,351
+NR-SCOPUS-02,400,89,311
+NR-SCOPUS-03,275,202,73

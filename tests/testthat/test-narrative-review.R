@@ -10,6 +10,116 @@ test_that("narrative review strategies are machine readable", {
   expect_true(all(c("query", "objective", "status") %in% names(strategies)))
 })
 
+test_that("bibliographic identifiers are normalised before matching", {
+  source(testthat::test_path("..", "..", "R", "bibliographic_deduplication.R"))
+  expect_equal(
+    normalize_bibliographic_doi(c(" DOI:10.1000/ABC ", "https://doi.org/10.2/X", NA)),
+    c("10.1000/abc", "10.2/x", "")
+  )
+  expect_equal(
+    normalize_bibliographic_title("Comparación: Health—Survey!"),
+    "comparacion health survey"
+  )
+})
+
+test_that("LOW screening proposals remain explicit candidates", {
+  source(testthat::test_path("..", "..", "R", "bibliographic_prioritization.R"))
+  proposals <- propose_low_screening(c(
+    "Survey data harmonization in the social sciences",
+    "Measurement invariance of the PHQ-9 across countries",
+    "Remote sensing for soil monitoring",
+    "A clinical study without a comparability focus"
+  ))
+
+  expect_equal(
+    proposals$decision,
+    c("INCLUDE", "BACKGROUND", "EXCLUDE", "EXCLUDE")
+  )
+  expect_equal(proposals$confidence, c("HIGH", "HIGH", "HIGH", "LOW"))
+})
+
+test_that("public project status excludes traceability-only duplicates", {
+  source(testthat::test_path("..", "..", "R", "public_project_status.R"))
+  pubmed <- data.frame(
+    investigator_decision = c("INCLUDE", "EXCLUDE")
+  )
+  supplementary <- data.frame(
+    investigator_decision = c("BACKGROUND", "EXCLUDE", "EXCLUDE"),
+    investigator_initials = "AB",
+    confirmation_date = "2026-08-23",
+    investigator_notes = c("", "", "DUPLICATE; retained_record_id=X")
+  )
+  result <- build_public_project_status(pubmed, supplementary, 195, 154)
+
+  expect_equal(result$literature$screened_unique, 4L)
+  expect_equal(result$literature$duplicate_copies, 1L)
+  expect_equal(result$literature$include, 1L)
+  expect_equal(result$literature$background, 1L)
+  expect_equal(result$literature$exclude, 2L)
+  expect_equal(result$metadata$paris_variables, 195L)
+})
+
+test_that("Scopus records match PubMed by DOI before normalised title", {
+  source(testthat::test_path("..", "..", "R", "bibliographic_deduplication.R"))
+  pubmed <- data.frame(
+    pmid = c("1", "2"), doi = c("10.1/a", NA),
+    title = c("First title", "Título común")
+  )
+  scopus <- data.frame(
+    doi = c("https://doi.org/10.1/A", NA, NA),
+    title = c("Different title", "Titulo comun!", "Unique title")
+  )
+  result <- match_scopus_to_pubmed(scopus, pubmed)
+  expect_equal(result$matched_pubmed, c(TRUE, TRUE, FALSE))
+  expect_equal(result$match_basis, c("DOI", "TITLE", "NONE"))
+  expect_equal(result$matched_pubmed_pmid, c("1", "2", NA_character_))
+})
+
+test_that("RIS records are parsed with repeated fields and provenance", {
+  source(testthat::test_path("..", "..", "R", "ris_import.R"))
+  ris <- tempfile(fileext = ".ris")
+  writeLines(c(
+    "TY  - JOUR", "U2  - L123", "C5  - 456", "DO  - 10.1/ABC",
+    "A1  - One, A.", "A1  - Two, B.", "T1  - Example title",
+    "AB  - First line", "continued abstract", "ER  -"
+  ), ris, useBytes = TRUE)
+  result <- parse_ris_file(ris, "NR-EMBASE-TEST")
+  expect_equal(nrow(result), 1)
+  expect_equal(result$embase_id, "L123")
+  expect_equal(result$authors, "One, A.; Two, B.")
+  expect_equal(result$abstract, "First line continued abstract")
+  expect_equal(result$strategy_id, "NR-EMBASE-TEST")
+})
+
+test_that("bibliographic prioritisation is transparent and does not decide", {
+  source(testthat::test_path("..", "..", "R", "bibliographic_prioritization.R"))
+  scores <- score_bibliographic_priority(
+    c(
+      "Retrospective data harmonization framework for health surveys",
+      "A cell atlas from genomic data"
+    ),
+    c("Target variables and validation guidelines", "Chemical mixture analysis")
+  )
+  expect_true(scores[[1]] >= 12)
+  expect_true(scores[[2]] < scores[[1]])
+  expect_equal(
+    classify_bibliographic_priority(scores[[1]], has_core_title_signal(
+      "Retrospective data harmonization framework for health surveys"
+    )),
+    "HIGH"
+  )
+  expect_equal(classify_bibliographic_priority(12, FALSE), "MEDIUM")
+  expect_match(
+    describe_priority_signals("Measurement invariance in a population survey"),
+    "measurement_equivalence"
+  )
+  expect_false(grepl(
+    "paris",
+    describe_priority_signals("Comparison of extraction methods"),
+    fixed = TRUE
+  ))
+})
+
 test_that("review extraction templates have stable identifiers", {
   review_dir <- testthat::test_path("..", "..", "research", "narrative-review")
   screening <- readr::read_csv(
@@ -84,4 +194,74 @@ test_that("screening review app is self-contained and current", {
     function(id) grepl(id, html, fixed = TRUE),
     logical(1)
   )))
+})
+
+test_that("public site keeps custom pages and renders only protocol with Quarto", {
+  root <- testthat::test_path("..", "..")
+  website_dir <- file.path(root, "website")
+  config <- paste(
+    readLines(file.path(website_dir, "_quarto.yml"), warn = FALSE),
+    collapse = "\n"
+  )
+  references <- paste(
+    readLines(file.path(website_dir, "referencias.html"), warn = FALSE),
+    collapse = "\n"
+  )
+  landing <- paste(
+    readLines(file.path(website_dir, "index.html"), warn = FALSE),
+    collapse = "\n"
+  )
+  protocol_lines <- readLines(
+    file.path(website_dir, "protocolo.qmd"), warn = FALSE
+  )
+  protocol <- paste(protocol_lines, collapse = "\n")
+  public_references <- paste(
+    readLines(file.path(website_dir, "data", "references.json"), warn = FALSE),
+    collapse = "\n"
+  )
+  worker <- paste(
+    readLines(file.path(root, "cloudflare", "worker.js"), warn = FALSE),
+    collapse = "\n"
+  )
+  reference_script <- paste(
+    readLines(file.path(website_dir, "references.js"), warn = FALSE),
+    collapse = "\n"
+  )
+
+  expect_false(grepl("index.qmd", config, fixed = TRUE))
+  expect_false(grepl("referencias.qmd", config, fixed = TRUE))
+  expect_match(config, "protocolo.qmd", fixed = TRUE)
+  expect_match(config, "protocol.css", fixed = TRUE)
+  expect_match(landing, "class=\"hero\"", fixed = TRUE)
+  expect_match(landing, "class=\"principle-card\"", fixed = TRUE)
+  expect_match(landing, "class=\"metric-grid\"", fixed = TRUE)
+  expect_match(references, "source-filter", fixed = TRUE)
+  expect_match(references, "decision-filter", fixed = TRUE)
+  expect_match(references, "<th>IA sistem", fixed = TRUE)
+  expect_match(references, "<th>JALR</th>", fixed = TRUE)
+  expect_match(references, "<th>Investigador 2</th>", fixed = TRUE)
+  expect_match(references, "reference-pagination", fixed = TRUE)
+  expect_match(references, "href=\"/api/login\"", fixed = TRUE)
+  expect_match(references, "review-filter", fixed = TRUE)
+  expect_match(references, "review-feedback", fixed = TRUE)
+  # ASCII stems keep these structural checks portable across Windows R locales.
+  expect_true(any(grepl("^# Introducci", protocol_lines)))
+  expect_true(any(grepl("^# M.*todos$", protocol_lines)))
+  expect_true(any(grepl("^# Discusi", protocol_lines)))
+  expect_false(any(grepl("^# Resultados$", protocol_lines)))
+  expect_match(protocol, "hypothesis:", fixed = TRUE)
+  expect_match(protocol, "generated/search-strategies.md", fixed = TRUE)
+  expect_false(grepl("investigator_decision", public_references, fixed = TRUE))
+  expect_false(grepl("jalr_decision", public_references, fixed = TRUE))
+  expect_false(grepl("abstract_text", public_references, fixed = TRUE))
+  expect_match(reference_script, "current_review", fixed = TRUE)
+  expect_match(reference_script, "/api/decisions", fixed = TRUE)
+  expect_match(reference_script, "/api/references/${", fixed = TRUE)
+  expect_match(worker, "bothReviewed", fixed = TRUE)
+  expect_match(worker, "revealCompletedReview", fixed = TRUE)
+  expect_match(worker, "current_review", fixed = TRUE)
+  expect_match(worker, "sameOrigin", fixed = TRUE)
+  expect_match(worker, "REASON_CODES", fixed = TRUE)
+  expect_match(worker, "abstract_text", fixed = TRUE)
+  expect_match(worker, "AI_MODEL_RUN_ID", fixed = TRUE)
 })

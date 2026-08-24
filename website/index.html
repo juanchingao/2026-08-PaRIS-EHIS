@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Avance público del proyecto de armonización retrospectiva PaRIS–EHIS.">
+  <title>PaRIS–EHIS · Armonización retrospectiva</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="PaRIS–EHIS, inicio">
+      <span class="brand-mark">P·E</span>
+      <span>PaRIS–EHIS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <a href="#avance">Avance</a>
+      <a href="referencias.html">Referencias</a>
+      <a href="protocolo.html">Protocolo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Observatorio abierto de armonización retrospectiva</p>
+        <h1>Comparar encuestas sin confundir semejanza con equivalencia.</h1>
+        <p class="lead">Seguimiento público de la armonización entre PaRIS Cycle 1 y EHIS Wave 3, con decisiones trazables, criterios explícitos y límites visibles.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#avance">Ver el avance</a>
+          <a class="button secondary" href="referencias.html">Explorar referencias</a>
+        </div>
+      </div>
+      <aside class="principle-card" aria-label="Principio rector">
+        <span class="status-dot" aria-hidden="true"></span>
+        <p class="card-label">Principio rector</p>
+        <p>La semejanza textual o distributiva nunca basta para declarar equivalencia.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="avance">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Estado del proyecto</p>
+          <h2>Avance verificable</h2>
+        </div>
+        <p class="updated">Actualizado: <time id="updated">—</time></p>
+      </div>
+
+      <div class="metric-grid">
+        <article class="metric"><span id="retrieved">—</span><p>referencias únicas recuperadas</p></article>
+        <article class="metric"><span id="screened">—</span><p>referencias únicas cribadas</p></article>
+        <article class="metric accent"><span id="included">—</span><p>incluidas para síntesis</p></article>
+        <article class="metric"><span id="metadata-total">—</span><p>variables fuente normalizadas</p></article>
+      </div>
+
+      <article class="flow-card">
+        <div class="flow-header">
+          <h3>Resultado del cribado</h3>
+          <span id="screening-total">—</span>
+        </div>
+        <div class="bar" role="img" aria-label="Distribución de decisiones">
+          <span id="bar-include" class="bar-include"></span><span id="bar-background" class="bar-background"></span><span id="bar-exclude" class="bar-exclude"></span>
+        </div>
+        <div class="legend">
+          <span><i class="include"></i><strong id="include-count">—</strong> Include</span>
+          <span><i class="background"></i><strong id="background-count">—</strong> Background</span>
+          <span><i class="exclude"></i><strong id="exclude-count">—</strong> Exclude</span>
+        </div>
+        <p class="fine-print"><span id="duplicate-count">—</span> copias se conservan únicamente para trazabilidad.</p>
+      </article>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Líneas de trabajo</p>
+          <h2>Del corpus al piloto</h2>
+        </div>
+      </div>
+      <div class="workstreams">
+        <article><span class="tag done">Completado</span><h3>Búsqueda y cribado</h3><p>PubMed, Scopus y Embase, con consultas, fechas y decisiones documentadas.</p></article>
+        <article><span class="tag done">Completado</span><h3>Metadatos fuente</h3><p><strong id="paris-vars">—</strong> variables PaRIS y <strong id="ehis-vars">—</strong> variables EHIS normalizadas.</p></article>
+        <article><span class="tag active">En curso</span><h3>Marco conceptual</h3><p>Valores controlados para concepto, medida, población, periodo y representación.</p></article>
+        <article><span class="tag next">Siguiente</span><h3>Piloto source-to-target</h3><p>Siete casos heterogéneos antes de ampliar el mapping al conjunto de variables.</p></article>
+      </div>
+    </section>
+
+    <section class="section split-section">
+      <div>
+        <p class="eyebrow">Método</p>
+        <h2>La comparabilidad se argumenta dimensión a dimensión.</h2>
+        <p class="lead compact">Maelstrom guía el ciclo de trabajo; las reglas de PaRIS–EHIS mantienen separados el juicio conceptual y la validación empírica.</p>
+      </div>
+      <ol class="method-list">
+        <li><span>01</span><div><h3>Definir el objetivo</h3><p>Cada variable objetivo se especifica antes de buscar correspondencias fuente.</p></div></li>
+        <li><span>02</span><div><h3>Evaluar siete dimensiones</h3><p>Concepto, medida, población, periodo, representación, derivación y administración.</p></div></li>
+        <li><span>03</span><div><h3>Transformar por fuente</h3><p>PaRIS y EHIS conservan algoritmos independientes, versionados y comprobables.</p></div></li>
+        <li><span>04</span><div><h3>Validar sin atajos</h3><p>Las distribuciones apoyan plausibilidad, pero nunca demuestran equivalencia.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="section safeguards">
+      <div>
+        <p class="eyebrow">Salvaguardas</p>
+        <h2>Abierto en el método, prudente con los datos.</h2>
+      </div>
+      <ul>
+        <li>No se publican microdatos ni resultados con riesgo de disclosure.</li>
+        <li>Abstracts y exportaciones sujetos a licencia permanecen en el área privada.</li>
+        <li>Las propuestas automáticas nunca sustituyen la revisión humana.</li>
+        <li>Toda decisión conserva procedencia, versión, fecha y responsable.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>PaRIS–EHIS Harmonisation Project · Estado público, agregado y regenerable</footer>
+  <script src="app.js"></script>
+</body>
+</html>

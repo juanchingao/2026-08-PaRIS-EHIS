@@ -1,0 +1,22 @@
+{
+  "updated": "2026-08-24",
+  "literature": {
+    "retrieved_unique": 1783,
+    "screened_unique": 1076,
+    "include": 103,
+    "background": 361,
+    "exclude": 612,
+    "supplementary_rows": 970,
+    "supplementary_unique": 955,
+    "duplicate_copies": 15
+  },
+  "metadata": {
+    "paris_variables": 195,
+    "ehis_variables": 154
+  },
+  "safeguards": {
+    "microdata_published": false,
+    "licensed_abstracts_published": false,
+    "automated_equivalence": false
+  }
+}

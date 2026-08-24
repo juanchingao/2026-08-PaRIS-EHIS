@@ -1,0 +1,2 @@
+﻿No.,Query,Results,Date
+#1,"('data harmonization':ti,ab,kw OR 'data harmonisation':ti,ab,kw OR 'retrospective harmonization':ti,ab,kw OR 'retrospective harmonisation':ti,ab,kw) AND (survey*:ti,ab,kw OR cohort*:ti,ab,kw OR epidemiolog*:ti,ab,kw) AND (method*:ti,ab,kw OR framework*:ti,ab,kw OR guideline*:ti,ab,kw OR protocol*:ti,ab,kw OR comparab*:ti,ab,kw OR valid*:ti,ab,kw)",471,22 Aug 2026

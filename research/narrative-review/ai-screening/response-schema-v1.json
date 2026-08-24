@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "decision": {
+      "type": "string",
+      "enum": ["INCLUDE", "BACKGROUND", "EXCLUDE"]
+    },
+    "primary_reason_code": {
+      "type": "string",
+      "enum": [
+        "MEETS_INCLUSION_CRITERIA",
+        "METHODOLOGICAL_BACKGROUND",
+        "OUT_OF_SCOPE",
+        "WRONG_POPULATION",
+        "WRONG_CONSTRUCT",
+        "WRONG_DESIGN",
+        "DUPLICATE",
+        "INSUFFICIENT_INFORMATION",
+        "OTHER"
+      ]
+    },
+    "evidence_basis": {
+      "type": "string",
+      "enum": ["TITLE_ABSTRACT", "TITLE_ONLY"]
+    },
+    "certainty": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "needs_human_review": { "type": "boolean" },
+    "criteria": {
+      "type": "object",
+      "properties": {
+        "explicit_harmonisation_framework": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "compatibility_or_equivalence": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "target_variable_or_algorithm": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "validation_or_sensitivity": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "metadata_or_provenance": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "paris_or_ehis_primary": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "incidental_harmonisation": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "prospective_only": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "technical_without_semantics": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] },
+        "unrelated_clinical_study": { "type": "string", "enum": ["YES", "NO", "UNCLEAR"] }
+      },
+      "required": [
+        "explicit_harmonisation_framework",
+        "compatibility_or_equivalence",
+        "target_variable_or_algorithm",
+        "validation_or_sensitivity",
+        "metadata_or_provenance",
+        "paris_or_ehis_primary",
+        "incidental_harmonisation",
+        "prospective_only",
+        "technical_without_semantics",
+        "unrelated_clinical_study"
+      ],
+      "additionalProperties": false
+    },
+    "rationale": { "type": "string" }
+  },
+  "required": [
+    "decision",
+    "primary_reason_code",
+    "evidence_basis",
+    "certainty",
+    "needs_human_review",
+    "criteria",
+    "rationale"
+  ],
+  "additionalProperties": false
+}

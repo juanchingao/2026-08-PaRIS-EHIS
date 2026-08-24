@@ -1,0 +1,15 @@
+run_id: openai-systematic-screening-v1
+provider: OpenAI
+model: gpt-5.6-terra
+method: LLM_MULTIPROMPT_TITLE_ABSTRACT
+criteria_version: systematic-screening-v1
+prompt_path: research/narrative-review/ai-screening/prompt-v1.md
+schema_path: research/narrative-review/ai-screening/response-schema-v1.json
+reasoning_effort: medium
+max_output_tokens: 1200
+training_cutoff: '2026-02-16'
+completion_window: 24h
+restricted_sources:
+  - Embase
+  - Scopus
+require_explicit_restricted_upload_authorisation: true

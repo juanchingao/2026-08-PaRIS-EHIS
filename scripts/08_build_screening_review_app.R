@@ -18,6 +18,11 @@ records <- screening |>
 template_path <- file.path(review_dir, "screening-review-template.html")
 output_path <- file.path(review_dir, "screening-review.html")
 template <- paste(readLines(template_path, encoding = "UTF-8", warn = FALSE), collapse = "\n")
+template <- sub("__APP_TITLE__", "Cribado de la revisión narrativa PaRIS–EHIS", template, fixed = TRUE)
+template <- sub("__APP_TITLE__", "Cribado de la revisión narrativa PaRIS–EHIS", template, fixed = TRUE)
+template <- sub("__STORAGE_KEY__", "paris-ehis-narrative-screening-v1", template, fixed = TRUE)
+template <- sub("__HANDLE_KEY__", "screening", template, fixed = TRUE)
+template <- sub("__SCREENING_FILENAME__", "screening.csv", template, fixed = TRUE)
 payload <- jsonlite::toJSON(records, dataframe = "rows", auto_unbox = TRUE, na = "null")
 html <- sub("__SCREENING_DATA__", payload, template, fixed = TRUE)
 escape_html <- function(x) {
@@ -29,11 +34,11 @@ escape_html <- function(x) {
 }
 first <- records[1, ]
 fallback <- paste0(
-  '<div class="meta">1 de ', nrow(records), " · PMID ", escape_html(first$pmid),
+  '<div class="meta">1 de ', nrow(records), " · ID ", escape_html(first$pmid),
   " · ", escape_html(first$year), " · ", escape_html(first$journal), "</div>",
   "<h2>", escape_html(first$title), "</h2>",
   '<div class="meta">', escape_html(first$authors), "</div>",
-  '<p><a href="', escape_html(first$pubmed_url), '" target="_blank">Abrir en PubMed ↗</a></p>',
+  '<p><a href="', escape_html(first$pubmed_url), '" target="_blank">Abrir registro fuente ↗</a></p>',
   '<div class="abstract">', escape_html(first$abstract), "</div>",
   '<div class="proposal"><b>Propuesta: ', escape_html(first$proposed_decision),
   "</b><br>", escape_html(first$proposed_reason), "</div>",

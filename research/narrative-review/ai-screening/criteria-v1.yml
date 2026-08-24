@@ -1,0 +1,44 @@
+version: systematic-screening-v1
+review_question: >-
+  ¿Aporta esta referencia principios, procedimientos, métodos o información
+  primaria útil para evaluar y ejecutar una armonización retrospectiva
+  transparente entre PaRIS Cycle 1 y EHIS Wave 3?
+decisions:
+  INCLUDE: >-
+    Contribución directa y utilizable para el marco, los criterios de
+    comparabilidad, la definición de variables objetivo, los algoritmos, la
+    validación o la documentación primaria de PaRIS/EHIS.
+  BACKGROUND: >-
+    Evidencia conceptual, psicométrica, de diseño o de infraestructura
+    pertinente, pero no una contribución metodológica central y directamente
+    aplicable.
+  EXCLUDE: >-
+    Referencia claramente fuera del alcance. La exclusión exige evidencia
+    suficiente en el título o resumen; la incertidumbre no equivale a exclusión.
+inclusion_criteria:
+  - id: explicit_harmonisation_framework
+    label: Marco o flujo reproducible de armonización retrospectiva.
+  - id: compatibility_or_equivalence
+    label: Criterios de comparabilidad, equivalencia o incompatibilidad de medidas.
+  - id: target_variable_or_algorithm
+    label: Definición de variables objetivo, recodificación, derivación o algoritmos.
+  - id: validation_or_sensitivity
+    label: Validación conceptual o empírica, invariancia, sensibilidad o linking defendible.
+  - id: metadata_or_provenance
+    label: Metadatos, procedencia, versionado, FAIR o automatización trazable.
+  - id: paris_or_ehis_primary
+    label: Información primaria sobre diseño o comparabilidad de PaRIS o EHIS.
+exclusion_criteria:
+  - id: incidental_harmonisation
+    label: Uso incidental del término harmonization sin contribución transferible.
+  - id: prospective_only
+    label: Armonización exclusivamente prospectiva sin aprendizaje transferible.
+  - id: technical_without_semantics
+    label: Integración puramente técnica sin semántica, medida o comparabilidad.
+  - id: unrelated_clinical_study
+    label: Estudio clínico sin relación metodológica con encuestas, PROMs o PREMs.
+uncertainty_rules:
+  - No inferir información que no figure en el título o resumen.
+  - En registros con solo título, excluir únicamente cuando la irrelevancia sea clara.
+  - Marcar needs_human_review cuando falte información para resolver un criterio.
+  - BACKGROUND es preferible a EXCLUDE ante incertidumbre material.

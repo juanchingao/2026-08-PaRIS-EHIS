@@ -1,0 +1,3 @@
+﻿No.,Query,Results,Date
+#2,"('measurement equivalence':ti OR 'measurement invariance':ti OR 'questionnaire harmonization':ti OR 'questionnaire harmonisation':ti OR 'common metric':ti OR 'scale linking':ti) AND (survey*:ti,ab,kw OR 'general population':ti,ab,kw OR 'population based':ti,ab,kw OR epidemiolog*:ti,ab,kw) AND (health:ti,ab,kw OR 'patient reported':ti,ab,kw)",177,22 Aug 2026
+#1,"('data harmonization':ti,ab,kw OR 'data harmonisation':ti,ab,kw OR 'retrospective harmonization':ti,ab,kw OR 'retrospective harmonisation':ti,ab,kw) AND (survey*:ti,ab,kw OR cohort*:ti,ab,kw OR epidemiolog*:ti,ab,kw) AND (method*:ti,ab,kw OR framework*:ti,ab,kw OR guideline*:ti,ab,kw OR protocol*:ti,ab,kw OR comparab*:ti,ab,kw OR valid*:ti,ab,kw)",471,22 Aug 2026

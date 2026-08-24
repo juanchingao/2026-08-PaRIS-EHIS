@@ -1,0 +1,7 @@
+metric,records
+pubmed_unique,813
+scopus_rows_retrieved,1714
+scopus_unique,1178
+scopus_matched_pubmed,443
+scopus_not_in_pubmed,735
+combined_unique,1548

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cribado narrativo PaRIS–EHIS</title>
+  <title>__APP_TITLE__</title>
   <script>window.onerror=function(message,source,line){window.addEventListener('DOMContentLoaded',function(){var box=document.getElementById('errorBanner');if(box){box.style.display='block';box.textContent='El navegador no pudo iniciar los controles: '+message+' (línea '+line+'). Abre el archivo con Edge, Chrome o Firefox.';}});};</script>
   <style>
     :root { --ink:#17212b; --muted:#65717d; --line:#d8dee4; --paper:#fff; --bg:#f3f5f7; --accent:#176b87; --include:#26734d; --background:#916319; --exclude:#a53b3b; }
@@ -50,7 +50,7 @@
 <body>
 <div id="errorBanner" style="display:none;background:#fff0f0;color:#8b2020;padding:12px 20px;border-bottom:1px solid #d7a0a0"></div>
 <header>
-  <h1>Cribado de la revisión narrativa PaRIS–EHIS</h1>
+  <h1>__APP_TITLE__</h1>
   <div class="toolbar">
     <div class="progress"><span id="progressText"></span><div class="bar"><span id="progressBar"></span></div></div>
     <div class="actions">
@@ -67,7 +67,7 @@
     <label for="statusFilter">Estado</label>
     <select id="statusFilter"><option value="all">Todos</option><option value="pending">Pendientes</option><option value="decided">Decididos</option></select>
     <label for="proposalFilter">Decisión propuesta</label>
-    <select id="proposalFilter"><option value="all">Todas</option><option>INCLUDE</option><option>BACKGROUND</option><option>EXCLUDE</option></select>
+    <select id="proposalFilter"><option value="all">Todas</option><option>PRIORITY_HIGH</option><option>PRIORITY_MEDIUM</option><option>PRIORITY_LOW</option><option>INCLUDE</option><option>BACKGROUND</option><option>EXCLUDE</option></select>
     <label for="search">Buscar</label><input id="search" type="search" placeholder="Título, autor, PMID…">
     <div class="counts" id="counts"></div>
     <p><small>Atajos: <kbd>1</kbd> incluir, <kbd>2</kbd> antecedente, <kbd>3</kbd> excluir, <kbd>←</kbd>/<kbd>→</kbd> navegar.</small></p>
@@ -77,8 +77,10 @@
 </main>
 <script>
 const records = __SCREENING_DATA__;
-const storageKey = 'paris-ehis-narrative-screening-v1';
+const storageKey = '__STORAGE_KEY__';
 const handleDbName = 'paris-ehis-screening-files';
+const handleKey = '__HANDLE_KEY__';
+const screeningFilename = '__SCREENING_FILENAME__';
 let matrixHandle = null;
 let storageAvailable = true, saved = {};
 try { saved = JSON.parse(localStorage.getItem(storageKey) || '{}'); }
@@ -113,9 +115,9 @@ function render() {
   updateProgress(); const card=$('card');
   if(!visible.length){card.innerHTML='<h2>No hay registros con estos filtros</h2>';return;}
   const r=visible[position], s=state(r);
-  card.innerHTML=`<div class="meta"><span>${position+1} de ${visible.length}</span> · PMID ${esc(r.pmid)} · ${esc(r.year)} · ${esc(r.journal)}</div>
+  card.innerHTML=`<div class="meta"><span>${position+1} de ${visible.length}</span> · ID ${esc(r.pmid)} · ${esc(r.year)} · ${esc(r.journal)}</div>
     <h2>${esc(r.title)}</h2><div class="meta">${esc(r.authors)}</div>
-    <p><a href="${esc(r.pubmed_url)}" target="_blank" rel="noopener">Abrir en PubMed ↗</a></p>
+    <p><a href="${esc(r.pubmed_url)}" target="_blank" rel="noopener">Abrir registro fuente ↗</a></p>
     <div class="abstract">${esc(r.abstract)||'<i>Sin resumen disponible.</i>'}</div>
     <div class="proposal"><b>Propuesta: ${esc(r.proposed_decision)}</b><br>${esc(r.proposed_reason)}</div>
     <div class="decision actions">${['INCLUDE','BACKGROUND','EXCLUDE'].map((d,i)=>`<button data-value="${d}" class="${s.decision===d?'selected':''}">${i+1}. ${d}</button>`).join('')}</div>
@@ -131,12 +133,12 @@ function csvCell(value){const s=String(value??'');return /[",\n\r]/.test(s)?'"'+
 function buildCsv(){const cols=['record_id','pmid','title','stage','proposed_decision','proposed_reason','proposed_reviewer','proposed_review_date','investigator_decision','investigator_initials','confirmation_date','investigator_notes']; const lines=[cols.join(',')]; records.forEach(r=>{const s=state(r),row={...r,investigator_decision:s.decision,investigator_initials:s.initials,confirmation_date:s.date,investigator_notes:s.notes};lines.push(cols.map(c=>csvCell(row[c])).join(','));});return '\ufeff'+lines.join('\r\n');}
 function exportCsv(){const blob=new Blob([buildCsv()],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='screening-confirmed.csv';a.click();URL.revokeObjectURL(a.href);}
 function openHandleDb(){return new Promise((resolve,reject)=>{const request=indexedDB.open(handleDbName,1);request.onupgradeneeded=()=>request.result.createObjectStore('handles');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
-async function storeMatrixHandle(handle){try{const db=await openHandleDb();const tx=db.transaction('handles','readwrite');tx.objectStore('handles').put(handle,'screening');await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});db.close();}catch(error){/* The current session can still use the handle. */}}
-async function loadMatrixHandle(){try{const db=await openHandleDb();const tx=db.transaction('handles','readonly');const request=tx.objectStore('handles').get('screening');matrixHandle=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error);});db.close();if(matrixHandle)$('saveMatrixBtn').textContent='Actualizar '+matrixHandle.name;}catch(error){matrixHandle=null;}}
+async function storeMatrixHandle(handle){try{const db=await openHandleDb();const tx=db.transaction('handles','readwrite');tx.objectStore('handles').put(handle,handleKey);await new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});db.close();}catch(error){/* The current session can still use the handle. */}}
+async function loadMatrixHandle(){try{const db=await openHandleDb();const tx=db.transaction('handles','readonly');const request=tx.objectStore('handles').get(handleKey);matrixHandle=await new Promise((resolve,reject)=>{request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error);});db.close();if(matrixHandle)$('saveMatrixBtn').textContent='Actualizar '+matrixHandle.name;}catch(error){matrixHandle=null;}}
 async function chooseMatrix(){
   if(!window.showSaveFilePicker){alert('Este navegador no permite actualizar archivos directamente. Usa Edge o Chrome, o pulsa «Exportar copia».');return;}
   try{
-    matrixHandle=await window.showSaveFilePicker({suggestedName:'screening.csv',types:[{description:'Archivo CSV',accept:{'text/csv':['.csv']}}]});
+    matrixHandle=await window.showSaveFilePicker({suggestedName:screeningFilename,types:[{description:'Archivo CSV',accept:{'text/csv':['.csv']}}]});
     await storeMatrixHandle(matrixHandle);$('saveMatrixBtn').textContent='Actualizar '+matrixHandle.name;return true;
   }catch(error){if(error.name!=='AbortError')alert('No se pudo actualizar la matriz: '+error.message);}
   return false;

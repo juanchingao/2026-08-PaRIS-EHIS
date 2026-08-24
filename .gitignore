@@ -13,6 +13,9 @@ renv/staging/
 cache/
 .quarto-cache/
 .quarto-deno/
+.wrangler/
+website/_site/
+cloudflare/reviewers.local.csv
 data/raw/**
 data/interim/**
 data/processed/**
@@ -43,3 +46,13 @@ Thumbs.db
 *.tar
 *.tar.gz
 *.duckdb
+research/narrative-review/exports/*.ris
+research/narrative-review/exports/embase-results.csv
+research/narrative-review/exports/embase-unique.csv
+research/narrative-review/exports/embase-not-in-pubmed-scopus.csv
+research/narrative-review/exports/scopus-results.csv
+research/narrative-review/exports/scopus-pubmed-comparison.csv
+research/narrative-review/exports/scopus-not-in-pubmed.csv
+research/narrative-review/exports/supplementary-ranked-candidates.csv
+research/narrative-review/supplementary-screening.csv
+research/narrative-review/supplementary-screening-review.html

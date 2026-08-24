@@ -1,0 +1,72 @@
+[
+  {
+    "strategy_id": "NR-PUBMED-01",
+    "database": "PubMed",
+    "query": "((data harmonization[Title/Abstract] OR data harmonisation[Title/Abstract] OR retrospective harmonization[Title/Abstract] OR retrospective harmonisation[Title/Abstract]) AND (survey*[Title/Abstract] OR cohort*[Title/Abstract] OR epidemiolog*[Title/Abstract] OR health[Title/Abstract]))",
+    "objective": "Retrospective harmonisation methods",
+    "status": "READY"
+  },
+  {
+    "strategy_id": "NR-PUBMED-02",
+    "database": "PubMed",
+    "query": "((measurement equivalence[Title/Abstract] OR measurement invariance[Title/Abstract] OR questionnaire harmonization[Title/Abstract] OR questionnaire harmonisation[Title/Abstract] OR common metric[Title/Abstract] OR scale linking[Title/Abstract]) AND (health[Title/Abstract] OR patient reported[Title/Abstract] OR population[Title/Abstract]))",
+    "objective": "Measurement and questionnaire equivalence",
+    "status": "READY"
+  },
+  {
+    "strategy_id": "NR-PUBMED-03",
+    "database": "PubMed",
+    "query": "((\\Patient-Reported Indicator Surveys\\[Title/Abstract] OR \\Patient-Reported Indicator Survey\\[Title/Abstract] OR \\European Health Interview Survey\\[Title/Abstract]) AND (harmon*[Title/Abstract] OR comparab*[Title/Abstract] OR method*[Title/Abstract] OR valid*[Title/Abstract]))",
+    "objective": "PaRIS and EHIS applications",
+    "status": "READY"
+  },
+  {
+    "strategy_id": "NR-SCOPUS-01",
+    "database": "Scopus",
+    "query": "TITLE-ABS-KEY((\\data harmonization\\ OR \\data harmonisation\\ OR \\retrospective harmonization\\ OR \\retrospective harmonisation\\) AND (survey* OR cohort* OR epidemiolog*) AND (method* OR framework* OR guideline* OR protocol* OR comparab* OR valid*))",
+    "objective": "Retrospective harmonisation methods",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-SCOPUS-02",
+    "database": "Scopus",
+    "query": "TITLE((\\measurement equivalence\\ OR \\measurement invariance\\ OR \\questionnaire harmonization\\ OR \\questionnaire harmonisation\\ OR \\common metric\\ OR \\scale linking\\)) AND TITLE-ABS-KEY((survey* OR \\general population\\ OR population-based OR epidemiolog*) AND (health OR \\patient reported\\))",
+    "objective": "Measurement and questionnaire equivalence",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-SCOPUS-03",
+    "database": "Scopus",
+    "query": "TITLE-ABS-KEY((\\Patient-Reported Indicator Surveys\\ OR \\Patient-Reported Indicator Survey\\ OR \\European Health Interview Survey\\) AND (harmon* OR comparab* OR method* OR valid*))",
+    "objective": "PaRIS and EHIS applications",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-EMBASE-01",
+    "database": "Embase.com",
+    "query": "('data harmonization':ti,ab,kw OR 'data harmonisation':ti,ab,kw OR 'retrospective harmonization':ti,ab,kw OR 'retrospective harmonisation':ti,ab,kw) AND (survey*:ti,ab,kw OR cohort*:ti,ab,kw OR epidemiolog*:ti,ab,kw) AND (method*:ti,ab,kw OR framework*:ti,ab,kw OR guideline*:ti,ab,kw OR protocol*:ti,ab,kw OR comparab*:ti,ab,kw OR valid*:ti,ab,kw)",
+    "objective": "Retrospective harmonisation methods",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-EMBASE-02",
+    "database": "Embase.com",
+    "query": "('measurement equivalence':ti OR 'measurement invariance':ti OR 'questionnaire harmonization':ti OR 'questionnaire harmonisation':ti OR 'common metric':ti OR 'scale linking':ti) AND (survey*:ti,ab,kw OR 'general population':ti,ab,kw OR 'population based':ti,ab,kw OR epidemiolog*:ti,ab,kw) AND (health:ti,ab,kw OR 'patient reported':ti,ab,kw)",
+    "objective": "Measurement and questionnaire equivalence",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-EMBASE-03",
+    "database": "Embase.com",
+    "query": "('patient-reported indicator surveys':ti,ab,kw OR 'patient-reported indicator survey':ti,ab,kw OR 'european health interview survey':ti,ab,kw) AND (harmon*:ti,ab,kw OR comparab*:ti,ab,kw OR method*:ti,ab,kw OR valid*:ti,ab,kw)",
+    "objective": "PaRIS and EHIS applications",
+    "status": "RETRIEVED_PENDING_SCREENING"
+  },
+  {
+    "strategy_id": "NR-WOS-01",
+    "database": "Web of Science",
+    "query": "TS=((\\data harmonization\\ OR \\data harmonisation\\ OR \\retrospective harmonization\\ OR \\retrospective harmonisation\\) AND (survey* OR cohort* OR epidemiolog* OR health)) OR TS=((\\measurement equivalence\\ OR \\measurement invariance\\ OR \\scale linking\\) AND (health OR \\patient reported\\))",
+    "objective": "Combined methodological search",
+    "status": "MANUAL_ACCESS_REQUIRED"
+  }
+]

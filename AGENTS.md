@@ -49,14 +49,33 @@ representación, derivación y administración. Clases: `DIRECT`, `RECODABLE`,
 - Priorizar OECD, Eurostat, DDI, ISO y publicaciones metodológicas primarias.
 - Los métodos automáticos solo generan candidatos; requieren revisión humana.
 
-## Estado actual (2026-08-20)
+## Estado actual (2026-08-23)
 
 - Metadatos normalizados: 195 variables PaRIS Cycle 1 y 154 variables EHIS
   Wave 3; EHIS Wave 2 se conserva como apoyo histórico.
 - Revisión narrativa: 813 registros PubMed recuperados, 121 revisados por
-  título/resumen, 35 incluidos y 15 fuentes nucleares extraídas.
-- La clasificación bibliográfica inicial requiere confirmación del
-  investigador antes de presentarse como selección definitiva.
+  título/resumen, 35 incluidos y 15 fuentes nucleares extraídas; las 121
+  decisiones fueron ratificadas por el investigador.
+- Suplemento Scopus: 1.178 registros únicos, 443 coincidentes con PubMed y 735
+  candidatos exclusivos pendientes de priorización y cribado humano.
+- Suplemento Embase: 879 registros únicos importados desde RIS, 644 coincidentes
+  con PubMed o Scopus y 235 nuevos; corpus combinado de 1.783 registros únicos.
+- Cribado suplementario finalizado: 970 filas, de las que 15 están marcadas
+  como copias de 14 grupos duplicados; corpus efectivo de 955 referencias, con
+  68 `INCLUDE`, 332 `BACKGROUND` y 555 `EXCLUDE`. Sumado al cribado PubMed, hay
+  1.076 referencias únicas cribadas: 103 `INCLUDE`, 361 `BACKGROUND` y 612
+  `EXCLUDE`. Ninguna prioridad ni propuesta algorítmica equivale por sí sola a
+  decisión humana.
+- Sitio público Quarto multipágina desplegado mediante Workers Static Assets en
+  `https://paris-ehis-progress.paris-ehis.workers.dev`, con landing, referencias
+  públicas y protocolo anotable. El build público excluye abstracts licenciados.
+- Worker y base D1 creados para doble revisión cegada, adjudicación y agente
+  automático. D1 contiene 1.091 filas bibliográficas, 1.091 decisiones JALR y
+  891 propuestas automáticas. Cloudflare Access OTP protege `/api/*` mediante
+  una allowlist exacta para JALR e investigador 2.
+- Las guías Maelstrom estructuran el ciclo del proyecto; el modelo dimensional,
+  las clases y la prohibición de inferir equivalencia siguen siendo específicos
+  y vinculantes para PaRIS–EHIS.
 - Protocolo y framework siguen en versión de trabajo; todavía no existen
   mappings source-to-target validados ni algoritmos aplicados a microdatos.
 - Último punto de reentrada: `documentation/planning/next-steps.md`.
