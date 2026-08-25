@@ -6,10 +6,10 @@ es `planning/next-steps.md`.
 
 | Área | Contenido | Estado |
 |---|---|---|
-| `protocol/` | Protocolo científico canónico, fuentes y versiones anteriores | Activo; v0.2 pendiente de confirmación |
+| `protocol/` | Protocolo científico canónico, fuentes y versiones anteriores | Activo; v0.3 pendiente de aprobación |
 | `methods/` | Modelo de datos y decisiones metodológicas reutilizables | Activo |
 | `planning/` | Próximos pasos y planes de productos | Activo; web funcional en pausa |
-| `inventories/` | Inventarios documentales no individuales | Apoyo |
+| `inventories/` | Inventarios de encuestas y fuentes no individuales | Activo; viabilidad pendiente |
 | `ethics/` | Documentación para evaluación ética | Borrador histórico |
 
 Los documentos fuente PaRIS/EHIS cuya licencia de redistribución no está

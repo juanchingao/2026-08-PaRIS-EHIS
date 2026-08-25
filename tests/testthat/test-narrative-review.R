@@ -10,6 +10,31 @@ test_that("narrative review strategies are machine readable", {
   expect_true(all(c("query", "objective", "status") %in% names(strategies)))
 })
 
+test_that("WP1 scoping review remains prospective and machine readable", {
+  root <- testthat::test_path("..", "..")
+  review_dir <- file.path(root, "research", "scoping-review")
+  strategies <- readr::read_csv(
+    file.path(review_dir, "search-strategies-draft.csv"),
+    show_col_types = FALSE
+  )
+  extraction <- readr::read_csv(
+    file.path(review_dir, "extraction-template.csv"),
+    show_col_types = FALSE
+  )
+  coverage <- readr::read_csv(
+    file.path(review_dir, "concept-coverage.csv"),
+    show_col_types = FALSE
+  )
+
+  expect_true(all(strategies$execution_status == "DRAFT_NOT_RUN"))
+  expect_equal(anyDuplicated(strategies$strategy_id), 0L)
+  expect_true(all(c("dataschema_definition", "equivalence_criteria",
+                    "survey_design_handling", "code_available") %in%
+                  names(extraction)))
+  expect_true(all(c("differential item functioning", "transportability",
+                    "PROMs and PREMs") %in% coverage$concept_label))
+})
+
 test_that("bibliographic identifiers are normalised before matching", {
   source(testthat::test_path("..", "..", "R", "bibliographic_deduplication.R"))
   expect_equal(
@@ -57,6 +82,8 @@ test_that("public project status excludes traceability-only duplicates", {
   expect_equal(result$literature$background, 1L)
   expect_equal(result$literature$exclude, 2L)
   expect_equal(result$metadata$paris_variables, 195L)
+  expect_equal(result$protocol$version, "0.3")
+  expect_equal(result$protocol$active_work_package, "WP1_PROTOCOL")
 })
 
 test_that("Scopus records match PubMed by DOI before normalised title", {

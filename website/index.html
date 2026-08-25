@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Réplica y análisis de robustez de la comparación PaRIS–EHIS publicada por OECD en 2026.">
-  <title>PaRIS–EHIS · Réplica y robustez</title>
+  <meta name="description" content="Framework reproducible de armonización retrospectiva con PaRIS como encuesta índice.">
+  <title>PaRIS Harmonisation · Framework multifuente</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,8 +25,8 @@
     <section class="hero">
       <div>
         <p class="eyebrow">Proyecto en reorientación científica</p>
-        <h1>Reproducir una comparación exige hacer visibles todas sus decisiones.</h1>
-        <p class="lead">El informe OECD de julio de 2026 ya comparó PaRIS Cycle 1 y EHIS Wave 3. El nuevo protocolo propone una réplica independiente y un análisis de robustez de sus conclusiones.</p>
+        <h1>Armonizar exige demostrar qué puede compararse y para qué.</h1>
+        <p class="lead">PaRIS será la encuesta índice de un framework reproducible. EHIS será el primer comparador; la réplica OECD se conserva como benchmark dentro de un piloto antes de cualquier ampliación.</p>
         <div class="hero-actions">
           <a class="button primary" href="protocolo.html">Leer el nuevo protocolo</a>
           <a class="button secondary" href="referencias.html">Explorar referencias</a>
@@ -35,7 +35,7 @@
       <aside class="principle-card" aria-label="Principio rector">
         <span class="status-dot" aria-hidden="true"></span>
         <p class="card-label">Estado actual</p>
-        <p>R2, el revisor LLM y la ampliación del mapping permanecen en pausa hasta confirmar el alcance v0.2.</p>
+        <p>El protocolo v0.3 y la scoping review WP1 están propuestos. R2, el revisor LLM y el mapping masivo permanecen en pausa.</p>
       </aside>
     </section>
 
@@ -76,14 +76,14 @@
       <div class="section-heading">
         <div>
           <p class="eyebrow">Líneas de trabajo</p>
-          <h2>Del alcance anterior a una réplica independiente</h2>
+          <h2>De la búsqueda piloto a un framework evaluable</h2>
         </div>
       </div>
       <div class="workstreams">
-        <article><span class="tag done">Completado</span><h3>Búsqueda y cribado</h3><p>PubMed, Scopus y Embase, con consultas, fechas y decisiones documentadas.</p></article>
+        <article><span class="tag done">Piloto conservado</span><h3>Búsqueda y cribado</h3><p>PubMed, Scopus y Embase, con consultas, fechas y decisiones documentadas que se reevaluarán para WP1.</p></article>
         <article><span class="tag done">Completado</span><h3>Metadatos fuente</h3><p><strong id="paris-vars">—</strong> variables PaRIS y <strong id="ehis-vars">—</strong> variables EHIS normalizadas.</p></article>
         <article><span class="tag next">En pausa</span><h3>Doble revisión e IA</h3><p>El corpus y la infraestructura se conservan, pero no avanzarán durante la reorientación.</p></article>
-        <article><span class="tag active">En curso</span><h3>Protocolo v0.2</h3><p>Réplica de salud autopercibida y hospitalización, con sensibilidad a población, medición, pesos y missingness.</p></article>
+        <article><span class="tag active">En curso</span><h3>Protocolo v0.3</h3><p>DataSchema, equivalencia y transportabilidad, con PaRIS–EHIS como producto mínimo viable.</p></article>
       </div>
     </section>
 
@@ -91,12 +91,12 @@
       <div>
         <p class="eyebrow">Método</p>
         <h2>La comparabilidad se argumenta dimensión a dimensión.</h2>
-        <p class="lead compact">Maelstrom guía el ciclo de trabajo; las reglas de PaRIS–EHIS mantienen separados el juicio conceptual y la validación empírica.</p>
+        <p class="lead compact">Maelstrom guía el ciclo; el framework mantiene separadas armonización conceptual, generación técnica y comparabilidad empírica.</p>
       </div>
       <ol class="method-list">
         <li><span>01</span><div><h3>Definir el objetivo</h3><p>Cada variable objetivo se especifica antes de buscar correspondencias fuente.</p></div></li>
-        <li><span>02</span><div><h3>Evaluar siete dimensiones</h3><p>Concepto, medida, población, periodo, representación, derivación y administración.</p></div></li>
-        <li><span>03</span><div><h3>Transformar por fuente</h3><p>PaRIS y EHIS conservan algoritmos independientes, versionados y comprobables.</p></div></li>
+        <li><span>02</span><div><h3>Evaluar cada dimensión</h3><p>Concepto, medida, redacción, población, tiempo, filtros, respuesta, modo, contexto y pérdida.</p></div></li>
+        <li><span>03</span><div><h3>Transformar por fuente</h3><p>Cada encuesta conserva algoritmos independientes, versionados y comprobables.</p></div></li>
         <li><span>04</span><div><h3>Validar sin atajos</h3><p>Las distribuciones apoyan plausibilidad, pero nunca demuestran equivalencia.</p></div></li>
       </ol>
     </section>
@@ -115,7 +115,7 @@
     </section>
   </main>
 
-  <footer>PaRIS–EHIS Harmonisation Project · Estado público, agregado y regenerable</footer>
+  <footer>PaRIS International Harmonisation Project · Estado público, agregado y regenerable</footer>
   <script src="app.js"></script>
 </body>
 </html>

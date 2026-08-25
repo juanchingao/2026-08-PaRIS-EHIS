@@ -1,5 +1,12 @@
 {
   "updated": "2026-08-24",
+  "protocol": {
+    "version": "0.3",
+    "status": "PROPOSED",
+    "index_survey": "PaRIS Cycle 1",
+    "first_comparator": "EHIS Wave 3",
+    "active_work_package": "WP1_PROTOCOL"
+  },
   "literature": {
     "retrieved_unique": 1783,
     "screened_unique": 1076,

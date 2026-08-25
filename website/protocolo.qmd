@@ -1,6 +1,6 @@
 ---
 title: "Protocolo científico"
-subtitle: "Réplica y robustez de la comparación PaRIS Cycle 1–EHIS Wave 3"
+subtitle: "Framework reproducible de armonización retrospectiva con PaRIS como encuesta índice"
 date: "2026-08-24"
 date-modified: last-modified
 comments:
@@ -12,297 +12,296 @@ toc: true
 number-sections: true
 ---
 
-::: {.callout-warning title="Reorientación en curso"}
-Protocolo v0.2, pendiente de confirmación por el investigador principal. El
-informe OECD publicado el 15 de julio de 2026 ya ejecuta la comparación general
-PaRIS–EHIS que motivaba el proyecto. El cribado R2, el revisor LLM y la
-ampliación masiva del mapping quedan en pausa. Este documento no contiene
-resultados de la nueva investigación.
+::: {.callout-warning title="Propuesta v0.3 pendiente de aprobación"}
+El protocolo se ha reformulado como un proyecto metodológico multifuente. PaRIS
+es la encuesta índice y EHIS el primer comparador. SHARE e IHP son extensiones
+prioritarias posteriores; las demás fuentes solo se incorporarán para preguntas
+específicas. Este documento no contiene resultados empíricos.
 :::
 
-::: {.callout-note title="Nueva contribución propuesta"}
-El estudio se reformula como una réplica metodológica independiente y análisis
-de robustez. La pregunta deja de ser cuántas variables pueden recodificarse y
-pasa a ser qué conclusiones comparativas sobreviven a decisiones alternativas
-y defendibles sobre medición, población, ponderación y datos ausentes.
+::: {.callout-note title="Qué no es este proyecto"}
+No es una combinación indiscriminada de microdatos, un crosswalk basado en
+nombres ni una infraestructura equivalente a Gateway. La escalabilidad se
+demostrará validando primero un producto mínimo viable PaRIS–EHIS.
 :::
 
 # Introducción
 
-PaRIS y EHIS producen información complementaria sobre salud y atención
-sanitaria, pero no observan la misma población ni responden a la misma finalidad.
-PaRIS estudia personas usuarias de atención primaria de 45 o más años mediante
-un diseño anidado en prácticas; EHIS describe la población residente en hogares
-privados de 15 o más años mediante diseños estadísticos nacionales. Las
-diferencias de selección, modo, periodo, instrumento y diseño forman parte del
-significado de sus estimaciones.
+PaRIS y las encuestas internacionales de salud recogen resultados percibidos,
+experiencias, utilización, acceso, funcionamiento, capacidades y determinantes
+sociales. No obstante, difieren en población, diseño, modo, periodo, redacción y
+respuesta. Dos preguntas parecidas pueden generar variables técnicamente
+recodificables sin medir de manera intercambiable el mismo constructo.
 
-El informe *Comparing patient-reported outcome and experience measures in
-international health surveys* [@oecd2026comparison] compara PaRIS, EHIS, IHP,
-PVS y SHARE. Realiza mapeo manual de dominios, crosswalk de ítems, armonización
-de categorías, restricción poblacional y postestratificación. Identifica 16
-preguntas comparables y analiza cuatro indicadores. Para PaRIS–EHIS, la
-comparación empírica detallada se concentra en salud general autopercibida y
-hospitalización en trece países.
+El informe OECD 2026 [@oecd2026comparison] comparó PaRIS, EHIS, SHARE, la
+International Health Policy Survey (IHP) y People's Voice Survey (PVS). Realizó
+domain mapping, item-level crosswalks y armonización de escalas, y mostró que el
+solapamiento es limitado y que persisten diferencias después de restringir y
+estandarizar poblaciones. El informe es antecedente directo y benchmark, no el
+vacío de conocimiento.
 
-La publicación elimina la novedad del objetivo anterior, pero abre una pregunta
-metodológica más precisa. La información pública no especifica completamente
-las variables, definiciones de cronicidad y contacto, interacción entre pesos y
-calibración, estimación de varianza o tratamiento de ausencias. Además, varias
-decisiones —como la dicotomización de salud autopercibida— pueden modificar la
-magnitud o dirección del contraste.
+El proyecto abordará la implementación reproducible sobre microdatos, un
+DataSchema formal, algoritmos auditables y la evaluación de equivalencia,
+efecto encuesta y transportabilidad. Seguirá las Maelstrom Research Guidelines
+[@fortier2017], que exigen definir las variables objetivo y evaluar el potencial
+de cada fuente antes del procesamiento.
 
-La armonización retrospectiva continuará siguiendo Maelstrom [@fortier2017],
-pero ya no buscará maximizar un conjunto común. Cada estimando deberá enlazar
-concepto, medida, población, periodo, representación, derivación,
-administración y diseño. La semejanza textual o distributiva no demostrará
-equivalencia.
+## Preguntas
 
-## Pregunta principal
+### Nivel 1. Pregunta metodológica principal
 
-¿En qué medida pueden reproducirse las comparaciones PaRIS–EHIS publicadas por
-la OCDE para salud autopercibida y hospitalización, y qué parte de sus
-conclusiones depende de las decisiones sobre medición, población,
-estandarización, diseño muestral y datos ausentes?
+¿Qué indicadores de resultados percibidos, experiencia asistencial, acceso,
+utilización y capacidades pueden compararse válidamente entre PaRIS y otras
+encuestas internacionales, mediante qué transformaciones y con qué grado de
+comparabilidad después de considerar las diferencias de diseño y medición?
 
-## Objetivos
+### Nivel 2. Transportabilidad
 
-El objetivo principal es reproducir y evaluar la robustez metodológica de las
-comparaciones publicadas por OECD (2026).
+¿En qué medida las variables generadas con una definición común conservan
+distribuciones y asociaciones comparables entre encuestas, países y
+poblaciones?
 
-Los objetivos específicos son:
+### Nivel 3. Aplicación posterior
 
-1. reconstruir variables, poblaciones, recodificaciones y ponderaciones;
-2. replicar prevalencias y diferencias por país cuando los materiales lo permitan;
-3. evaluar por separado siete dimensiones de compatibilidad;
-4. medir el efecto secuencial de edad, cronicidad y contacto sanitario;
-5. comparar especificaciones alternativas predefinidas;
-6. clasificar la reproducibilidad sin convertir falta de información en error;
-7. explorar indicadores adicionales solo tras superar la evaluación conceptual.
+Cuando la comparabilidad haya sido demostrada, se estudiará cómo acceso,
+continuidad, coordinación y atención centrada en la persona se relacionan con
+salud percibida, funcionamiento y automanejo en personas con multimorbilidad y
+vulnerabilidad socioeconómica. Esta pregunta requiere una enmienda prospectiva
+y no es todavía el objetivo principal.
+
+## Objetivo general
+
+Desarrollar y evaluar un framework reproducible y escalable para armonizar
+retrospectivamente indicadores centrados en las personas entre PaRIS y otras
+encuestas internacionales de salud, distinguiendo la posibilidad de generar una
+variable de su comparabilidad conceptual y empírica.
 
 # Métodos
 
 ## Diseño
 
-Estudio metodológico de datos secundarios con réplica documental, armonización
-preestadística, réplica empírica y análisis de sensibilidad
-multiespecificación. El reporte seguirá STROBE para el componente transversal
-[@vonelm2007strobe] y Maelstrom para la armonización. Estas guías orientan la
-transparencia; no se usarán como puntuaciones de calidad.
+Estudio metodológico, retrospectivo y multifuente para desarrollar y evaluar un
+common data model. Se organiza en paquetes:
 
-## Fuentes
+1. scoping review sistemática;
+2. selección e inventario de encuestas;
+3. DataSchema y potencial de armonización;
+4. piloto PaRIS–EHIS;
+5. transportabilidad;
+6. ampliación prioritaria a SHARE e IHP;
+7. validaciones o aplicaciones específicas.
 
-- **Benchmark:** OECD (2026), DOI `10.1787/acf46da9-en`, 39 páginas, CC BY 4.0.
-- **PaRIS Cycle 1:** cuestionario, codebook, diccionario, metodología, PUF y
-  variables de diseño autorizadas.
-- **EHIS Wave 3:** manual, cuestionario, reglas de anonimización, microdatos y
-  variables de diseño autorizadas.
+Cada paquete tiene una puerta de entrada y salida. El cronograma no obliga a
+incorporar una fuente que carezca de datos, documentación, diseño o ganancia
+científica suficiente.
 
-El PDF se ha registrado con SHA-256 y se conservará sin modificaciones. Antes
-de analizar microdatos se inventariarán versión, licencia, hash, códigos de
-ausencia, pesos, estratos y conglomerados.
+## Encuestas por fase
 
-## Países y poblaciones
+### Núcleo
 
-El universo candidato son Bélgica, Chequia, Francia, Grecia, Irlanda, Italia,
-Luxemburgo, Países Bajos, Portugal, Rumanía, Eslovenia, España y Noruega. Un
-país solo podrá excluirse por criterios técnicos o documentales previos, nunca
-por el resultado.
+- **PaRIS Cycle 1:** encuesta índice, personas de 45 o más años con contacto
+  reciente con atención primaria.
+- **EHIS Wave 3:** primer comparador, población de 15 o más años residente en
+  hogares privados.
 
-Se estimarán por separado cinco poblaciones:
+### Ampliación prioritaria
 
-1. población original de cada encuesta;
-2. personas de 45 o más años;
-3. población anterior con al menos una condición crónica comparable;
-4. población anterior con contacto sanitario reciente comparable;
-5. máxima población común reproducible, si puede definirse sin proxies débiles.
+- **SHARE:** PROMs, funcionamiento, salud mental, multimorbilidad y
+  envejecimiento.
+- **IHP:** PREMs, acceso, continuidad, coordinación y atención primaria.
 
-Cada filtro producirá un flujo con recuentos no ponderados, proporciones
-ponderadas, exclusiones y missingness. Restringir EHIS no la convierte en una
-muestra de personas anidadas en prácticas de atención primaria.
+### Validación o extensiones específicas
 
-## Indicadores primarios
+CCHS, EU-SILC, MEPS, HRS, BRFSS y PVS. Ninguna forma parte automáticamente del
+análisis primario. La ola, países, acceso y diseño permanecen pendientes de
+inventario.
 
-### Salud general autopercibida
+## Población objetivo y embudo
 
-Se conservarán las escalas ordinales originales. La réplica binaria aplicará:
+La población prioritaria son personas de 45 años o más, residentes en hogares
+privados, con al menos una enfermedad crónica y contacto reciente con atención
+primaria cuando la fuente permita identificarlo.
 
-- PaRIS: `excellent`, `very good` o `good` como resultado positivo;
-- EHIS: `very good` o `good` como resultado positivo.
+Se mantendrán estimandos separados para la población original y cada restricción
+sucesiva. Restringir una encuesta no transforma su marco muestral en el de otra.
 
-El indicador común será una recodificación operativa. No se asumirá equivalencia
-psicométrica porque las escalas tienen anclajes y puntos medios distintos.
-También se examinarán la distribución ordinal, umbrales más estrictos y el
-tratamiento explícito de `fair`.
+## Resultados metodológicos coprimarios
 
-### Hospitalización
+1. **Potencial de armonización:** clasificación revisada de cada combinación
+   variable DataSchema–encuesta.
+2. **Diferencia residual:** contraste de estimaciones estandarizadas para los
+   indicadores piloto dentro de la máxima población común defendible.
 
-La variable objetivo será cualquier ingreso con al menos una noche durante los
-últimos 12 meses. `Not sure`, no aplicable, rechazo y ausencia se mantendrán
-separados de `no`.
+El primero responde si puede generarse la variable; el segundo, si se comporta
+de forma comparable.
 
-## Indicadores secundarios
+## WP1: scoping review
 
-Tabaquismo, alcohol, consumo de fruta y verdura y acceso son candidatos, no
-resultados comprometidos. Cada uno requerirá compatibilidad preestadística de
-concepto, universo, periodo, formulación y respuesta. Los PREMs sin equivalente
-EHIS funcionarán como controles negativos.
+La revisión responderá qué métodos, criterios y procedimientos se han utilizado
+para determinar si variables o constructos de distintas encuestas, cohortes o
+instrumentos de salud pueden armonizarse retrospectivamente, cómo se documenta
+esa decisión y cómo se valida la comparabilidad resultante. Seguirá JBI
+[@peters2024jbi], PRISMA-ScR [@tricco2018prismascr] y PRISMA-S; la estrategia se
+someterá a PRESS. No se plantea metaanálisis porque no existe un estimando común
+predefinido.
 
-## Modelo de compatibilidad
+La búsqueda vigente separa tres rutas: armonización retrospectiva explícita
+(A), comparabilidad de constructos y medidas (B), y marcos e infraestructuras
+operativas (C). Las líneas se ejecutan por separado y se unen únicamente después
+de la recuperación, conservando procedencia.
 
-`domain → concept → measure → source_variable → assessment → target_variable → algorithm → harmonised_variable`
+| Base | Línea A | Línea B | Línea C | Estado |
+|---|---:|---:|---:|---|
+| PubMed/MEDLINE | 2.109 | 87.716 | 695 | Completa y validada con semillas |
+| Scopus | 674 | 16.430 | 683 | Completa y validada con semillas |
+| Embase API | 0 | 0 | 0 | Prueba 403; búsqueda no ejecutada |
+| APA PsycINFO | — | — | — | Estrategia Ovid preparada; plataforma pendiente |
+| Web of Science | — | — | — | Estrategia preparada; sin acceso configurado |
 
-El assessment separará concepto, medida, población, periodo, representación,
-derivación y administración. Las clases serán `DIRECT`, `RECODABLE`,
-`DERIVABLE`, `PARTIAL`, `RELATED` y `NONE`; los estados serán `PROPOSED`,
-`REVIEWED`, `VALIDATED`, `REJECTED` y `UNRESOLVED`.
+Ninguna estrategia es todavía `FINAL`: faltan el pilotaje humano, la revisión
+PRESS y las bases pendientes. La línea B se mantiene deliberadamente sensible
+y requiere estimar su ruido antes de cualquier estrechamiento.
 
-## Estimandos
+El corpus previo de PubMed, Scopus y Embase se conservará como búsqueda piloto.
+Sus decisiones no se transferirán automáticamente a WP1. Dos investigadores
+aplicarán los nuevos criterios y pilotarán la plantilla de extracción.
 
-Por país, encuesta, población e indicador se estimarán:
+## DataSchema
 
-- prevalencia bajo el diseño original;
-- prevalencia estandarizada;
-- diferencia absoluta PaRIS menos EHIS;
-- razón de prevalencias como análisis secundario;
-- intervalo de confianza del 95 % compatible con el diseño.
+Las variables objetivo se organizarán en catorce dominios:
 
-El estimando principal será la diferencia absoluta estandarizada en la
-población que reproduzca más fielmente la definición OECD. No se interpretará
-como efecto causal ni como diferencia pura de desempeño sanitario.
+1. sociodemografía;
+2. posición socioeconómica;
+3. salud general;
+4. cronicidad y multimorbilidad;
+5. salud mental y bienestar;
+6. funcionamiento y limitación;
+7. conductas de salud;
+8. acceso y necesidades no atendidas;
+9. utilización sanitaria;
+10. continuidad y coordinación;
+11. atención centrada en la persona;
+12. calidad y experiencia;
+13. capacidades y automanejo;
+14. práctica y sistema.
 
-## Ponderación y diseño
+Cada variable tendrá definición, población, uso permitido, periodo, tipo,
+categorías, aplicabilidad, ausencia, fuentes candidatas, transformaciones,
+pérdida tolerable, limitaciones y versión antes de asignar variables fuente.
 
-Se distinguirán peso original, calibración adicional y estimación de varianza.
-La réplica comparará el diseño original, el diseño más estandarización, la
-aproximación OECD y un análisis no ponderado exclusivamente diagnóstico.
+## Assessment de equivalencia
 
-Cuatro bandas de edad cruzadas con dos categorías de sexo producen ocho celdas.
-La mención del informe a una estructura de cuatro celdas se tratará como una
-ambigüedad que debe aclararse, no como una instrucción silenciosa. Se revisarán
-celdas vacías, pesos extremos, efecto de diseño y tamaño efectivo.
+Dos revisores evaluarán de forma independiente concepto, medida, redacción,
+población, periodo, filtros, escala, derivación, administración, contexto,
+adaptaciones nacionales y pérdida de información.
 
-## Estándares y sensibilidad
+El potencial se comunicará como `IDENTICAL`, `COMPATIBLE`,
+`PARTIALLY_COMPATIBLE`, `INCOMPATIBLE` o `UNAVAILABLE`. La clase técnica
+`DIRECT`, `RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` o `NONE` se registrará
+por separado. Una recodificación posible no demuestra equivalencia.
 
-La referencia demográfica PaRIS será la principal para la réplica. Se evaluarán
-como sensibilidad una referencia conjunta PaRIS–EHIS, EHIS restringida y, si es
-pertinente, un estándar europeo externo. Las distribuciones conjuntas de edad y
-sexo tendrán prioridad sobre productos de marginales.
+## Algoritmos y procedencia
 
-La cuadrícula mínima de sensibilidad cruzará:
+Cada fuente tendrá un algoritmo independiente con inputs, universo, filtros,
+transformaciones, tipos de ausencia, supuestos, pérdida, versión y tests
+sintéticos. La salida conservará encuesta, país, año u ola, identificador
+permitido, peso, estrato, conglomerado, versión y grado de armonización.
 
-- población analítica;
-- codificación del indicador;
-- estándar demográfico;
-- tratamiento del diseño;
-- missingness;
-- países con desviaciones documentadas.
+## Evaluación empírica
 
-Se informarán rango de estimaciones, estabilidad del signo y cambios de
-clasificación. No se escogerá retrospectivamente la especificación más próxima
-al benchmark.
+El plan incluye cobertura, missingness, distribuciones ponderadas, suelo/techo,
+restricciones poblacionales, estandarización, cuantificación del efecto encuesta,
+validez nomológica y sensibilidad.
 
-## Datos ausentes
+Las estimaciones se calcularán primero dentro de cada encuesta y país respetando
+su diseño. Solo después se compararán o sintetizarán, modelando heterogeneidad.
+No se tratarán todas las observaciones concatenadas como una única muestra.
 
-Se describirán por fuente, país, filtro e indicador. Ausencia estructural, no
-aplicable, rechazo, desconocido y no recogido no se colapsarán. Cuando sea
-defendible se compararán casos completos, escenarios para códigos ambiguos y
-métodos compatibles con el diseño.
+La similitud distributiva será diagnóstica y no demostrará equivalencia. La
+calibración o ponderación de transportabilidad solo se usará cuando estimando,
+positividad y supuestos estén identificados.
 
-## Reproducibilidad
+## Psicometría
 
-Cada contraste se clasificará como:
+Invariancia, DIF, linking, equating o IRT solo se considerarán cuando existan
+constructo común, varios ítems comparables, anclajes o muestra puente, tamaño
+adecuado e identificación defendible. No se aplicarán a cualquier variable
+aislada.
 
-- `REPRODUCED`;
-- `APPROXIMATELY_REPRODUCED`;
-- `SENSITIVE`;
-- `NOT_ASSESSABLE`;
-- `DISCREPANT`.
+## Piloto PaRIS–EHIS
 
-La tolerancia numérica se fijará antes de calcular la réplica y dependerá de si
-el benchmark procede de una tabla o de digitalización de figuras. Una falta de
-datos o definición se clasificará `NOT_ASSESSABLE`, no como discrepancia. Antes
-de concluir `DISCREPANT` se comprobarán versiones, algoritmos y, si es posible,
-se solicitará aclaración a OECD.
+Salud autopercibida y hospitalización mantienen su función de benchmark OECD.
+El DataSchema piloto añadirá únicamente variables necesarias para población y
+diseño y una selección pequeña que represente distintos problemas de
+armonización. No se realizará mapping masivo antes de validar el proceso.
 
-## Control de calidad
+## Gestión, ética y reproducibilidad
 
-PaRIS y EHIS tendrán algoritmos independientes, funciones reutilizables y tests
-sintéticos. Toda salida enlazará fuente, mapping, algoritmo, parámetros, versión
-de datos y commit. Se publicarán flujos de selección y se verificará disclosure
-antes de liberar resultados.
+`data/raw` es inmutable. No se versionarán microdatos, datos individuales
+derivados, credenciales, documentación restringida ni resultados con riesgo de
+disclosure. Cada salida enlazará fuente, mapping, algoritmo, parámetros, versión
+de datos y commit.
+
+Los microdatos se procesarán localmente o en entornos autorizados. El producto
+público será principalmente documentación, metadatos, código, algoritmos y
+resultados agregados compatibles con las licencias.
 
 # Discusión prevista
 
-La interpretación distinguirá composición poblacional, medición, modo,
-temporalidad y diseño. Estandarizar variables observadas no identifica la causa
-de una diferencia residual ni convierte ambas encuestas en muestras de la misma
-población. La no comparabilidad será un resultado válido.
+El framework distinguirá tres afirmaciones: una variable puede generarse; una
+variable representa suficientemente el mismo concepto; y una variable conserva
+un comportamiento comparable. El fracaso en cualquiera de ellas limitará el uso
+permitido sin invalidar necesariamente la encuesta fuente.
 
-Las principales amenazas previstas son selección por contacto asistencial,
-respuesta diferencial, exclusión de poblaciones institucionalizadas, desfase
-2019 frente a 2023–2024, modo de administración, traducciones, puntos de corte,
-implementación nacional, pesos extremos y elección de indicadores.
+Las amenazas principales serán acceso desigual, diferencias poblacionales,
+periodos no coincidentes, modos, traducciones, adaptaciones nacionales,
+anonimización, diseño y selección de variables por disponibilidad. La
+escalabilidad se juzgará por la reutilización del proceso y no por el número de
+fuentes incorporadas.
 
-# Ética, licencias y difusión
+# Gobernanza y decisiones pendientes
 
-El proyecto utiliza documentación pública y microdatos secundarios sujetos a
-autorización. `data/raw` será inmutable. No se versionarán microdatos,
-credenciales, documentación restringida ni resultados con riesgo de disclosure.
-El informe OECD se reutiliza con atribución conforme a CC BY 4.0.
+JALR aprobará las versiones científicas. Un segundo investigador revisará WP1 y
+los mappings primarios. Las discrepancias tendrán rationale, fecha y
+adjudicación. Los métodos automáticos solo propondrán candidatos o comprobarán
+consistencia.
 
-El protocolo y sus enmiendas se fecharán antes de los análisis. La web pública
-mostrará métodos, fuentes y resultados agregados aprobados; los materiales
-restringidos permanecerán en el entorno autorizado.
-
-# Criterios para comenzar la réplica
-
-La fase empírica requiere:
-
-1. confirmación formal del nuevo alcance;
-2. acceso legal y técnico a ambos conjuntos y sus variables de diseño;
-3. definición revisada de indicadores y embudo poblacional;
-4. especificación congelada de pesos, estándares y missingness;
-5. tests sintéticos superados.
-
-Si falta una definición esencial, el alcance se limitará a auditoría documental
-o réplica parcial. No se completarán huecos mediante supuestos no registrados.
-
-# Trabajo en pausa
-
-- segunda revisión del corpus bibliográfico;
-- ejecución del tercer revisor LLM;
-- ampliación masiva del mapping;
-- algoritmos ajenos a los indicadores primarios;
-- nuevas funciones de la web de cribado.
-
-Los artefactos existentes se conservan para trazabilidad y posible reutilización.
+Antes de iniciar el análisis se requiere aprobar v0.3, registrar WP1, confirmar
+acceso y diseño de PaRIS/EHIS, congelar el DataSchema mínimo viable y validar los
+algoritmos con datos sintéticos.
 
 # Anexos
 
-## Anexo A. Informe OECD ingerido
+## Documentos operativos
+
+- Protocolo canónico: `documentation/protocol/protocol.md`
+- Protocolo WP1: `research/scoping-review/protocol.md`
+- Inventario: `documentation/inventories/survey-inventory.csv`
+- Preguntas: `documentation/planning/research-questions.csv`
+- Cronograma: `documentation/planning/work-packages.csv`
+- Riesgos: `documentation/planning/risk-register.csv`
+- Plantillas: `harmonisation/templates/`
+
+## OECD 2026
 
 - DOI: [10.1787/acf46da9-en](https://doi.org/10.1787/acf46da9-en)
-- Fecha de publicación: 15 de julio de 2026
-- Archivo local: `documentation/protocol/sources/oecd-2026-comparison.pdf`
-- SHA-256: `BF3A255F5286A89F46DDD6AF4FEA32C4EBC98B061451AC54B8BF0D5E0262B0A9`
 - Evaluación: `documentation/protocol/sources/oecd-2026-comparison-assessment.md`
+- Manifiesto: `documentation/protocol/sources/manifest.csv`
 
-## Anexo B. Ambigüedades que deben resolverse
+## Estrategias bibliográficas
 
-1. variables y versiones exactas;
-2. definiciones de cronicidad y contacto reciente;
-3. pesos originales, calibración y varianza;
-4. cuatro frente a ocho celdas de edad-sexo;
-5. regla *top-two* frente a *top-three-box*;
-6. missingness y códigos ambiguos;
-7. selección de cuatro indicadores entre 16 candidatos;
-8. disponibilidad de código y tablas numéricas.
+La versión vigente y sus resultados auditables se conservan en:
 
-## Anexo C. Estrategias bibliográficas históricas
+- `research/scoping-review/strategies/search-strategies-v0.2.csv`;
+- `research/scoping-review/strategies/strategy-register.csv`;
+- `research/scoping-review/manifests/scopus-subqueries.csv`;
+- `research/scoping-review/seed-validation.csv`;
+- `research/scoping-review/reports/search-summary.csv`.
 
-Las estrategias se conservan como antecedente, pero no forman parte del flujo
-activo mientras se define el nuevo alcance.
+### Antecedente histórico
+
+Las consultas siguientes documentan la búsqueda piloto. Las estrategias
+antiguas se preservan como antecedente y no sustituyen la versión 0.2.
 
 {{< include generated/search-strategies.md >}}
 

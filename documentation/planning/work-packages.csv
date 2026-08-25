@@ -1,0 +1,8 @@
+work_package,sequence,scope,minimum_output,entry_gate,exit_gate,relative_timing,status
+WP1,1,Scoping review systematic methods mapping,"Registered protocol; search audit; screened corpus; charted evidence; PRISMA-ScR report",Protocol v0.3 approved,Review synthesis approved,Months 0-4,PROPOSED
+WP2,2,Survey selection and feasibility inventory,"Survey-source-country inventory with access licence documentation and design",Protocol v0.3 approved,Core sources classified as feasible or not assessable,Months 1-3,PROPOSED
+WP3,3,DataSchema and harmonisation potential,"Versioned target variables and independently reviewed equivalence matrix",WP1 preliminary framework and WP2 core inventory,MVP DataSchema frozen,Months 2-5,PROPOSED
+WP4,4,PaRIS-EHIS pilot,"Independent source algorithms synthetic tests and OECD benchmark specification",MVP DataSchema frozen and legal access confirmed,Algorithms and mappings reviewed,Months 4-8,PROPOSED
+WP5,5,Empirical comparability and transportability,"Design-based estimates survey effects nomological checks and sensitivities",WP4 quality gate passed,Comparability report approved,Months 7-11,PROPOSED
+WP6,6,Priority extension to SHARE and IHP,"Feasibility assessment and selected source-specific mappings",WP5 demonstrates usable framework,Extension decision recorded,After month 11,PENDING
+WP7,7,Specific external validation or application,"Prospective amendment for selected surveys or substantive question",Scientific gain and resources documented,Amendment registered,Future,PENDING

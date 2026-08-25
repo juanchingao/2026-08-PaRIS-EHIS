@@ -1,0 +1,18 @@
+source_id,organisation_or_site,url,scope,planned_route,stopping_rule,status,notes
+GREY-001,Maelstrom Research,https://www.maelstrom-research.org/,guidelines tools catalogues,Site search plus publications and documentation,All relevant result pages plus linked methodological documents,PLANNED,Record DataSchema and harmonisation decision products
+GREY-002,DataSHaPER,https://www.maelstrom-research.org/page/datashaper,tool and methodology,Project page publications and linked manuals,All methodological documents and accessible archived versions,PLANNED,Retain relationship with Maelstrom
+GREY-003,Gateway to Global Aging Data,https://g2aging.org/,cross-study harmonisation,Documentation search plus harmonised codebooks,All documentation for named surveys and crosswalk products,PLANNED,Do not treat data portal mentions as eligible methods automatically
+GREY-004,CLOSER,https://closer.ac.uk/,longitudinal study harmonisation,Search resources learning hub and publications,First 100 site results or saturation after 20 consecutive irrelevant results,PLANNED,
+GREY-005,DataSHIELD,https://www.datashield.org/,federated analysis infrastructure,Documentation publications and methods,All core methodological documentation,PLANNED,Include only transferable harmonisation content
+GREY-006,OMOP/OHDSI,https://www.ohdsi.org/data-standardization/,common data model,Documentation methods and linked specifications,Core CDM documentation plus relevant survey or PRO extensions,PLANNED,Clinical integration alone is not sufficient
+GREY-007,OECD PaRIS,https://www.oecd.org/health/paris/,index survey and comparison report,Site search reports questionnaires and methods,All PaRIS methodological documents relevant to measurement comparability,PLANNED,
+GREY-008,Eurostat EHIS,https://ec.europa.eu/eurostat/web/microdata/european-health-interview-survey,EHIS methods,Manuals questionnaires quality reports and metadata,All Wave 3 methodological documents plus cross-wave harmonisation material,PLANNED,
+GREY-009,WHO,https://www.who.int/data,health survey standards,Site search manuals instruments and harmonisation,First 100 results or saturation after 20 consecutive irrelevant results,PLANNED,
+GREY-010,HRS,https://hrs.isr.umich.edu/,survey documentation,Documentation publications and cross-study products,All relevant harmonisation and crosswalk documents,PLANNED,
+GREY-011,SHARE,https://share-eric.eu/,survey documentation,Questionnaires methodology and publications,All relevant harmonisation and crosswave documents,PLANNED,
+GREY-012,ELSA,https://www.elsa-project.ac.uk/,survey documentation,Documentation and harmonisation resources,All relevant methodological documents,PLANNED,
+GREY-013,CHARLS,https://charls.charlsdata.com/,survey documentation,Documentation questionnaires and publications,All relevant methodological documents accessible in English,PLANNED,
+GREY-014,CCHS,https://www.statcan.gc.ca/en/survey/household/3226,survey documentation,Statistics Canada methods questionnaires and harmonised content,All relevant methods and concordance documents,PLANNED,
+GREY-015,BRFSS,https://www.cdc.gov/brfss/,survey documentation,CDC questionnaires comparability and weighting documentation,All relevant methodological and comparability documents,PLANNED,
+GREY-016,MEPS,https://www.meps.ahrq.gov/mepsweb/,survey documentation,AHRQ methods questionnaires and codebooks,All relevant methods and crosswalk documentation,PLANNED,
+GREY-017,EU-SILC,https://ec.europa.eu/eurostat/web/income-and-living-conditions,comparative survey methods,Eurostat methodology quality and harmonisation documents,All relevant methodological and quality documents,PLANNED,

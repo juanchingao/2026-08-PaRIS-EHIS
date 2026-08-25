@@ -1,0 +1,13 @@
+risk_id,category,risk,consequence,likelihood,impact,mitigation,decision_gate,owner,status
+RISK-001,SCOPE,Expansion to too many surveys before validating the framework,Unfinished mappings and weak quality control,HIGH,HIGH,Restrict MVP to PaRIS and EHIS and require gates before each extension,Post-WP5,JALR,OPEN
+RISK-002,ACCESS,Microdata or design variables unavailable,Some estimands cannot be generated,HIGH,HIGH,Inventory licences files and design before committing analyses,Pre-WP3,JALR,OPEN
+RISK-003,CONCEPT,Similar wording mistaken for equivalence,Biased or uninterpretable comparisons,MEDIUM,HIGH,Independent multidimensional assessment before empirical inspection,Pre-algorithm,Review team,CONTROLLED
+RISK-004,POPULATION,PaRIS target population cannot be reproduced in comparator,Residual selection differences misinterpreted,HIGH,HIGH,Use population funnel separate estimands and NOT_ASSESSABLE where required,Pre-WP5,Methods lead,OPEN
+RISK-005,DESIGN,Weights strata or clusters absent or mishandled,Incorrect uncertainty and transportability,HIGH,HIGH,Inventory design variables and estimate within survey-country first,Pre-analysis,Statistical lead,OPEN
+RISK-006,TIME,Survey periods differ materially,Survey effects confounded with temporal change,HIGH,HIGH,Predefine period compatibility and sensitivity; avoid causal attribution,Pre-WP5,Methods lead,OPEN
+RISK-007,REVIEW,Previous screening criteria differ from WP1 eligibility,Invalid PRISMA flow or inherited selection bias,HIGH,MEDIUM,Re-evaluate the corpus under the registered WP1 protocol,WP1 launch,JALR,OPEN
+RISK-008,SEARCH,Expanded search remains insufficiently sensitive,Methods or infrastructures are missed,MEDIUM,HIGH,Peer-review syntax and test sentinel articles before execution,WP1 launch,Information specialist,OPEN
+RISK-009,PSYCHOMETRICS,DIF or linking applied without anchors,Unidentified or misleading latent comparisons,MEDIUM,HIGH,Require common construct shared items anchors invariance and sensitivity,Method selection,Methods lead,CONTROLLED
+RISK-010,LEGAL,Redistribution restrictions differ by source,Unauthorised disclosure or unusable public outputs,MEDIUM,HIGH,Keep microdata local and publish metadata code and aggregate outputs only,Every release,JALR,CONTROLLED
+RISK-011,GOVERNANCE,Second reviewer unavailable,Delayed independent assessment and review,HIGH,MEDIUM,Do not label mappings or WP1 selection as independently reviewed until assigned,WP1 and WP3,JALR,OPEN
+RISK-012,COMPUTE,Multisource processing exceeds available secure infrastructure,Delayed or incomplete extensions,MEDIUM,MEDIUM,Estimate cost after MVP and use source-specific local pipelines,Post-MVP,JALR,OPEN

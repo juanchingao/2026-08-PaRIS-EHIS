@@ -2,8 +2,9 @@
 
 ## Documento canónico
 
-- `protocol.md`: protocolo científico vigente. Corresponde a la propuesta v0.2
-  de réplica y robustez tras el informe OECD 2026.
+- `protocol.md`: protocolo científico vigente. Corresponde a la propuesta v0.3
+  de framework multifuente con PaRIS como encuesta índice y EHIS como primer
+  comparador.
 - `../../website/protocolo.qmd`: proyección pública en Quarto. Debe resumir el
   protocolo canónico, pero no sustituirlo.
 
@@ -19,7 +20,8 @@ trazabilidad:
 ## Archivo
 
 `archive/` conserva versiones sustituidas. `protocol-v0.1.md` documenta el
-alcance de armonización general anterior a OECD 2026 y no guía nuevos análisis.
+alcance inicial PaRIS–EHIS y `protocol-v0.2.md` la propuesta de réplica OECD
+como objetivo principal. Ninguno guía nuevos análisis.
 
 ## Versionado
 

@@ -2,15 +2,18 @@
 
 ## Flujo vigente
 
-La prioridad actual es el protocolo de réplica y robustez disponible en
-`../documentation/protocol/protocol.md`. La evidencia OECD que desencadena la
-reorientación se registra tanto en el protocolo como en el mapa de evidencia.
+`scoping-review/` contiene el WP1 propuesto del protocolo v0.3: protocolo JBI,
+auditoría de búsquedas, cobertura conceptual y plantilla de extracción. No se
+ha ejecutado todavía la actualización.
 
-## Flujos conservados en pausa
+## Búsqueda piloto conservada
 
-- `narrative-review/`: búsquedas PubMed, Scopus y Embase, cribado JALR, mapa de
+- `narrative-review/`: resultados PubMed, Scopus y Embase, cribado JALR, mapa de
   evidencia e infraestructura del tercer revisor.
 - `narrative-review/ai-screening/`: contrato reproducible del LLM; no ejecutar.
+
+El corpus previo se utilizará para calibración y artículos centinela, pero sus
+decisiones no se transferirán automáticamente al nuevo WP1.
 
 ## Archivo
 

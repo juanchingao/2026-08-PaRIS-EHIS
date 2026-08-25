@@ -1,122 +1,106 @@
-# PaRISEHIS Harmonisation Project
+# PaRIS International Harmonisation Project
 
-Armonización retrospectiva de **PaRIS Cycle 1** y **European Health Interview
-Survey (EHIS) Wave 3** mediante un modelo común de conceptos, medidas,
-poblaciones, representaciones y variables objetivo.
+Framework reproducible para evaluar y ejecutar la armonización retrospectiva de
+**PaRIS Cycle 1** con otras encuestas internacionales de salud. PaRIS es la
+encuesta índice y **EHIS Wave 3** el primer comparador.
 
-El objetivo no es maximizar correspondencias, sino establecer de forma
-reproducible qué variables pueden compararse, bajo qué transformaciones y en
-qué poblaciones. Una conclusión de no comparabilidad es un resultado válido.
+El objetivo no es maximizar correspondencias ni combinar indiscriminadamente
+microdatos. El proyecto determinará, variable por variable, qué puede generarse,
+mediante qué transformaciones, para qué población y con qué grado de
+comparabilidad conceptual y empírica. La no comparabilidad es un resultado
+válido.
 
 ## Estado
 
-El proyecto está en **reorientación científica** desde el 24 de agosto de 2026.
-El informe OECD 2026 `10.1787/acf46da9-en` ya ejecuta la comparación general
-PaRIS–EHIS que motivaba el protocolo inicial. La propuesta activa es una réplica
-independiente y análisis de robustez para salud autopercibida y hospitalización.
+El protocolo v0.3 está en **reformulación científica pendiente de aprobación**.
+El informe OECD 2026 `10.1787/acf46da9-en` ya comparó PaRIS, EHIS, SHARE, IHP y
+PVS mediante mapeo de dominios, crosswalks y algunas comparaciones
+estandarizadas. Por ello, el vacío no es un nuevo crosswalk descriptivo, sino la
+implementación reproducible de un DataSchema, algoritmos auditables y una
+evaluación de equivalencia y transportabilidad.
 
-La búsqueda bibliográfica multibase, las 1.076 decisiones JALR, la interfaz de
-doble revisión y el lote LLM se conservan, pero están en pausa. Se han
-normalizado 195 variables PaRIS Cycle 1 y 154 variables EHIS Wave 3; todavía no
-se han incorporado microdatos ni validado mappings source-to-target.
+El producto mínimo viable se limita a PaRIS–EHIS. SHARE e IHP son ampliaciones
+prioritarias posteriores. CCHS, EU-SILC, MEPS, HRS, BRFSS y PVS solo se
+considerarán para validaciones o extensiones justificadas.
+
+WP1 será una scoping review sistemática conforme a JBI y PRISMA-ScR. El corpus
+multibase previo —1.076 referencias únicas con decisiones JALR— se conserva como
+búsqueda piloto, pero no constituye automáticamente la selección de WP1.
 
 ## Arquitectura
 
 ```text
 ├── R/                         # funciones reutilizables
 ├── scripts/                   # pipeline numerado
-├── config/                    # rutas y configuración científica
+├── config/                    # configuración científica y rutas
 ├── data/
-│   ├── raw/{paris,ehis,documentation}/
-│   │                           # originales inmutables; nunca se versionan
+│   ├── raw/                   # originales inmutables; nunca se versionan
 │   ├── interim/               # datos temporales; no se versionan
 │   ├── processed/             # datos analíticos; no se versionan
 │   └── metadata/              # metadatos normalizados versionables
 ├── harmonisation/
-│   ├── catalogues/            # dominios, conceptos y variables objetivo
+│   ├── catalogues/            # dominios, conceptos y DataSchema
+│   ├── templates/             # plantillas de DataSchema y equivalencia
 │   ├── mappings/              # source variable -> target variable
-│   ├── algorithms/            # reglas de transformación
-│   └── decisions/             # decisiones documentadas
-├── research/                  # revisión vigente y material histórico archivado
+│   ├── algorithms/            # reglas específicas por fuente
+│   └── decisions/             # decisiones científicas
+├── research/
+│   ├── scoping-review/        # WP1 activo propuesto
+│   └── narrative-review/      # búsqueda piloto y corpus previo
 ├── documentation/            # protocolo, métodos, planificación e inventarios
-├── reports/                   # informes reproducibles
-├── manuscript/                # futuro manuscrito
-├── website/                   # sitio Quarto multipágina para Cloudflare Workers
+├── website/                   # sitio Quarto y páginas públicas
 ├── outputs/{tables,figures}/  # resultados regenerables
-├── tests/testthat/            # pruebas sin microdatos
+├── tests/testthat/            # pruebas con datos sintéticos
 └── logs/                      # registros de ejecución
 ```
 
-## Puesta en marcha
-
-1. Clone el repositorio en Ubuntu y ábralo desde RStudio Server.
-2. Copie `.Renviron.example` a `.Renviron` y adapte rutas solo si los datos no
-   residen dentro del repositorio.
-3. Ejecute `renv::restore()`.
-4. Compruebe el entorno con `source("scripts/01_validate_environment.R")`.
-5. Deposite microdatos sin modificar en `data/raw/paris/` y `data/raw/ehis/`.
-   La documentación fuente local se organiza por encuesta bajo
-   `data/raw/documentation/`, o en la ruta externa configurada.
-
-No deben usarse rutas absolutas. `PARISEHIS_RAW_DIR`,
-`PARISEHIS_INTERIM_DIR`, `PARISEHIS_DERIVED_DIR`, `PARISEHIS_OUTPUTS_DIR` y
-`PARISEHIS_LOGS_DIR` adaptan la ejecución a Windows, Ubuntu o un entorno seguro.
-
-### Búsqueda en Scopus (flujo en pausa)
-
-La búsqueda requiere una clave de la API de Elsevier. Guárdela únicamente en
-el `.Renviron` local, que está excluido de Git:
-
-```text
-SCOPUS_API_KEY=replace_with_your_elsevier_api_key
-```
-
-Compruebe primero los recuentos, sin recuperar registros completos:
-
-```r
-Rscript --vanilla scripts/09_search_scopus_narrative_review.R --count-only
-```
-
-Si la institución exige autenticación adicional fuera de su red, añada
-`SCOPUS_INST_TOKEN` al mismo archivo. Nunca registre ni imprima ninguna clave.
-
 ## Flujo previsto
 
-1. Búsqueda metodológica y adquisición documental.
-2. Inventario y normalización de metadatos.
-3. Catálogo de dominios, conceptos, medidas y universos.
-4. Definición de variables objetivo y evaluación de mappings.
-5. Algoritmos por fuente, control de calidad y validación empírica.
-6. Sensibilidad y comparabilidad poblacional.
+1. Scoping review metodológica.
+2. Selección e inventario legal y técnico de encuestas.
+3. Definición independiente del DataSchema.
+4. Assessment multidimensional por dos revisores.
+5. Algoritmos independientes por fuente con tests sintéticos.
+6. Piloto PaRIS–EHIS respetando cada diseño muestral.
+7. Evaluación distributiva, nomológica y de transportabilidad.
+8. Decisión prospectiva sobre SHARE, IHP y extensiones.
+
+Las estimaciones se producirán primero dentro de cada encuesta y país. Una
+estructura común no convierte todas las observaciones en una única muestra.
+
+## Puesta en marcha
+
+1. Clone el repositorio y ábralo desde la raíz del proyecto.
+2. Copie `.Renviron.example` a `.Renviron` solo si necesita variables locales.
+3. Ejecute `renv::restore()`.
+4. Compruebe el entorno con `Rscript --vanilla scripts/01_validate_environment.R`.
+5. Deposite originales autorizados en `data/raw/` o configure almacenamiento
+   externo mediante las variables documentadas en `config/paths.R`.
+
+No deben usarse rutas absolutas en código. Las claves API se almacenan
+únicamente en `.Renviron`, que está excluido de Git.
 
 ## Documentos clave
 
-- [Índice de documentación](documentation/README.md)
-- [Protocolo vigente: réplica y robustez](documentation/protocol/protocol.md)
-- [Evaluación del informe OECD 2026](documentation/protocol/sources/oecd-2026-comparison-assessment.md)
-- [Protocolo v0.1 histórico](documentation/protocol/archive/protocol-v0.1.md)
-- [Protocolo de revisión narrativa metodológica](research/narrative-review/protocol.md)
-- [Revisión narrativa metodológica v0.1, histórica](research/narrative-review/archive/narrative-review-v0.1.md)
-- [Siguientes pasos y punto de reentrada](documentation/planning/next-steps.md)
-- [Protocolo para comité de ética v0.1](documentation/ethics/ethics-protocol-v0.1.md)
-- [Versión Quarto del protocolo ético](reports/ethics-protocol.qmd)
-- [Índice de investigación](research/README.md)
-- [Mapa de scripts](scripts/README.md)
+- [Protocolo v0.3](documentation/protocol/protocol.md)
+- [Protocolo WP1 de la scoping review](research/scoping-review/protocol.md)
+- [Auditoría de búsquedas](research/scoping-review/search-strategy-audit.md)
+- [Inventario de encuestas](documentation/inventories/survey-inventory.csv)
+- [Preguntas y objetivos](documentation/planning/research-questions.csv)
+- [Cronograma por Work Packages](documentation/planning/work-packages.csv)
+- [Riesgos y asuntos pendientes](documentation/planning/risk-register.csv)
 - [Modelo de datos](documentation/methods/data-model.md)
-- [Procesamiento de reglas de anonimización EHIS](documentation/methods/ehis-anonymisation-processing.md)
-- [Procesamiento del codebook PaRIS](documentation/methods/paris-codebook-processing.md)
-- [Alineación con Maelstrom Research](documentation/methods/maelstrom-alignment.md)
-- [Gobernanza del doble cribado y agente automático](documentation/methods/screening-governance.md)
-- [Arquitectura privada en Cloudflare](cloudflare/README.md)
+- [Alineación Maelstrom](documentation/methods/maelstrom-alignment.md)
+- [Evaluación del informe OECD 2026](documentation/protocol/sources/oecd-2026-comparison-assessment.md)
+- [Punto de reentrada](documentation/planning/next-steps.md)
+- [Registro de decisiones](harmonisation/decisions/decision_log.csv)
+- [Mapa de scripts](scripts/README.md)
 - [Registro de cambios](CHANGELOG.md)
-- [Instrucciones para agentes](AGENTS.md)
-- [Hoja de ruta de la web pública](documentation/planning/public-website-roadmap.md)
-- [Instrucciones del sitio público](website/README.md)
-- [Web pública desplegada](https://paris-ehis-progress.paris-ehis.workers.dev)
 
 ## Seguridad
 
 Los microdatos y materiales sujetos a licencia permanecen fuera de Git. Antes
 de usar una fuente se documentarán licencia, almacenamiento, disclosure y
-requisitos éticos. `raw` es inmutable; las transformaciones se escriben en
-`interim` o `processed`.
+requisitos éticos. `data/raw` es inmutable; las transformaciones se escriben en
+`interim` o `processed`. Los productos públicos serán principalmente
+documentación, metadatos, código, algoritmos y resultados agregados aprobados.

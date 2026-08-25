@@ -1,8 +1,8 @@
 project:
   id: parisehis
   title: PaRISEHIS Harmonisation Project
-  protocol_version: "0.2"
-  scope_status: proposed_reorientation
+  protocol_version: "0.3"
+  scope_status: proposed_multisource_framework
   default_language: es
 sources:
   paris:
@@ -11,6 +11,11 @@ sources:
   ehis:
     wave: "3"
     principal_collection_period: "2019"
+    role: first_comparator
+  future_comparators:
+    priority: [SHARE, IHP]
+    validation_extensions: [CCHS, EU-SILC, MEPS, HRS, BRFSS, PVS]
 harmonisation:
   classes: [DIRECT, RECODABLE, DERIVABLE, PARTIAL, RELATED, NONE]
+  potentials: [IDENTICAL, COMPATIBLE, PARTIALLY_COMPATIBLE, INCOMPATIBLE, UNAVAILABLE]
   statuses: [PROPOSED, REVIEWED, VALIDATED, REJECTED, UNRESOLVED]

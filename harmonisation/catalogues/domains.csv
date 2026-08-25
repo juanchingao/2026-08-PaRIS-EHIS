@@ -1,10 +1,15 @@
 domain_id,domain_label_es,domain_label_en,definition,status
 SOC,sociodemografía,sociodemographics,Características sociales y demográficas,PROPOSED
-HEALTH,estado de salud,health status,Estado general y específico de salud,PROPOSED
-CHRONIC,enfermedades crónicas,chronic conditions,Condiciones o enfermedades crónicas,PROPOSED
-FUNCTION,funcionamiento,functioning,Capacidad funcional y limitaciones,PROPOSED
-MENTAL,salud mental,mental health,Bienestar y síntomas de salud mental,PROPOSED
-DETERMINANTS,determinantes de salud,health determinants,Conductas y exposiciones relacionadas con salud,PROPOSED
+SEP,posición socioeconómica,socioeconomic position,Recursos educación ocupación ingresos y vulnerabilidad socioeconómica,PROPOSED
+GENERAL_HEALTH,estado de salud general,general health status,Valoración global de salud y estado general percibido,PROPOSED
+CHRONIC,enfermedades crónicas y multimorbilidad,chronic conditions and multimorbidity,Condiciones crónicas y su concurrencia,PROPOSED
+MENTAL,salud mental y bienestar,mental health and wellbeing,Síntomas afectivos bienestar y malestar psicológico,PROPOSED
+FUNCTION,funcionamiento y limitación,functioning and limitation,Capacidad funcional discapacidad y limitaciones de actividad,PROPOSED
+BEHAVIOUR,conductas relacionadas con la salud,health-related behaviours,Conductas y exposiciones modificables relacionadas con salud,PROPOSED
+ACCESS,acceso y necesidades no atendidas,access and unmet needs,Acceso asequibilidad oportunidad y necesidades no cubiertas,PROPOSED
 UTILISATION,utilización sanitaria,healthcare utilisation,Contacto y uso de servicios sanitarios,PROPOSED
-PROM,resultados reportados por pacientes,patient-reported outcomes,Resultados reportados directamente por pacientes,PROPOSED
-PREM,experiencia asistencial,patient-reported experiences,Experiencias de atención reportadas por pacientes,PROPOSED
+CONTINUITY,continuidad y coordinación,continuity and coordination,Continuidad relacional e informacional y coordinación asistencial,PROPOSED
+PCC,atención centrada en la persona,person-centred care,Participación comunicación preferencias y decisiones compartidas,PROPOSED
+CARE_EXPERIENCE,calidad y experiencia asistencial,care quality and experience,Calidad y experiencia de la atención reportadas por las personas,PROPOSED
+CAPABILITY,capacidades y automanejo,capabilities and self-management,Confianza conocimientos y capacidad para gestionar la salud,PROPOSED
+PRACTICE_SYSTEM,características de la práctica o del sistema,practice and system characteristics,Organización recursos y contexto de prestación de atención,PROPOSED

@@ -1,0 +1,14 @@
+source_database,lines,unique_works
+PubMed/MEDLINE,A,1874
+PubMed/MEDLINE,A;B,141
+PubMed/MEDLINE,A;B;C,1
+PubMed/MEDLINE,A;C,87
+PubMed/MEDLINE,B,87510
+PubMed/MEDLINE,B;C,5
+PubMed/MEDLINE,C,602
+Scopus,A,592
+Scopus,A;B,25
+Scopus,A;C,57
+Scopus,B,16365
+Scopus,B;C,6
+Scopus,C,619

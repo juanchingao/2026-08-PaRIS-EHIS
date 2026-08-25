@@ -1,8 +1,9 @@
 # Gobernanza del cribado con dos investigadores y un agente automático
 
 > **Estado desde 2026-08-24: en pausa.** La arquitectura y las decisiones se
-> conservan, pero no se iniciarán R2 ni la corrida LLM hasta que JALR confirme
-> el alcance del protocolo v0.2.
+> conservan, pero no se iniciarán R2 ni la corrida LLM del corpus histórico
+> hasta que JALR apruebe el protocolo v0.3 y el protocolo prospectivo de la
+> scoping review WP1.
 
 ## Unidad y decisiones
 

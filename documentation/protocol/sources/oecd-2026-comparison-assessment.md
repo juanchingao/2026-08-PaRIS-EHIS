@@ -1,5 +1,10 @@
 # Ingesta y evaluación del informe OCDE 2026
 
+> **Interpretación actualizada en protocolo v0.3:** la evaluación factual del
+> informe se mantiene. La recomendación inicial de convertir la réplica OECD en
+> todo el proyecto fue sustituida por un framework multifuente. La réplica
+> PaRIS–EHIS se conserva como benchmark y piloto metodológico.
+
 ## Identificación y trazabilidad
 
 | Campo | Valor |
@@ -91,10 +96,10 @@ error metodológico. Los principales puntos a aclarar son:
 Estos puntos se registran como preguntas reproducibles, no como conclusiones
 sobre la validez del trabajo de la OCDE.
 
-## Consecuencia científica y alcance recomendado
+## Consecuencia científica evaluada inicialmente
 
-Se recomienda reformular PaRISEHIS como un estudio metodológico de réplica y
-robustez con tres capas:
+La primera reorientación recomendó un estudio metodológico de réplica y robustez
+con tres capas:
 
 1. **Reconstrucción:** reproducir tan fielmente como permitan la documentación y
    los microdatos las comparaciones PaRIS–EHIS publicadas para salud
@@ -106,9 +111,9 @@ robustez con tres capas:
    estándares demográficos, ponderaciones, missingness y especificaciones
    alternativas predefinidas. Solo después se considerará ampliar indicadores.
 
-El producto principal ya no sería «un conjunto armonizado» sino una evaluación
-reproducible de qué conclusiones son robustas a decisiones razonables y qué
-contrastes no admiten una interpretación común.
+Estas capas se mantienen en el piloto PaRIS–EHIS. En v0.3 el producto principal
+es el framework reproducible —DataSchema, assessment, algoritmos y evaluación de
+transportabilidad— y la réplica OECD es uno de sus casos de validación.
 
 ## Elementos del trabajo anterior que se conservan
 
@@ -120,19 +125,15 @@ contrastes no admiten una interpretación común.
 - tratamiento explícito del diseño complejo y de los tipos de ausencia;
 - corpus bibliográfico y decisiones JALR como recurso secundario.
 
-Quedan en pausa la segunda revisión bibliográfica, la corrida del tercer revisor
-LLM, la ampliación masiva del mapping y cualquier análisis de microdatos no
-vinculado al nuevo protocolo.
+Quedan en pausa la corrida del tercer revisor LLM, la ampliación masiva del
+mapping y cualquier análisis de microdatos anterior a la aprobación de v0.3. La
+revisión bibliográfica se reformula prospectivamente como scoping review WP1.
 
-## Decisiones que requieren confirmación del investigador principal
+## Decisiones actuales que requieren confirmación
 
-1. Confirmar que la contribución principal será réplica y robustez metodológica,
-   y no una comparación descriptiva adicional.
-2. Decidir si el análisis primario abarcará los trece países PaRIS–EHIS o un
-   subconjunto definido por disponibilidad y comparabilidad del diseño.
-3. Confirmar el acceso efectivo a las versiones de microdatos y variables de
-   diseño utilizadas o equivalentes a las del informe.
-4. Valorar una solicitud a la OCDE de código, definiciones y tablas numéricas
-   antes de clasificar un resultado como no reproducible.
-5. Definir si la extensión a indicadores adicionales será objetivo secundario
-   confirmatorio o trabajo futuro exploratorio.
+1. Aprobar el framework multifuente v0.3 y su producto mínimo PaRIS–EHIS.
+2. Confirmar qué parte de la réplica OECD se usará como benchmark del piloto.
+3. Decidir los países del piloto solo después del inventario de acceso y diseño.
+4. Confirmar el acceso efectivo a microdatos y variables de diseño.
+5. Valorar una solicitud a OECD de código, definiciones y tablas numéricas.
+6. Congelar el DataSchema mínimo viable antes de ampliar indicadores o fuentes.

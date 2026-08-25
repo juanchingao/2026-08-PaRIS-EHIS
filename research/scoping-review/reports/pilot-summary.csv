@@ -1,0 +1,7 @@
+source_database,search_line,unique_works,historical_decisions_available,historical_include,historical_background,historical_exclude,preliminary_relevant_fraction,source_records,abstract_available,abstract_available_fraction,interpretation
+PubMed/MEDLINE,A,2103,224,26,19,179,0.20089285714285715,2109,2092,0.9919393077287814,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."
+PubMed/MEDLINE,B,87657,333,15,278,40,0.8798798798798799,87716,85821,0.9783961876966574,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."
+PubMed/MEDLINE,C,695,28,4,5,19,0.32142857142857145,695,694,0.9985611510791367,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."
+Scopus,A,674,381,44,21,316,0.17060367454068243,674,0,0,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."
+Scopus,B,16396,366,15,316,35,0.9043715846994536,16430,0,0,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."
+Scopus,C,682,34,5,2,27,0.20588235294117646,683,0,0,"Historical JALR decisions use the earlier narrative-review criteria; fractions are pilot indicators, not WP1 precision estimates."

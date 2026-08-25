@@ -14,10 +14,11 @@ renumera para evitar romper documentación y ejecuciones reproducibles.
 | `15` | Render Quarto de la web | Mantenimiento |
 | `16`–`18` | D1, importación y Cloudflare Access | En pausa |
 | `19`–`21` | Preparación, ejecución e importación del revisor LLM | En pausa |
+| `22`–`30` | Scoping review: búsquedas A/B/C, corpus, semillas y PRISMA | Activo |
 
-## Próximo bloque
+## Scoping review metodológica
 
-Los scripts del nuevo protocolo comenzarán en `22_` para preservar el historial.
-El primer candidato será un inventario de viabilidad de archivos, países,
-variables de diseño e indicadores, pero no debe implementarse hasta que JALR
-confirme el alcance v0.2.
+Los scripts `22_`–`30_` implementan el pipeline bibliográfico vigente. Las
+respuestas brutas e intermedias se mantienen fuera de Git; los manifiestos,
+recuentos, checksums y decisiones se versionan en
+`research/scoping-review/`. El bloque no lee microdatos de PaRIS ni EHIS.

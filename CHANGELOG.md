@@ -4,6 +4,32 @@
 
 ### Added
 
+- Pipeline reproducible de la scoping review con tres líneas independientes
+  (armonización explícita, comparabilidad de medidas y marcos operativos),
+  traducciones específicas para cinco bases, estados versionados y formulario
+  PRESS.
+- Ejecuciones completas y paginadas de PubMed y Scopus para las líneas A/B/C,
+  con respuestas brutas inmutables fuera de Git, manifiestos, checksums,
+  partición temporal verificable y conservación de identificadores de origen.
+- Esquema bibliográfico común, importadores para RIS/BibTeX/CSV/NBIB,
+  normalización y deduplicación conservadora en tablas de obras, registros,
+  procedencias muchos-a-muchos y coincidencias aproximadas pendientes.
+- Conjunto de referencias semilla y validación real en PubMed y Scopus,
+  registros de literatura gris y rastreo de citas, resumen PRISMA y muestra
+  ciega para el pilotaje humano de sensibilidad y precisión.
+
+- Protocolo v0.3 para desarrollar y evaluar un framework multifuente de
+  armonización retrospectiva, con PaRIS como encuesta índice, EHIS como primer
+  comparador y ampliaciones condicionadas a puertas de viabilidad y calidad.
+- Work Package 1 de scoping review conforme a JBI y PRISMA-ScR, con protocolo,
+  auditoría de búsquedas históricas, cobertura conceptual, estrategias ampliadas
+  no ejecutadas, artículos centinela y plantilla de extracción.
+- Inventario inicial de diez encuestas por nivel, matriz de preguntas y
+  objetivos, cronograma por Work Packages, registro de riesgos y plantillas
+  auditables de DataSchema y equivalencia.
+- Vocabulario controlado de potencial de armonización: `IDENTICAL`,
+  `COMPATIBLE`, `PARTIALLY_COMPATIBLE`, `INCOMPATIBLE` y `UNAVAILABLE`, separado
+  de la clase técnica de transformación.
 - Protocolo v0.2 de reorientación hacia una réplica independiente y análisis de
   robustez de la comparación PaRIS–EHIS publicada por OECD en julio de 2026,
   con estimandos, embudo poblacional, diseño complejo, missingness, sensibilidad
@@ -70,8 +96,17 @@
 
 ### Changed
 
-- Reorganizado el repositorio sin renumerar el pipeline: el protocolo v0.2 pasa
-  a ser `documentation/protocol/protocol.md`, las versiones sustituidas y los
+- Reformulada la réplica OECD como benchmark y piloto PaRIS–EHIS dentro del
+  framework v0.3, en lugar de objetivo exclusivo del proyecto. El protocolo
+  v0.2 se archiva con trazabilidad.
+- Ampliado el modelo de assessment para registrar redacción, filtros, contexto
+  del cuestionario, adaptaciones nacionales y pérdida de información, sin
+  abandonar las siete dimensiones mínimas anteriores.
+- Reclasificado el corpus multibase anterior como búsqueda piloto: sus 1.076
+  decisiones se conservan, pero no se transfieren automáticamente a la nueva
+  scoping review.
+- Reorganizado el repositorio sin renumerar el pipeline: el protocolo vigente
+  utiliza `documentation/protocol/protocol.md`, las versiones sustituidas y los
   scaffolds iniciales se archivan, y se añaden índices para documentación,
   investigación y scripts.
 - Trasladadas a `data/raw/documentation/` las fuentes PaRIS/EHIS cuya licencia

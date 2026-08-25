@@ -1,9 +1,10 @@
 Package: parisehis
-Title: Retrospective Harmonisation of PaRIS and EHIS
+Title: Retrospective Harmonisation of PaRIS and International Health Surveys
 Version: 0.0.0.9000
 Authors@R: person("PaRISEHIS", "Team", role = c("aut", "cre"), email = "noreply@example.org")
-Description: Reproducible infrastructure for the conceptual and empirical
-    retrospective harmonisation of PaRIS Cycle 1 and EHIS Wave 3.
+Description: Reproducible framework for conceptual, technical and empirical
+    retrospective harmonisation of PaRIS Cycle 1 with international health
+    surveys. EHIS Wave 3 is the first comparator.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 4.4.0)

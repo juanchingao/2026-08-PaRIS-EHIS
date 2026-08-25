@@ -1,0 +1,19 @@
+concept_id,concept_label,current_pubmed,current_scopus,current_embase,current_wos,gap_status,required_action
+SC-01,data harmonization or harmonisation,COVERED,COVERED,COVERED,COVERED,ADEQUATE,Retain spelling variants and controlled vocabulary where available
+SC-02,retrospective harmonization,COVERED,COVERED,COVERED,COVERED,ADEQUATE,Retain explicit phrase
+SC-03,cross-survey harmonization,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add cross-survey and cross-study terms
+SC-04,survey comparability,PARTIAL,PARTIAL,PARTIAL,ABSENT,GAP,Add explicit survey comparability terms
+SC-05,questionnaire harmonization,COVERED,COVERED,COVERED,ABSENT,PARTIAL,Extend Web of Science strategy
+SC-06,common data model or DataSchema,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add explicit common-model block
+SC-07,data pooling,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add only with harmonization or provenance context
+SC-08,measurement equivalence or invariance,COVERED,COVERED,COVERED,COVERED,ADEQUATE,Review title-only restrictions in Scopus and Embase
+SC-09,differential item functioning,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add DIF phrase and acronym with measurement context
+SC-10,item or response-scale harmonization,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add item and response-scale terms
+SC-11,construct equivalence,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add construct and conceptual equivalence
+SC-12,scale linking or equating,PARTIAL,PARTIAL,PARTIAL,PARTIAL,GAP,Add equating and crosswalk terms
+SC-13,transportability,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add transportability and population-alignment terms
+SC-14,PROMs and PREMs,PARTIAL,PARTIAL,PARTIAL,PARTIAL,GAP,Add acronyms and full terms
+SC-15,health or population surveys,PARTIAL,PARTIAL,PARTIAL,PARTIAL,PARTIAL,Expand beyond generic health and cohort terms
+SC-16,primary care,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add application-context block without making it mandatory
+SC-17,multimorbidity,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add application-context block without making it mandatory
+SC-18,health services and access,ABSENT,ABSENT,ABSENT,ABSENT,GAP,Add health-services and access terms

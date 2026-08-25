@@ -1,4 +1,4 @@
-# Hoja de ruta de la web pública PaRIS–EHIS
+# Hoja de ruta de la web pública de armonización PaRIS
 
 > **Estado desde 2026-08-24:** desarrollo funcional en pausa. Solo se mantiene
 > la página del protocolo para documentar la reorientación científica.

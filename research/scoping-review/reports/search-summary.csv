@@ -1,0 +1,10 @@
+database,search_line,search_strategy_id,execution_status,total_reported,total_downloaded,complete,notes,records_after_within_source_dedup,incremental_unique_works
+Embase,A,SR-EMBASE-A,FAILED,0,0,FALSE,Connection test only; not a bibliographic search execution,,
+Embase,B,SR-EMBASE-B,FAILED,0,0,FALSE,Connection test only; not a bibliographic search execution,,
+Embase,C,SR-EMBASE-C,FAILED,0,0,FALSE,Connection test only; not a bibliographic search execution,,
+PubMed/MEDLINE,A,SR-PUBMED-A,COMPLETE,2109,2109,TRUE,ESearch history plus paginated EFetch XML,2109,1539
+PubMed/MEDLINE,B,SR-PUBMED-B,COMPLETE,87716,87716,TRUE,ESearch history plus temporal partitions; partition_total=97799; cross_partition_duplicate_rows=10083,87716,78740
+PubMed/MEDLINE,C,SR-PUBMED-C,COMPLETE,695,695,TRUE,ESearch history plus paginated EFetch XML,695,190
+Scopus,A,SR-SCOPUS-A,COMPLETE,674,674,TRUE,scopusflow 0.4.0; exact logical union of atomic subqueries; paging=offset; subquery_total_sum=707; subquery_overlap=33; Search API does not include authorised abstracts,674,240
+Scopus,B,SR-SCOPUS-B,COMPLETE,16430,16430,TRUE,scopusflow 0.4.0; exact logical union of atomic subqueries; paging=year_partition;offset; subquery_total_sum=17408; subquery_overlap=978; Search API does not include authorised abstracts,16430,7574
+Scopus,C,SR-SCOPUS-C,COMPLETE,683,683,TRUE,scopusflow 0.4.0; exact logical union of atomic subqueries; paging=offset; subquery_total_sum=686; subquery_overlap=3; Search API does not include authorised abstracts,683,201

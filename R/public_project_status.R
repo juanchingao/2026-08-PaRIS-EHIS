@@ -29,6 +29,13 @@ build_public_project_status <- function(
 
   list(
     updated = as.character(Sys.Date()),
+    protocol = list(
+      version = "0.3",
+      status = "PROPOSED",
+      index_survey = "PaRIS Cycle 1",
+      first_comparator = "EHIS Wave 3",
+      active_work_package = "WP1_PROTOCOL"
+    ),
     literature = list(
       retrieved_unique = 1783L,
       screened_unique = length(decisions),

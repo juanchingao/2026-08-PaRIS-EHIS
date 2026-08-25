@@ -1,194 +1,137 @@
 # Hoja de ruta para retomar el proyecto
 
 **Actualizada:** 2026-08-24
+**Estado:** protocolo v0.3 multifuente propuesto
+**Punto de reentrada:** aprobación científica y congelación de WP1
 
-**Estado:** reorientación científica; alcance anterior en pausa
+## Contribución propuesta
 
-**Punto de reentrada:** confirmar el protocolo v0.2 antes de analizar microdatos
+El proyecto desarrollará y evaluará un framework reproducible de armonización
+retrospectiva con PaRIS como encuesta índice. EHIS será el primer comparador y
+el piloto mínimo viable. La réplica OECD de salud autopercibida y
+hospitalización se conserva como benchmark dentro del piloto, pero ya no define
+por sí sola el objetivo general.
 
-## Cambio que obliga a replantear el proyecto
+SHARE e IHP solo se evaluarán tras completar el piloto. CCHS, EU-SILC, MEPS,
+HRS, BRFSS y PVS requieren una pregunta específica de validación o extensión.
 
-El 15 de julio de 2026, OECD publicó *Comparing patient-reported outcome and
-experience measures in international health surveys* (DOI
-[`10.1787/acf46da9-en`](https://doi.org/10.1787/acf46da9-en)). El informe ya
-realiza la comparación general PaRIS–EHIS prevista originalmente: mapea
-dominios, cruza ítems, armoniza respuestas, restringe poblaciones y
-postestratifica resultados.
+## Decisión 0. Aprobar el protocolo v0.3
 
-No se continuará la armonización amplia como si este informe no existiera. La
-contribución recomendada pasa a ser una réplica independiente y un análisis de
-robustez de las comparaciones PaRIS–EHIS, inicialmente para salud autopercibida
-y hospitalización.
+JALR debe aprobar o modificar:
 
-Documentos de reentrada:
+1. la pregunta metodológica principal;
+2. los tres niveles de pregunta;
+3. PaRIS como índice y EHIS como primer comparador;
+4. la estructura de encuestas por niveles;
+5. WP1 como scoping review sistemática;
+6. el enfoque de producto mínimo viable;
+7. los resultados metodológicos coprimarios.
 
-- `documentation/protocol/protocol.md`;
-- `documentation/protocol/sources/oecd-2026-comparison-assessment.md`;
-- `documentation/protocol/sources/manifest.csv`;
-- `website/protocolo.qmd`.
+Hasta entonces, las decisiones `DEC-2026-003` a `DEC-2026-009` permanecen
+`PROPOSED`.
 
-## Trabajo conservado pero suspendido
+## Siguiente bloque A. Congelar WP1
 
-Los siguientes artefactos no se eliminan y continúan siendo trazables:
+1. Revisar el protocolo en `research/scoping-review/protocol.md`.
+2. Asignar segundo investigador.
+3. Elegir plataforma de registro.
+4. Validar las estrategias ampliadas por base.
+5. Definir y probar el conjunto de artículos centinela.
+6. Retirar o justificar topes y orden por relevancia.
+7. Pilotar `extraction-template.csv` por dos personas.
 
-- corpus de 1.076 referencias únicas con decisiones JALR;
-- búsquedas PubMed, Scopus y Embase y sus resúmenes;
-- interfaz privada, D1 y control de acceso;
-- contrato y lote local del tercer revisor LLM;
-- metadatos normalizados PaRIS/EHIS;
-- modelo dimensional, clases y reglas de seguridad.
+**Terminado cuando:** protocolo y estrategias tienen versión, fecha, hash,
+aprobación y registro anterior a la nueva búsqueda.
 
-Hasta nueva decisión no se ejecutarán R2, la corrida LLM, la ampliación masiva
-del mapping ni cambios funcionales de la web de cribado.
+## Siguiente bloque B. Inventario de viabilidad del núcleo
 
-## Fase 0. Confirmar la contribución
+Completar para PaRIS y EHIS:
 
-Decidir formalmente si el objetivo principal será:
+- archivos disponibles y hashes;
+- países, periodo, versión y licencia;
+- cuestionario, diccionario y metodología;
+- variables de edad, residencia, cronicidad y contacto;
+- peso, estrato, PSU y niveles adicionales;
+- códigos de ausencia y adaptaciones nacionales;
+- reglas de disclosure y ubicación autorizada.
 
-> Reproducir las comparaciones PaRIS–EHIS publicadas por OECD (2026) y evaluar
-> su sensibilidad a decisiones de medición, población, ponderación, diseño y
-> missingness.
+La matriz de partida está en
+`documentation/inventories/survey-inventory.csv`. No se incorporarán microdatos
+nuevos a `data/raw` sin revisión legal y técnica.
 
-La propuesta no es buscar una estimación «correcta» única, sino distinguir
-resultados robustos, sensibles, no evaluables y discrepantes.
+**Terminado cuando:** cada requisito del núcleo es `AVAILABLE`, `UNAVAILABLE` o
+`UNRESOLVED` con evidencia; no quedan supuestos implícitos.
 
-**Terminado cuando:** JALR aprueba el título, la pregunta principal, los dos
-indicadores primarios y el carácter confirmatorio de la réplica.
+## Siguiente bloque C. DataSchema mínimo viable
 
-## Fase 1. Inventario de viabilidad
+1. Seleccionar una muestra pequeña de dominios y usos analíticos.
+2. Definir variables objetivo antes de consultar nombres fuente.
+3. Completar población, periodo, categorías, ausencia y pérdida tolerable.
+4. Asignar variables fuente PaRIS y EHIS.
+5. Realizar assessments independientes en doce dimensiones.
+6. Adjudicar discrepancias y congelar versión.
 
-Crear una matriz país–fuente con:
+Salud autopercibida y hospitalización se mantendrán por su función de benchmark.
+La composición adicional del piloto queda pendiente; no se ampliará a las 349
+variables normalizadas.
 
-- versión y licencia de PaRIS PUF y EHIS Wave 3;
-- disponibilidad de los trece países candidatos;
-- variables de salud autopercibida, hospitalización, cronicidad y contacto;
-- edad, sexo y variables de elegibilidad;
-- peso final, estrato, PSU y práctica PaRIS;
-- códigos de ausencia y desviaciones nacionales;
-- tamaño y hash de cada archivo.
+**Terminado cuando:** cada variable tiene definición, uso permitido, potencial,
+rationale, dos revisiones y estado.
 
-No incorporar ficheros a `data/raw` hasta revisar licencia y almacenamiento.
-
-**Terminado cuando:** se conoce qué comparaciones son legal y técnicamente
-reproducibles y cuáles quedarían `NOT_ASSESSABLE`.
-
-## Fase 2. Especificación de réplica OECD
-
-Reconstruir, sin consultar resultados propios:
-
-1. definiciones exactas de los dos indicadores;
-2. población original de cada encuesta;
-3. edad de 45 o más años;
-4. definición de enfermedad crónica;
-5. definición de contacto sanitario reciente;
-6. países y exclusiones;
-7. ponderación original y postestratificación;
-8. estándar demográfico;
-9. missingness y denominadores;
-10. estimación de varianza.
-
-Registrar explícitamente las ambigüedades del informe: cuatro frente a ocho
-celdas edad-sexo, *top-two* frente a *top-three-box*, combinación de pesos,
-selección de indicadores y ausencia de código público identificado.
-
-**Terminado cuando:** existe una especificación congelada, ejecutable y revisada.
-
-## Fase 3. Solicitar aclaraciones y materiales
-
-Preparar una consulta breve a los autores u OECD solicitando, si pueden
-compartirse:
-
-- código o pseudocódigo;
-- variables y versiones de los conjuntos;
-- definiciones de cronicidad y contacto;
-- construcción de pesos y celdas;
-- reglas de missingness;
-- tablas numéricas detrás de las figuras.
-
-La falta de respuesta no bloqueará una réplica parcial, pero impedirá etiquetar
-como `DISCREPANT` lo que solo sea `NOT_ASSESSABLE`.
-
-**Terminado cuando:** se archiva la respuesta o se documenta la fecha límite sin
-respuesta.
-
-## Fase 4. Assessment preestadístico
-
-Para cada indicador y encuesta completar las siete dimensiones:
-
-- concepto;
-- medida;
-- población;
-- periodo;
-- representación;
-- derivación;
-- administración.
-
-Definir las variables objetivo independientemente y asignar clase `DIRECT`,
-`RECODABLE`, `DERIVABLE`, `PARTIAL`, `RELATED` o `NONE`. La segunda persona
-investigadora revisará los mappings primarios.
-
-**Terminado cuando:** ninguna regla depende de la distribución observada.
-
-## Fase 5. Algoritmos y tests sintéticos
+## Siguiente bloque D. Algoritmos sintéticos
 
 Implementar por separado:
 
 ```text
-PaRIS source -> population funnel -> target indicator -> survey estimate
-EHIS source  -> population funnel -> target indicator -> survey estimate
+PaRIS source -> eligibility -> target variable -> survey estimate
+EHIS source  -> eligibility -> target variable -> survey estimate
 ```
 
-Los tests cubrirán categorías válidas, códigos desconocidos, no aplicable,
-ausencia, fronteras de edad, cronicidad, contacto, pesos, celdas vacías y
-trazabilidad.
+Los tests cubrirán categorías válidas, filtros, códigos no sustantivos,
+fronteras de edad, periodos, pérdida, pesos, celdas vacías y procedencia.
 
-**Terminado cuando:** los algoritmos pasan sin usar microdatos reales.
+**Terminado cuando:** los algoritmos pasan sin leer microdatos reales.
 
-## Fase 6. Congelar el plan estadístico
+## Siguiente bloque E. Piloto y transportabilidad
 
-Preespecificar:
+1. Estimar dentro de cada encuesta y país con su diseño.
+2. Describir cobertura, missingness y distribuciones.
+3. Aplicar el embudo poblacional.
+4. Estandarizar solo por variables realmente comunes.
+5. Cuantificar el efecto encuesta y la diferencia residual.
+6. Comparar asociaciones nomológicas preespecificadas.
+7. Ejecutar sensibilidades y evaluar el benchmark OECD.
 
-- estimando principal y tolerancia de réplica;
-- poblaciones del embudo;
-- codificaciones ordinales y binarias;
-- estándar PaRIS y estándares de sensibilidad;
-- incorporación del diseño complejo;
-- tratamiento de missingness;
-- exclusiones de países;
-- cuadrícula multiespecificación;
-- clases `REPRODUCED`, `APPROXIMATELY_REPRODUCED`, `SENSITIVE`,
-  `NOT_ASSESSABLE` y `DISCREPANT`.
+**Terminado cuando:** existe un informe de comparabilidad que separa generación,
+equivalencia y comportamiento empírico.
 
-**Terminado cuando:** el plan tiene fecha, hash y aprobación antes de generar
-estimaciones del resultado.
+## Puerta de ampliación
 
-## Fase 7. Réplica y robustez
+Solo después del informe del piloto se decidirá:
 
-Ejecutar por este orden:
+- incorporar SHARE para dominios de salud, funcionamiento y envejecimiento;
+- incorporar IHP para PREMs y atención primaria;
+- seleccionar una extensión externa concreta;
+- preparar una pregunta sustantiva sobre atención primaria, multimorbilidad y
+  desigualdades.
 
-1. control de ingestión y flujo de participantes;
-2. estimaciones con diseño original;
-3. réplica de la especificación OECD;
-4. sensibilidades preespecificadas;
-5. revisión de discrepancias;
-6. control de disclosure;
-7. síntesis y discusión.
+## Trabajo conservado sin ejecución automática
 
-La similitud con las cifras OECD no validará por sí sola el mapping. Una
-diferencia residual tampoco se atribuirá automáticamente al sistema sanitario.
+- 1.076 referencias cribadas y decisiones JALR;
+- búsquedas PubMed, Scopus y Embase;
+- D1, interfaz privada y acceso OTP;
+- contrato del revisor LLM;
+- metadatos normalizados PaRIS/EHIS;
+- protocolo v0.2 de réplica OECD archivado.
 
-## Indicadores adicionales
+Estos artefactos se reutilizarán cuando sean compatibles con v0.3. No se
+reanudarán R2, LLM, mapping masivo ni ampliaciones de la web por defecto.
 
-Tabaquismo, alcohol, fruta, verdura y acceso solo se evaluarán después de cerrar
-los dos indicadores primarios. Serán exploratorios salvo enmienda prospectiva.
-Los PREMs PaRIS sin equivalente EHIS se conservarán como controles negativos.
+## Archivos de control
 
-## Decisiones inmediatas de JALR
-
-1. Aprobar o modificar el alcance de réplica y robustez.
-2. Confirmar salud autopercibida y hospitalización como indicadores primarios.
-3. Decidir si se intentarán los trece países o un subconjunto predefinido.
-4. Confirmar qué microdatos y variables de diseño están disponibles.
-5. Autorizar la preparación de la consulta metodológica a OECD.
-
-No se reanudará ningún flujo suspendido hasta resolver la primera decisión.
+- Protocolo: `documentation/protocol/protocol.md`.
+- Preguntas: `documentation/planning/research-questions.csv`.
+- Cronograma: `documentation/planning/work-packages.csv`.
+- Riesgos: `documentation/planning/risk-register.csv`.
+- Inventario: `documentation/inventories/survey-inventory.csv`.
+- Decisiones: `harmonisation/decisions/decision_log.csv`.

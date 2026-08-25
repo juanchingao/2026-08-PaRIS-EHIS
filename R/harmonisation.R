@@ -2,6 +2,11 @@ valid_harmonisation_classes <- function() {
   c("DIRECT", "RECODABLE", "DERIVABLE", "PARTIAL", "RELATED", "NONE")
 }
 
+valid_harmonisation_potentials <- function() {
+  c("IDENTICAL", "COMPATIBLE", "PARTIALLY_COMPATIBLE", "INCOMPATIBLE",
+    "UNAVAILABLE")
+}
+
 valid_review_statuses <- function() {
   c("PROPOSED", "REVIEWED", "VALIDATED", "REJECTED", "UNRESOLVED")
 }

@@ -1,7 +1,7 @@
-# Revisión metodológica multibase
+# Búsqueda piloto y corpus metodológico previo
 
-> **Estado:** en pausa desde 2026-08-24. No iniciar R2, ejecutar el lote LLM ni
-> ampliar el corpus mientras no se confirme el protocolo v0.2.
+> **Estado:** conservado desde 2026-08-24. No iniciar R2 ni ejecutar el lote LLM.
+> La actualización sistemática se regirá por `../scoping-review/protocol.md`.
 
 ## Archivos canónicos
 

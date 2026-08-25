@@ -1,7 +1,7 @@
 # Arquitectura privada de revisión en Cloudflare
 
 > **Estado desde 2026-08-24:** infraestructura preservada, sin nuevas funciones
-> de cribado ni cargas de IA hasta confirmar el protocolo v0.2.
+> de cribado ni cargas de IA hasta aprobar el protocolo v0.3 y el WP1.
 
 La landing, el protocolo y los metadatos PubMed de `website/` son públicos. Las
 decisiones y la doble revisión necesitan una capa separada y autenticada:

@@ -1,7 +1,10 @@
 # Planificación
 
-- `next-steps.md`: único punto de reentrada operativo y plan de la
-  reorientación científica.
+- `next-steps.md`: punto de reentrada del protocolo v0.3.
+- `research-questions.csv`: relación entre niveles de pregunta, objetivos y
+  productos.
+- `work-packages.csv`: cronograma relativo y puertas de decisión.
+- `risk-register.csv`: riesgos, mitigaciones, responsables y estados.
 - `public-website-roadmap.md`: plan histórico de la web; desarrollo funcional
   en pausa salvo mantenimiento del protocolo público.
 
