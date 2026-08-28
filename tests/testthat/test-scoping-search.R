@@ -10,6 +10,23 @@ testthat::test_that("search strategy register contains independent A B C lines",
   counts <- table(strategies$database, strategies$search_line)
   testthat::expect_true(all(counts == 1L))
   testthat::expect_true(all(strategies$status %in% valid_search_strategy_states()))
+  testthat::expect_false(any(grepl("\\\\", strategies$query)))
+})
+
+testthat::test_that("manual Embase and Web of Science exports are pre-registered", {
+  root <- testthat::test_path("..", "..")
+  manifest <- readr::read_csv(
+    file.path(root, "research", "scoping-review", "manifests", "manual-exports.csv"),
+    show_col_types = FALSE
+  )
+  testthat::expect_equal(nrow(manifest), 9L)
+  testthat::expect_setequal(unique(manifest$search_line), c("A", "B", "C"))
+  testthat::expect_setequal(
+    unique(manifest$database),
+    c("Embase", "APA PsycINFO", "Web of Science Core Collection")
+  )
+  testthat::expect_true(all(manifest$status == "PENDING_UPLOAD"))
+  testthat::expect_equal(anyDuplicated(manifest$import_id), 0L)
 })
 
 testthat::test_that("bibliographic schema is completed without losing provenance", {

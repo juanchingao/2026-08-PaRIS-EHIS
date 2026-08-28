@@ -14,7 +14,7 @@ renumera para evitar romper documentación y ejecuciones reproducibles.
 | `15` | Render Quarto de la web | Mantenimiento |
 | `16`–`18` | D1, importación y Cloudflare Access | En pausa |
 | `19`–`21` | Preparación, ejecución e importación del revisor LLM | En pausa |
-| `22`–`30` | Scoping review: búsquedas A/B/C, corpus, semillas y PRISMA | Activo |
+| `22`–`31` | Scoping review: búsquedas A/B/C, corpus, semillas y PRISMA | Activo |
 
 ## Scoping review metodológica
 

@@ -18,7 +18,7 @@ valid_search_strategy_states <- function() {
 load_scoping_search_strategies <- function(root = getwd()) {
   path <- file.path(
     root, "research", "scoping-review", "strategies",
-    "search-strategies-v0.2.csv"
+    "search-strategies-v0.3.csv"
   )
   strategies <- readr::read_csv(path, show_col_types = FALSE)
   register_path <- file.path(
@@ -124,7 +124,8 @@ pubmed_request <- function(endpoint, api_key = Sys.getenv("NCBI_API_KEY", ""),
   request <- httr2::request(paste0(
     "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/", endpoint, ".fcgi"
   )) |>
-    httr2::req_user_agent("PaRISEHIS-scoping-review/0.2") |>
+    httr2::req_user_agent("PaRISEHIS-scoping-review/0.3") |>
+    httr2::req_timeout(seconds = 60) |>
     httr2::req_url_query(tool = "parisehis_scoping_review")
   if (nzchar(api_key)) request <- httr2::req_url_query(request, api_key = api_key)
   if (nzchar(email)) request <- httr2::req_url_query(request, email = email)
@@ -257,7 +258,13 @@ run_pubmed_strategy <- function(strategy, paths, page_size = 200L,
                                 resume = TRUE) {
   stopifnot(nrow(strategy) == 1L, strategy$database == "PubMed/MEDLINE")
   output_paths <- scoping_search_paths(paths)
-  raw_dir <- file.path(output_paths$raw, "pubmed", strategy$search_strategy_id)
+  query_hash <- substr(digest::digest(
+    strategy$query, algo = "sha256", serialize = FALSE
+  ), 1L, 12L)
+  raw_dir <- file.path(
+    output_paths$raw, "pubmed", strategy$search_strategy_id,
+    paste0("v", strategy$search_version, "-", query_hash)
+  )
   dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 
   search_history <- function(term) {

@@ -7,20 +7,35 @@ if (length(missing)) stop("Missing packages: ", paste(missing, collapse = ", "),
 load_bibliographic_credentials(project_root)
 strategies <- load_scoping_search_strategies(project_root) |>
   dplyr::filter(database == "PubMed/MEDLINE")
+requested_lines <- toupper(commandArgs(trailingOnly = TRUE))
+if (length(requested_lines)) {
+  invalid_lines <- setdiff(requested_lines, c("A", "B", "C"))
+  if (length(invalid_lines)) {
+    stop("Unknown PubMed search line: ", paste(invalid_lines, collapse = ", "),
+         call. = FALSE)
+  }
+  strategies <- strategies |>
+    dplyr::filter(search_line %in% requested_lines)
+}
 paths <- scoping_search_paths(project_paths)
 runs <- list()
+page_size <- 5000L
 
 for (index in seq_len(nrow(strategies))) {
   strategy <- strategies[index, ]
   message("Running ", strategy$search_strategy_id, "...")
   outcome <- tryCatch(
-    run_pubmed_strategy(strategy, project_paths, page_size = 1000L, resume = TRUE),
+    run_pubmed_strategy(strategy, project_paths, page_size = page_size, resume = TRUE),
     error = function(error) error
   )
   if (inherits(outcome, "error")) {
+    message(
+      "Failed ", strategy$search_strategy_id, ": ",
+      sanitise_http_message(conditionMessage(outcome))
+    )
     runs[[index]] <- new_search_run_manifest(
       strategy, "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
-      1000L, NA, NA, 0L, "FAILED", http_status = NA,
+      page_size, NA, NA, 0L, "FAILED", http_status = NA,
       error_class = class(outcome)[[1]],
       error_message_sanitized = conditionMessage(outcome)
     )
@@ -39,7 +54,7 @@ for (index in seq_len(nrow(strategies))) {
   )
   runs[[index]] <- new_search_run_manifest(
     strategy, "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/",
-    1000L, outcome$page_count, outcome$total_reported,
+    page_size, outcome$page_count, outcome$total_reported,
     outcome$total_downloaded, if (outcome$complete) "COMPLETE" else "TRUNCATED",
     raw_manifest = relative_project_path(page_path), raw_checksum = checksum,
     notes = paste0(

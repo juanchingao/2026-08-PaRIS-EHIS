@@ -141,11 +141,12 @@ motivos de exclusión a texto completo se registrarán con vocabulario controlad
 
 - MEDLINE mediante PubMed;
 - Scopus;
-- Embase mediante Embase.com/Elsevier Embase API, si la licencia lo permite;
-- APA PsycINFO, plataforma institucional pendiente de confirmar; se prepara
-  traducción Ovid para ejecución manual;
-- Web of Science Core Collection, ejecución manual o mediante API Clarivate si
-  se obtiene acceso.
+- Embase mediante exportación manual de Embase.com si existe acceso; la API no
+  está disponible por falta de token institucional;
+- APA PsycINFO mediante EBSCOhost, pendiente de localizar el acceso y traducir
+  las tres líneas desde el borrador Ovid conservado;
+- Web of Science Core Collection mediante ejecución manual si existe acceso; no
+  se continuará intentando la API Clarivate.
 
 CINAHL, Sociological Abstracts, EconLit, IEEE Xplore y ACM Digital Library se
 considerarán únicamente tras el pilotaje si muestran una contribución
@@ -186,10 +187,12 @@ controlado, filtros, fecha, endpoint o plataforma, paginación, totales,
 incidencias, archivo bruto y checksum. No se usarán filtros de fecha, idioma,
 humanos o tipo documental antes del pilotaje salvo justificación prospectiva.
 
-PubMed combinará texto libre de título/resumen con MeSH verificado. Embase
-combinará texto libre con Emtree solo después de comprobar los descriptores en
-la plataforma autorizada. PsycINFO mantendrá términos libres y descriptores de
-su tesauro; Web of Science utilizará `TS=`. No se copiará sintaxis entre bases.
+PubMed combinará texto libre de título/resumen con MeSH verificado. Una eventual
+ejecución manual de Embase combinará texto libre con Emtree solo después de
+comprobar los descriptores en la plataforma autorizada. PsycINFO mantendrá
+términos libres y descriptores del APA Thesaurus traducidos específicamente a
+EBSCOhost; Web of Science utilizará `TS=` si llega a ejecutarse manualmente. No
+se copiará sintaxis entre bases.
 
 ## Validación y estados
 

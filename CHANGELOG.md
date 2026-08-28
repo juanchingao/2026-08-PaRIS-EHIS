@@ -4,6 +4,17 @@
 
 ### Added
 
+- Reapertura controlada de la evaluación de Web of Science tras disponer de
+  una credencial local. Las pruebas mínimas de Starter y Expanded alcanzan
+  Clarivate pero devuelven `HTTP 401`; se mantiene la ejecución manual hasta
+  que la aplicación tenga una suscripción API activa.
+
+- Registro de la decisión de no continuar las integraciones API de Embase y Web
+  of Science por falta de tokens institucionales, manteniendo únicamente rutas
+  de ejecución manual si las interfaces están disponibles. PsycINFO queda
+  confirmado en EBSCOhost; el borrador Ovid se conserva como antecedente y no
+  se ejecutará.
+
 - Pipeline reproducible de la scoping review con tres líneas independientes
   (armonización explícita, comparabilidad de medidas y marcos operativos),
   traducciones específicas para cinco bases, estados versionados y formulario

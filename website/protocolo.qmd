@@ -154,9 +154,9 @@ de la recuperación, conservando procedencia.
 |---|---:|---:|---:|---|
 | PubMed/MEDLINE | 2.109 | 87.716 | 695 | Completa y validada con semillas |
 | Scopus | 674 | 16.430 | 683 | Completa y validada con semillas |
-| Embase API | 0 | 0 | 0 | Prueba 403; búsqueda no ejecutada |
-| APA PsycINFO | — | — | — | Estrategia Ovid preparada; plataforma pendiente |
-| Web of Science | — | — | — | Estrategia preparada; sin acceso configurado |
+| Embase | 0 | 0 | 0 | API descartada; posible exportación manual |
+| APA PsycINFO | — | — | — | EBSCOhost confirmado; acceso y traducción pendientes |
+| Web of Science | — | — | — | API descartada; posible ejecución manual |
 
 Ninguna estrategia es todavía `FINAL`: faltan el pilotaje humano, la revisión
 PRESS y las bases pendientes. La línea B se mantiene deliberadamente sensible

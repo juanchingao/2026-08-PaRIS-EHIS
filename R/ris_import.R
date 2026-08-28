@@ -26,6 +26,9 @@ parse_ris_file <- function(path, strategy_id = NA_character_) {
     }
     data.frame(
       embase_id = value("U2"),
+      source_record_id = dplyr::coalesce(
+        value("UT"), value("AN"), value("ID"), value("U2")
+      ),
       pmid = value("C5"),
       doi = value("DO"),
       title = value("T1"),

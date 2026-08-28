@@ -62,27 +62,45 @@ ni se escribió en el repositorio.
 - **Consecuencia:** no se ejecutaron las líneas A/B/C ni se validaron términos
   Emtree. Las exportaciones históricas de Embase.com siguen siendo importaciones
   RIS manuales y una fuente separada de Scopus.
+- **Decisión del investigador (2026-08-25):** no continuar intentando la API,
+  porque requiere un token o derecho institucional que la biblioteca no
+  proporcionará. Si existe acceso a Embase.com, la única vía pendiente será la
+  ejecución y exportación manual por línea.
 - **Documentación:** <https://dev.elsevier.com/documentation/EmbaseAPI.wadl>.
 
 ## APA PsycINFO
 
-- **Plataforma institucional:** no identificada en el repositorio.
+- **Plataforma institucional confirmada:** EBSCOhost.
 - **API configurada:** no.
-- **Estrategia preparada:** Ovid, para ejecución manual, con campos `.ti,ab,id.`
-  y una propuesta de explosión de `Psychometrics` que debe comprobarse en el
-  tesauro de la plataforma.
-- **Pendiente:** confirmar si el acceso real es Ovid o EBSCOhost. No debe
-  ejecutarse ni etiquetarse `SYNTAX_CHECKED` antes de esa confirmación.
-- **Documentación:** <https://www.apa.org/pubs/databases/vendors/ovid> y
+- **Antecedente conservado:** la traducción Ovid v0.2 queda como borrador
+  histórico y no debe ejecutarse en EBSCOhost.
+- **Pendiente:** localizar el acceso institucional, traducir A/B/C a los campos
+  y operadores de EBSCOhost, comprobar el APA Thesaurus dentro de la plataforma
+  y probar las referencias semilla antes de asignar `SYNTAX_CHECKED`.
+- **Documentación de vocabulario:**
   <https://www.apa.org/pubs/databases/training/thesaurus>.
 
 ## Web of Science Core Collection
 
 - **Proveedor:** Clarivate.
-- **API configurada:** no se encontró `WOS_API_KEY` ni integración local.
+- **API configurada:** `WOS_API_KEY` está disponible en el entorno local desde
+  2026-08-28; la credencial no se almacena ni se imprime. Las consultas mínimas
+  a Web of Science Starter API (`/apis/wos-starter/v1/documents`) y Web of
+  Science API Expanded (`/api/wos`) alcanzaron el proveedor, pero ambas
+  devolvieron `HTTP 401 Unauthorized`. La clave está presente una sola vez,
+  sin espacios, por lo que la incidencia se clasifica provisionalmente como
+  autenticación o suscripción de la aplicación, no como fallo de red o de
+  sintaxis de consulta.
 - **Estrategia preparada:** interfaz Web of Science con campo `TS=`. La
   colección y los índices concretos deberán registrarse durante la ejecución.
-- **Estado:** manual, no ejecutada.
+- **Decisión del investigador (2026-08-25):** no continuar buscando acceso a
+  la API, porque el token institucional no estará disponible. La estrategia
+  `TS=` se conserva para una posible ejecución manual; si tampoco hay acceso a
+  la interfaz, la fuente se declarará no disponible.
+- **Reapertura (2026-08-28):** el investigador facilitó una nueva clave y
+  autorizó su uso. No se desarrollará ni ejecutará la descarga A/B/C hasta que
+  Clarivate active al menos uno de los productos para la aplicación y una
+  consulta mínima devuelva `HTTP 200`.
 - **Documentación:** <https://developer.clarivate.com/apis/wos>.
 
 ## Seguridad y errores

@@ -1,16 +1,16 @@
 search_strategy_id,search_version,search_line,database,platform,status,status_date,execution_status,execution_date,total_reported,total_downloaded,complete,reviewer,notes
-SR-PUBMED-A,0.2,A,PubMed/MEDLINE,PubMed,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,2109,2109,TRUE,Codex,Complete history-based API execution; seed set recovered
-SR-PUBMED-B,0.2,B,PubMed/MEDLINE,PubMed,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,87716,87716,TRUE,Codex,Complete temporally partitioned execution; 10083 cross-partition duplicate rows removed by PMID
-SR-PUBMED-C,0.2,C,PubMed/MEDLINE,PubMed,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,695,695,TRUE,Codex,Complete history-based API execution including PubmedBookArticle records
+SR-PUBMED-A,0.3,A,PubMed/MEDLINE,PubMed,SYNTAX_CHECKED,2026-08-25,NOT_RUN,,,,FALSE,Codex,Corrected phrase quoting; v0.2 retained as historical execution
+SR-PUBMED-B,0.3,B,PubMed/MEDLINE,PubMed,SYNTAX_CHECKED,2026-08-25,NOT_RUN,,,,FALSE,Codex,Corrected phrase quoting; v0.2 retained as historical execution
+SR-PUBMED-C,0.3,C,PubMed/MEDLINE,PubMed,SYNTAX_CHECKED,2026-08-25,NOT_RUN,,,,FALSE,Codex,Corrected phrase quoting; v0.2 retained as historical execution
 SR-SCOPUS-A,0.2,A,Scopus,Scopus,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,674,674,TRUE,Codex,Exact union of six complete atomic subqueries; unique EIDs reported
 SR-SCOPUS-B,0.2,B,Scopus,Scopus,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,16430,16430,TRUE,Codex,Exact union of seven complete atomic subqueries; largest block partitioned through 2028
 SR-SCOPUS-C,0.2,C,Scopus,Scopus,SEED_VALIDATED,2026-08-25,COMPLETE,2026-08-25,683,683,TRUE,Codex,Exact union of five complete atomic subqueries; unique EIDs reported
-SR-EMBASE-A,0.2,A,Embase,Embase.com,DRAFT,2026-08-25,FAILED_API_TEST,2026-08-25,0,0,FALSE,Codex,HTTP 403 insufficient resource entitlement
-SR-EMBASE-B,0.2,B,Embase,Embase.com,DRAFT,2026-08-25,FAILED_API_TEST,2026-08-25,0,0,FALSE,Codex,HTTP 403 insufficient resource entitlement
-SR-EMBASE-C,0.2,C,Embase,Embase.com,DRAFT,2026-08-25,FAILED_API_TEST,2026-08-25,0,0,FALSE,Codex,HTTP 403 insufficient resource entitlement
-SR-PSYCINFO-A,0.2,A,APA PsycINFO,Ovid,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Institutional platform and thesaurus mapping pending
-SR-PSYCINFO-B,0.2,B,APA PsycINFO,Ovid,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Institutional platform and thesaurus mapping pending
-SR-PSYCINFO-C,0.2,C,APA PsycINFO,Ovid,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Institutional platform and thesaurus mapping pending
-SR-WOS-A,0.2,A,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Manual execution or Clarivate API access required
-SR-WOS-B,0.2,B,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Manual execution or Clarivate API access required
-SR-WOS-C,0.2,C,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,NOT_RUN,,,,,Codex,Manual execution or Clarivate API access required
+SR-EMBASE-A,0.2,A,Embase,Embase.com,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,0,0,FALSE,JALR,HTTP 403 and institutional token unavailable; no further API attempts; manual execution remains possible
+SR-EMBASE-B,0.2,B,Embase,Embase.com,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,0,0,FALSE,JALR,HTTP 403 and institutional token unavailable; no further API attempts; manual execution remains possible
+SR-EMBASE-C,0.2,C,Embase,Embase.com,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,0,0,FALSE,JALR,HTTP 403 and institutional token unavailable; no further API attempts; manual execution remains possible
+SR-PSYCINFO-A,0.3,A,APA PsycINFO,EBSCOhost,DRAFT,2026-08-25,ACCESS_PENDING_SYNTAX_PREPARED,2026-08-25,,,FALSE,JALR,EBSCOhost TI AB KW syntax prepared; field codes and APA Thesaurus headings require in-platform validation
+SR-PSYCINFO-B,0.3,B,APA PsycINFO,EBSCOhost,DRAFT,2026-08-25,ACCESS_PENDING_SYNTAX_PREPARED,2026-08-25,,,FALSE,JALR,EBSCOhost TI AB KW syntax prepared; field codes and APA Thesaurus headings require in-platform validation
+SR-PSYCINFO-C,0.3,C,APA PsycINFO,EBSCOhost,DRAFT,2026-08-25,ACCESS_PENDING_SYNTAX_PREPARED,2026-08-25,,,FALSE,JALR,EBSCOhost TI AB KW syntax prepared; field codes and APA Thesaurus headings require in-platform validation
+SR-WOS-A,0.3,A,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,,,FALSE,JALR,Clarivate API token unavailable; corrected TS strategy retained for manual execution
+SR-WOS-B,0.3,B,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,,,FALSE,JALR,Clarivate API token unavailable; corrected TS strategy retained for manual execution
+SR-WOS-C,0.3,C,Web of Science Core Collection,Web of Science,DRAFT,2026-08-25,API_UNAVAILABLE_MANUAL_PENDING,2026-08-25,,,FALSE,JALR,Clarivate API token unavailable; corrected TS strategy retained for manual execution

@@ -10,8 +10,13 @@ estrategia principal se preparará para revisión PRESS.
 - `search-strategy-audit.md`: auditoría del corpus histórico y de las API.
 - `search-strategies-draft.csv`: antecedente v0.1; no borrar ni ejecutar como
   estrategia vigente.
-- `strategies/search-strategies-v0.2.csv`: ecuaciones A/B/C por plataforma.
+- `strategies/search-strategies-v0.3.csv`: ecuaciones A/B/C vigentes por
+  plataforma; corrige la representación CSV de las comillas.
+- `strategies/search-strategies-v0.2.csv`: versión histórica de las primeras
+  ejecuciones, conservada sin reinterpretarla como v0.3.
 - `strategies/strategy-register.csv`: versión, estado y ejecución por estrategia.
+- `strategies/manual-search-runbook.md`: nueve ecuaciones listas para copiar en
+  Embase.com, APA PsycINFO/EBSCOhost y Web of Science, con exportación por lotes.
 - `strategies/concept-term-matrix.csv`: relación entre pregunta, conceptos,
   términos, elegibilidad y extracción.
 - `seed-references.csv` y `seed-validation.csv`: conjunto de sensibilidad y
@@ -47,6 +52,7 @@ Rscript --vanilla scripts/27_build_scoping_corpus.R
 Rscript --vanilla scripts/28_validate_scoping_seeds.R
 Rscript --vanilla scripts/29_build_scoping_prisma.R
 Rscript --vanilla scripts/30_prepare_scoping_search_pilot.R
+Rscript --vanilla scripts/31_build_manual_search_runbook.R
 ```
 
 El último script crea una muestra ciega de 150 registros en `outputs/` para

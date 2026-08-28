@@ -113,9 +113,21 @@ test_that("RIS records are parsed with repeated fields and provenance", {
   result <- parse_ris_file(ris, "NR-EMBASE-TEST")
   expect_equal(nrow(result), 1)
   expect_equal(result$embase_id, "L123")
+  expect_equal(result$source_record_id, "L123")
   expect_equal(result$authors, "One, A.; Two, B.")
   expect_equal(result$abstract, "First line continued abstract")
   expect_equal(result$strategy_id, "NR-EMBASE-TEST")
+})
+
+test_that("RIS parser preserves a Web of Science accession number", {
+  source(testthat::test_path("..", "..", "R", "ris_import.R"))
+  ris <- tempfile(fileext = ".ris")
+  writeLines(c(
+    "TY  - JOUR", "UT  - WOS:000123456700001", "T1  - Example title",
+    "ER  -"
+  ), ris, useBytes = TRUE)
+  result <- parse_ris_file(ris, "SR-WOS-A")
+  expect_equal(result$source_record_id, "WOS:000123456700001")
 })
 
 test_that("bibliographic prioritisation is transparent and does not decide", {

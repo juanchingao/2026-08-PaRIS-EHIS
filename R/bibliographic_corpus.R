@@ -128,9 +128,13 @@ import_bibtex_file <- function(path, strategy, source_database) {
 import_ris_bibliographic <- function(path, strategy, source_database) {
   records <- parse_ris_file(path, strategy$search_strategy_id)
   source_id <- if (source_database == "Embase") records$embase_id else
-    ifelse(is.na(records$embase_id), paste0("RIS-", seq_len(nrow(records))), records$embase_id)
+    records$source_record_id
+  source_id[is.na(source_id) | !nzchar(source_id)] <- paste0(
+    "RIS-", which(is.na(source_id) | !nzchar(source_id))
+  )
+  database_prefix <- toupper(gsub("[^A-Za-z0-9]", "", source_database))
   tibble::tibble(
-    record_id = paste0(toupper(source_database), "-", source_id, "-", strategy$search_line),
+    record_id = paste0(database_prefix, "-", source_id, "-", strategy$search_line),
     source_database = source_database, source_record_id = source_id,
     search_line = strategy$search_line,
     search_strategy_id = strategy$search_strategy_id,

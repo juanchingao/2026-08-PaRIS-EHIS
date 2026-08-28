@@ -83,12 +83,12 @@ considera `PRESS_REVIEWED` ni `FINAL`.
 1. Cribar la muestra piloto con dos revisores y decidir si la línea B requiere
    una revisión versionada.
 2. Someter la estrategia principal a PRESS mediante `press-review-form.md`.
-3. Confirmar si PsycINFO se consulta en Ovid o EBSCOhost; la versión preparada
-   para Ovid sigue en `DRAFT`.
-4. Ejecutar Web of Science Core Collection y registrar sus índices cuando haya
-   acceso manual o API.
-5. Obtener derecho de acceso a Embase API o ejecutar y exportar manualmente las
-   tres líneas en Embase.com; después validar Emtree y las semillas.
+3. Localizar el acceso EBSCOhost para PsycINFO y traducir A/B/C; la versión Ovid
+   se conserva como antecedente `DRAFT` y no debe ejecutarse allí.
+4. Ejecutar Web of Science Core Collection manualmente si la interfaz está
+   disponible; la vía API queda cerrada por falta de token institucional.
+5. Ejecutar y exportar manualmente A/B/C en Embase.com si existe acceso; la vía
+   API queda cerrada y no se dedicarán más recursos a ella.
 6. Ejecutar y registrar la literatura gris y el rastreo de citas, manteniéndolos
    fuera de los recuentos bibliográficos principales hasta su incorporación
    explícita.
