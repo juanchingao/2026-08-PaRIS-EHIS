@@ -83,25 +83,39 @@ ni se escribió en el repositorio.
 ## Web of Science Core Collection
 
 - **Proveedor:** Clarivate.
-- **API configurada:** `WOS_API_KEY` está disponible en el entorno local desde
-  2026-08-28; la credencial no se almacena ni se imprime. Las consultas mínimas
-  a Web of Science Starter API (`/apis/wos-starter/v1/documents`) y Web of
-  Science API Expanded (`/api/wos`) alcanzaron el proveedor, pero ambas
-  devolvieron `HTTP 401 Unauthorized`. La clave está presente una sola vez,
-  sin espacios, por lo que la incidencia se clasifica provisionalmente como
-  autenticación o suscripción de la aplicación, no como fallo de red o de
-  sintaxis de consulta.
-- **Estrategia preparada:** interfaz Web of Science con campo `TS=`. La
+- **API configurada:** `WOS_API_KEY_STARTER_SERMAS` está disponible en el
+  entorno local; la credencial no se almacena ni se imprime. El 2026-09-01 se
+  verificó Web of Science Starter API (`/apis/wos-starter/v1/documents`) con el
+  encabezado exacto `X-ApiKey`: una consulta por el DOI
+  `10.1093/ije/dyw075` devolvió `HTTP 200`, `total=1` y un registro. La variante
+  `X-Api-Key` devuelve `HTTP 401` y no debe utilizarse. La credencial Expanded
+  permanece separada y esta comprobación no demuestra acceso a Expanded.
+- **Integración activa:** `scripts/32_run_wos_wp1_searches.R` usa paginación,
+  reintentos acotados, backoff, checkpoints, UT únicos y manifiestos con hashes.
+- **Fidelidad de campos:** se conservan consultas `TI`/`AB` como traducción
+  operativa de PubMed y pilotos `TS` separados. `TS` incluye título, resumen,
+  author keywords y Keywords Plus, por lo que no se considera equivalente a
+  `Title/Abstract` y nunca sustituye silenciosamente la traducción fiel. La
+  documentación pública de Starter enumera `TI` y `TS`, pero no `AB`; el
+  endpoint aceptó `AB` sin error. Hasta confirmación de Clarivate, la ejecución
+  es completa y reproducible, pero la semántica de campo permanece pendiente
+  de validación y no se declara equivalencia documental.
+- **Limitación observada:** Starter devolvió UID, título, autores, fuente, año,
+  identificadores, tipos, author keywords y citas cuando el plan las permite,
+  pero no abstracts, afiliaciones, Keywords Plus ni financiación. Los campos
+  permanecen explícitos como no disponibles.
+- **Estrategia histórica preparada:** interfaz Web of Science con campo `TS=`. La
   colección y los índices concretos deberán registrarse durante la ejecución.
 - **Decisión del investigador (2026-08-25):** no continuar buscando acceso a
   la API, porque el token institucional no estará disponible. La estrategia
   `TS=` se conserva para una posible ejecución manual; si tampoco hay acceso a
   la interfaz, la fuente se declarará no disponible.
-- **Reapertura (2026-08-28):** el investigador facilitó una nueva clave y
-  autorizó su uso. No se desarrollará ni ejecutará la descarga A/B/C hasta que
-  Clarivate active al menos uno de los productos para la aplicación y una
-  consulta mínima devuelva `HTTP 200`.
-- **Documentación:** <https://developer.clarivate.com/apis/wos>.
+- **Reapertura (2026-08-28; verificada 2026-09-01):** el acceso Starter de
+  SERMAS está operativo. No se ejecutará la descarga A/B/C mientras la pregunta
+  de investigación y las estrategias de WP1 sigan en redefinición. Antes de una
+  ejecución definitiva se documentarán los límites del plan, los campos
+  disponibles y la estrategia adaptada a la sintaxis Starter.
+- **Documentación:** <https://developer.clarivate.com/apis/wos-starter>.
 
 ## Seguridad y errores
 

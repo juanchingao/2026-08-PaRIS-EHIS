@@ -1,0 +1,7 @@
+sentinel_id,doi,wos_retrieved,retrieved_by,validation_basis,human_validation_status
+SENT-001,10.1093/ije/dyw075,TRUE,WP1A-WOS-01,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION
+SENT-002,10.1186/1742-7622-10-12,FALSE,,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION
+SENT-003,10.1136/jech-2020-214259,TRUE,WP1A-WOS-01,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION
+SENT-004,10.1136/jech-2017-209962,TRUE,WP1A-WOS-02,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION
+SENT-005,10.1007/s10654-026-01404-3,TRUE,WP1A-WOS-01,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION
+SENT-006,10.1787/acf46da9-en,FALSE,,DOI match in completed faithful WoS runs,PENDING_HUMAN_VALIDATION

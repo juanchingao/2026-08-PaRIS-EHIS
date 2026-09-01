@@ -2,9 +2,11 @@ bibliographic_schema <- function() {
   c(
     "record_id", "source_database", "source_record_id", "search_line",
     "search_strategy_id", "search_version", "search_date", "title",
-    "abstract", "authors", "year", "journal", "doi", "pmid",
-    "scopus_eid", "embase_id", "keywords", "controlled_terms",
-    "document_type", "language", "raw_file", "raw_batch"
+    "abstract", "authors", "affiliations", "year", "publication_date",
+    "journal", "doi", "pmid", "wos_ut", "scopus_eid", "embase_id",
+    "keywords", "keywords_plus", "controlled_terms", "document_type",
+    "language", "funding", "citation_count", "stream_tags", "raw_file",
+    "raw_batch"
   )
 }
 

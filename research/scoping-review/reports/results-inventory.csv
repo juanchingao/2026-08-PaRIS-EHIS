@@ -1,0 +1,13 @@
+database,work_package,search_id,version,status,executed_at,total_reported,total_retrieved,complete,notes
+PubMed/MEDLINE,WP1A,SR-PUBMED-A,0.3,EXECUTED,2026-08-25,2109,2109,TRUE,Historical identifier preserved
+PubMed/MEDLINE,WP1A,SR-PUBMED-B,0.3,EXECUTED,2026-08-25,87716,87716,TRUE,Historical identifier preserved
+PubMed/MEDLINE,WP1A,SR-PUBMED-C,0.3,EXECUTED,2026-08-25,695,695,TRUE,Historical identifier preserved
+Scopus,WP1A,SR-SCOPUS-A,0.2,EXECUTED,2026-08-25,674,674,TRUE,Historical identifier preserved
+Scopus,WP1A,SR-SCOPUS-B,0.2,EXECUTED,2026-08-25,16430,16430,TRUE,Historical identifier preserved
+Scopus,WP1A,SR-SCOPUS-C,0.2,EXECUTED,2026-08-25,683,683,TRUE,Historical identifier preserved
+Embase,WP1A,SR-EMBASE-A/B/C,0.2,ACCESS_ERROR,2026-08-25,0,0,FALSE,HTTP 403; manual execution pending
+APA PsycINFO,WP1A,SR-PSYCINFO-A/B/C,0.3,ACCESS_PENDING,,,0,FALSE,Syntax prepared
+Web of Science Core Collection,WP1A,WP1A-WOS-01,1.0,EXECUTED,2026-09-01T20:52:11Z,532,532,TRUE,Starter API faithful TI/AB operational translation
+Web of Science Core Collection,WP1A,WP1A-WOS-02,1.0,EXECUTED,2026-09-01T20:52:22Z,3660,3660,TRUE,Starter API faithful TI/AB operational translation
+Web of Science Core Collection,WP1B,WP1B-WOS-01,0.1,PILOTED,2026-09-01,177167,50,FALSE,First page only; do not screen as complete corpus
+Web of Science Core Collection,WP1B-FUTURE,WP1B-FUTURE-WOS-01,0.1,PILOTED,2026-09-01,2526,50,FALSE,First page only; do not screen as complete corpus

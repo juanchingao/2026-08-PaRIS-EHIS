@@ -1,0 +1,17 @@
+historical_search_id,new_search_id,work_package,stream_tag,relationship,historical_results_changed,notes
+NR-PUBMED-01,WP1A-PUBMED-01,WP1A,WP1A_METHODS,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-PUBMED-02,WP1A-PUBMED-02,WP1A,WP1A_MEASUREMENT,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-PUBMED-03,WP1A-PUBMED-03,WP1A,WP1A_METHODS,classification,FALSE,PaRIS and EHIS applications retained as pilot context
+NR-SCOPUS-01,WP1A-SCOPUS-01,WP1A,WP1A_METHODS,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-SCOPUS-02,WP1A-SCOPUS-02,WP1A,WP1A_MEASUREMENT,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-SCOPUS-03,WP1A-SCOPUS-03,WP1A,WP1A_METHODS,classification,FALSE,PaRIS and EHIS applications retained as pilot context
+NR-EMBASE-01,WP1A-EMBASE-01,WP1A,WP1A_METHODS,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-EMBASE-02,WP1A-EMBASE-02,WP1A,WP1A_MEASUREMENT,alias,FALSE,Historical narrative-review identifiers remain unchanged
+NR-EMBASE-03,WP1A-EMBASE-03,WP1A,WP1A_METHODS,classification,FALSE,PaRIS and EHIS applications retained as pilot context
+NR-WOS-01,WP1A-WOS-HISTORICAL-01,WP1A,WP1A_METHODS;WP1A_MEASUREMENT,historical_only,FALSE,Combined TS strategy was never executed and is not a faithful TI AB translation
+SR-PUBMED-A,WP1A-PUBMED-A,WP1A,WP1A_METHODS,classification,FALSE,Scoping-review execution v0.2 and v0.3 preserved
+SR-PUBMED-B,WP1A-PUBMED-B,WP1A,WP1A_MEASUREMENT,classification,FALSE,Scoping-review execution v0.2 and v0.3 preserved
+SR-PUBMED-C,WP1A-PUBMED-C,WP1A,WP1A_METHODS,classification,FALSE,Infrastructure line preserved
+SR-SCOPUS-A,WP1A-SCOPUS-A,WP1A,WP1A_METHODS,classification,FALSE,Completed execution preserved
+SR-SCOPUS-B,WP1A-SCOPUS-B,WP1A,WP1A_MEASUREMENT,classification,FALSE,Completed execution preserved
+SR-SCOPUS-C,WP1A-SCOPUS-C,WP1A,WP1A_METHODS,classification,FALSE,Completed execution preserved

@@ -1,10 +1,19 @@
-# Scoping review metodológica (WP1)
+# Programa de revisión de evidencia (WP1A y WP1B)
 
-Este directorio contiene el Work Package 1 activo. El diseño sigue JBI, el
+Este directorio contiene dos corrientes coordinadas, pero no fusionadas: WP1A
+responde cómo armonizar y WP1B qué armonizar. El diseño sigue JBI, el
 informe seguirá PRISMA-ScR, la búsqueda se documentará con PRISMA-S y la
 estrategia principal se preparará para revisión PRESS.
 
 ## Componentes canónicos
+
+- `evidence-streams.md`: separación de preguntas, productos y flujo.
+- `wp1a-protocol.md`: protocolo metodológico reclasificado.
+- `wp1b-protocol.md`: protocolo de contenido y subcorriente WP1B-FUTURE.
+- `strategies/master-search-register.csv`: registro maestro nuevo.
+- `strategies/search-id-crosswalk.csv`: aliases sin alterar resultados previos.
+- `manifests/wos-runs.csv`: pilotos y ejecuciones WoS sin credenciales.
+- `non-bibliographic-sources.csv`: documentos oficiales y búsqueda manual.
 
 - `protocol.md`: protocolo v0.2.
 - `search-strategy-audit.md`: auditoría del corpus histórico y de las API.
@@ -82,5 +91,5 @@ Git.
 
 Se leen únicamente desde variables de entorno (`SCOPUS_API_KEY`,
 `EMBASE_API_KEY`, y opcionalmente `EMBASE_INST_TOKEN`, `NCBI_API_KEY`,
-`NCBI_EMAIL`, `WOS_API_KEY`). Nunca se escriben en consultas, logs, manifiestos
+`NCBI_EMAIL`, `WOS_API_KEY_STARTER_SERMAS`). Nunca se escriben en consultas, logs, manifiestos
 ni mensajes de error.

@@ -13,7 +13,8 @@ R_WORKERS=4
 # EMBASE_INST_TOKEN=replace_with_your_embase_institutional_token
 # NCBI_API_KEY=replace_with_your_ncbi_api_key
 # NCBI_EMAIL=researcher@example.org
-# WOS_API_KEY=replace_with_your_clarivate_api_key
+# WOS_API_KEY_STARTER_SERMAS=replace_with_your_clarivate_starter_api_key
+# WOS_API_KEY_EXPANDED=replace_only_if_expanded_api_access_is_confirmed
 
 # Tercer revisor LLM. La clave nunca se versiona. El permiso de transferencia
 # debe activarse explícitamente solo si la licencia de Scopus/Embase lo permite.

@@ -267,14 +267,34 @@ test_that("public site keeps custom pages and renders only protocol with Quarto"
     readLines(file.path(website_dir, "references.js"), warn = FALSE),
     collapse = "\n"
   )
+  programme <- paste(
+    readLines(file.path(website_dir, "programa.html"), warn = FALSE),
+    collapse = "\n"
+  )
+  programme_script <- paste(
+    readLines(file.path(website_dir, "programme.js"), warn = FALSE),
+    collapse = "\n"
+  )
+  work_packages <- jsonlite::fromJSON(
+    file.path(website_dir, "data", "work-packages.json"),
+    simplifyVector = FALSE
+  )
 
   expect_false(grepl("index.qmd", config, fixed = TRUE))
   expect_false(grepl("referencias.qmd", config, fixed = TRUE))
   expect_match(config, "protocolo.qmd", fixed = TRUE)
   expect_match(config, "protocol.css", fixed = TRUE)
-  expect_match(landing, "class=\"hero\"", fixed = TRUE)
-  expect_match(landing, "class=\"principle-card\"", fixed = TRUE)
-  expect_match(landing, "class=\"metric-grid\"", fixed = TRUE)
+  expect_match(landing, "class=\"hero programme-hero\"", fixed = TRUE)
+  expect_match(landing, "class=\"principle-card sober\"", fixed = TRUE)
+  expect_match(landing, "Target DataSchema", fixed = TRUE)
+  expect_match(programme, "data-wp-list", fixed = TRUE)
+  expect_match(programme_script, "role=\"tablist\"", fixed = TRUE)
+  expect_match(programme_script, "aria-selected", fixed = TRUE)
+  expect_match(programme_script, "ArrowRight", fixed = TRUE)
+  expect_match(programme_script, "history.replaceState", fixed = TRUE)
+  expect_equal(vapply(work_packages, `[[`, character(1), "id"), paste0("WP", 0:7))
+  expect_match(references, "href=\"programa.html#wp1\"", fixed = TRUE)
+  expect_match(references, "WP1", fixed = TRUE)
   expect_match(references, "source-filter", fixed = TRUE)
   expect_match(references, "decision-filter", fixed = TRUE)
   expect_match(references, "<th>IA sistem", fixed = TRUE)

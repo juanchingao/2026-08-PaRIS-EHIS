@@ -6,6 +6,18 @@ if (length(missing)) stop("Missing packages: ", paste(missing, collapse = ", "),
 
 paths <- scoping_search_paths(project_paths)
 files <- list.files(paths$interim, pattern = "-records[.]csv$", full.names = TRUE)
+wos_run_register <- file.path(
+  project_root, "research", "scoping-review", "manifests", "wos-runs.csv"
+)
+if (file.exists(wos_run_register)) {
+  wos_files <- readr::read_csv(
+    wos_run_register, show_col_types = FALSE,
+    col_types = readr::cols(.default = "c")
+  ) |>
+    dplyr::filter(complete == "TRUE", pilot == "FALSE") |>
+    dplyr::pull(normalized_path)
+  files <- unique(c(files, wos_files[file.exists(wos_files)]))
+}
 if (!length(files)) stop("No normalized scoping-review records found.", call. = FALSE)
 records <- dplyr::bind_rows(lapply(files, function(path) {
   readr::read_csv(path, show_col_types = FALSE, col_types = readr::cols(.default = "c"))

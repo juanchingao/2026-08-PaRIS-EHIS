@@ -20,8 +20,10 @@ Estado remoto actual:
 - API privada implementada en el Worker y protegida por Access;
 - D1 contiene 1.091 filas bibliográficas, 1.076 registros efectivos, 1.091
   decisiones JALR y 891 evaluaciones automáticas;
-- revisores activos: `JALR` y `R2`, con correos mantenidos en una configuración
-  local editable y excluida de Git;
+- revisores configurados: `JALR` y `R2`; desde 2026-09-01, la configuración
+  local, D1 y la allowlist de Access asignan `R2` a Alicia Serrano Vedruna. La
+  actualización remota se verificó con `R2` activo y rol `REVIEWER`. Los correos
+  se mantienen en una configuración local editable y excluida de Git;
 - Access OTP activo para `/api/*`, con allowlist exacta de los dos revisores;
   landing, referencias públicas y protocolo permanecen accesibles sin sesión.
 
@@ -39,9 +41,12 @@ rechaza `/api/*` con `503` mientras falten `ACCESS_AUD` y
 pertenece a un revisor activo en D1.
 
 Para cambiar el correo de un revisor se edita
-`cloudflare/reviewers.local.csv` y se vuelven a ejecutar los scripts 16 y 17.
+`cloudflare/reviewers.local.csv` y se vuelven a ejecutar
+`scripts/16_prepare_cloudflare_review_import.R` y
+`scripts/17_import_cloudflare_d1.ps1`.
 El archivo local no debe añadirse a Git. El cambio debe reflejarse también en la
-política allowlist de Cloudflare Access cuando esta esté activa.
+política allowlist de Cloudflare Access mediante
+`scripts/18_configure_cloudflare_access.ps1` cuando esta esté activa.
 
 Para este proyecto se ha autorizado el almacenamiento privado de abstracts de
 Embase en D1. Deben marcarse como `RESTRICTED`, servirse solo desde rutas

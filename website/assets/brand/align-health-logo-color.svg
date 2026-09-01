@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">ALIGN Health logo</title>
+  <desc id="desc">Three distinct survey streams approach a shared open policy node.</desc>
+  <rect width="1200" height="320" fill="#F5F6F2"/>
+  <g transform="translate(44 68)">
+    <path d="M18 22H100C134 22 144 72 188 72H218" fill="none" stroke="#174A5B" stroke-width="22" stroke-linecap="round"/>
+    <path d="M18 82H112C143 82 159 92 188 92H218" fill="none" stroke="#6F9B8E" stroke-width="22" stroke-linecap="round"/>
+    <path d="M18 142H100C134 142 144 112 188 112H218" fill="none" stroke="#91B5AA" stroke-width="22" stroke-linecap="round"/>
+    <path d="M218 72C235 72 241 78 248 84M218 92H247M218 112C235 112 241 106 248 100" fill="none" stroke="#174A5B" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+    <circle cx="278" cy="92" r="18" fill="none" stroke="#D97762" stroke-width="8"/>
+  </g>
+  <line x1="386" y1="70" x2="386" y2="250" stroke="#174A5B" stroke-width="2" opacity=".55"/>
+  <text x="432" y="166" fill="#174A5B" font-family="'Source Sans 3','Source Sans Pro',Arial,sans-serif" font-size="92" font-weight="700" letter-spacing="1">ALIGN</text>
+  <text x="770" y="166" fill="#202A2E" font-family="'Source Sans 3','Source Sans Pro',Arial,sans-serif" font-size="92" font-weight="400">Health</text>
+  <text x="438" y="218" fill="#202A2E" font-family="'Source Sans 3','Source Sans Pro',Arial,sans-serif" font-size="31" font-weight="400" letter-spacing=".4">Health survey harmonisation for policy</text>
+</svg>

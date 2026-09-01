@@ -1,10 +1,16 @@
 # Sitio público PaRIS–EHIS
 
-Sitio híbrido para Workers Static Assets. La landing y el catálogo de
-referencias son HTML/CSS propios; únicamente el protocolo se renderiza con
-Quarto para conservar citas, resaltados y anotaciones. La parte pública no
+Sitio híbrido para Workers Static Assets. El programa, los paquetes de trabajo,
+el marco/DataSchema, las encuestas/métodos, el roadmap y el catálogo WP1A son
+HTML/CSS/JavaScript propios; únicamente el protocolo se renderiza con Quarto
+para conservar citas, resaltados y anotaciones. La parte pública no
 contiene microdatos, abstracts licenciados, credenciales ni documentación
 restringida.
+
+La estructura mantenible de los paquetes reside en
+`website/data/work-packages.json` y se representa mediante
+`website/programme.js`. `referencias.html` conserva su URL por compatibilidad,
+pero forma parte de WP1A y no constituye una sección principal independiente.
 
 ## Regeneración
 

@@ -5,10 +5,16 @@ project:
     - protocolo.qmd
   resources:
     - index.html
+    - programa.html
+    - marco.html
+    - encuestas.html
+    - roadmap.html
     - referencias.html
     - favicon.svg
+    - assets
     - data
     - app.js
+    - programme.js
     - references.js
     - styles.css
     - _headers

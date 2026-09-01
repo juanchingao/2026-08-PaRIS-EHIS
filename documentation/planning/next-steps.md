@@ -1,8 +1,9 @@
 # Hoja de ruta para retomar el proyecto
 
-**Actualizada:** 2026-08-24
-**Estado:** protocolo v0.3 multifuente propuesto
-**Punto de reentrada:** aprobación científica y congelación de WP1
+**Actualizada:** 2026-09-01
+**Estado:** protocolo v0.3 multifuente propuesto; pregunta WP1 en redefinición
+**Punto de reentrada:** reformulación y aprobación científica de la pregunta
+antes de congelar y ejecutar la búsqueda definitiva de WP1
 
 ## Contribución propuesta
 
@@ -33,12 +34,20 @@ Hasta entonces, las decisiones `DEC-2026-003` a `DEC-2026-009` permanecen
 ## Siguiente bloque A. Congelar WP1
 
 1. Revisar el protocolo en `research/scoping-review/protocol.md`.
-2. Asignar segundo investigador.
+2. Incorporar a Alicia Serrano Vedruna como segunda investigadora y completar
+   con ella la revisión independiente.
 3. Elegir plataforma de registro.
 4. Validar las estrategias ampliadas por base.
 5. Definir y probar el conjunto de artículos centinela.
 6. Retirar o justificar topes y orden por relevancia.
 7. Pilotar `extraction-template.csv` por dos personas.
+
+Las ejecuciones v0.2 de PubMed y Scopus y sus 98.260 trabajos deduplicados se
+conservan como evidencia de viabilidad y para informar la redefinición. No se
+cribarán como corpus definitivo ni se ampliarán a Web of Science hasta congelar
+la pregunta y versionar nuevas estrategias. Web of Science Starter está
+operativo con la credencial institucional SERMAS desde la verificación del
+2026-09-01.
 
 **Terminado cuando:** protocolo y estrategias tienen versión, fecha, hash,
 aprobación y registro anterior a la nueva búsqueda.

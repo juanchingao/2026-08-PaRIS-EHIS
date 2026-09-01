@@ -4,6 +4,43 @@
 
 ### Added
 
+- Separadas las corrientes WP1A, WP1B y WP1B-FUTURE, con protocolos,
+  correspondencia histórica, registro maestro y registro no bibliográfico.
+- Incorporado un cliente reproducible para Web of Science Starter API con
+  paginación, reintentos, checkpoints, manifiestos, normalización y WoS UT.
+
+- Reestructurada la web pública como programa internacional organizado en
+  `WP0`–`WP7`, con contenido centralizado y versionable, dependencias y gates,
+  arquitectura hub-and-spoke, matriz de prioridad/cobertura/comparabilidad y
+  separación visual entre demostrador PaRIS–EHIS y expansión futura.
+- Nuevas páginas integradas para programa, marco y Target DataSchema,
+  encuestas/métodos y roadmap/productos, manteniendo el stack HTML/CSS/JS y
+  Quarto existente sin dependencias nuevas.
+- Infografía editorial de `WP0`–`WP7` integrada en la página del programa,
+  con infraestructura transversal, dependencias y límite explícito del
+  demostrador PaRIS–EHIS.
+
+- Verificado el acceso institucional SERMAS a Web of Science Starter API con
+  una consulta DOI autenticada que devolvió `HTTP 200` y un registro; se
+  documenta el encabezado correcto `X-ApiKey` sin registrar la credencial.
+- Incorporada Alicia Serrano Vedruna como segunda investigadora (`R2`) en la
+  configuración privada, D1 y la allowlist exacta de Cloudflare Access; la fila
+  remota se verificó activa y con rol `REVIEWER`.
+
+### Changed
+
+- La búsqueda histórica se preserva y reclasifica como WP1A; la deduplicación
+  admite WoS UT y etiquetas múltiples de procedencia.
+
+- Sustituida la lista completa de paquetes de trabajo por un explorador de
+  fichas seleccionables `WP0`–`WP7`, accesible mediante pestañas, teclado y
+  enlaces profundos, con una sola ficha detallada visible cada vez.
+- Reubicada la página de referencias como herramienta operativa de `WP1A`, con
+  su URL preservada para no romper enlaces ni el acceso privado existente.
+- Marcada la pregunta de investigación de WP1 como en redefinición. Las
+  ejecuciones v0.2 de PubMed y Scopus se conservan como evidencia metodológica,
+  no como búsqueda definitiva ni como corpus autorizado para cribado.
+
 - Reapertura controlada de la evaluación de Web of Science tras disponer de
   una credencial local. Las pruebas mínimas de Starter y Expanded alcanzan
   Clarivate pero devuelven `HTTP 401`; se mantiene la ejecución manual hasta

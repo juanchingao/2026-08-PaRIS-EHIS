@@ -1,0 +1,8 @@
+source_id,work_package,organisation,document_type,discovery_method,status,url_or_location,date_identified,notes
+NBS-OECD-01,WP1B,OECD,official framework,manual registry,IDENTIFIED,documentation/protocol/sources/oecd-2026-comparison.pdf,2026-08-24,Direct benchmark; kept separate from API records
+NBS-WHO-01,WP1B,WHO,conceptual framework,targeted search,PLANNED,,,Official sources only
+NBS-PROMIS-01,WP1B,PROMIS,measurement framework,targeted search,PLANNED,,,Official sources and primary methodological publications
+NBS-COSMIN-01,WP1B,COSMIN,methodological guidance,targeted search,PLANNED,,,Official guidance
+NBS-COMET-01,WP1B,COMET Initiative,core outcome set registry,targeted search,PLANNED,,,Registry provenance retained
+NBS-SURVEYS-01,WP1B,Survey owners,survey reports,targeted search,PLANNED,,,Separate from bibliographic APIs
+NBS-CITATION-01,WP1A;WP1B,Multiple,citation chasing,citation chasing,PLANNED,,,Seed and direction required

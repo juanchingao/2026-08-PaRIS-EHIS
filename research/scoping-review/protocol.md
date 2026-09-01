@@ -1,9 +1,9 @@
 # Protocolo de la scoping review metodológica
 
-**Work Package:** WP1  
+**Work Package histórico:** WP1, reclasificado como WP1A
 **Versión:** 0.2  
 **Fecha:** 2026-08-25  
-**Estado:** `PROPOSED` — pendiente de aprobación de JALR, registro y revisión PRESS  
+**Estado:** `UNDER_REVISION` — pregunta de investigación y estrategia en redefinición; pendiente de aprobación, registro y revisión PRESS
 **Guías:** JBI Manual for Evidence Synthesis, PRISMA-ScR y PRISMA-S
 
 ## Título
@@ -35,6 +35,11 @@ narrativo anterior se conserva como piloto y fuente de referencias semilla; no
 se considerará una ejecución definitiva de este protocolo.
 
 ## Pregunta principal
+
+> **Estado al 2026-09-01:** formulación de trabajo, no congelada. JALR y la
+> segunda investigadora revisarán su alcance antes de traducirla a una nueva
+> estrategia. Las ejecuciones v0.2 de PubMed y Scopus se conservan como pruebas
+> metodológicas y no constituyen la búsqueda definitiva de WP1.
 
 > ¿Qué métodos, criterios y procedimientos se han utilizado para determinar si
 > variables o constructos de distintas encuestas, cohortes o instrumentos de
@@ -145,8 +150,9 @@ motivos de exclusión a texto completo se registrarán con vocabulario controlad
   está disponible por falta de token institucional;
 - APA PsycINFO mediante EBSCOhost, pendiente de localizar el acceso y traducir
   las tres líneas desde el borrador Ovid conservado;
-- Web of Science Core Collection mediante ejecución manual si existe acceso; no
-  se continuará intentando la API Clarivate.
+- Web of Science Core Collection mediante Starter API. Las traducciones
+  `TI`/`AB` y los pilotos `TS` se registran por separado; la menor riqueza de
+  metadatos de Starter se documenta sin imputar campos ausentes.
 
 CINAHL, Sociological Abstracts, EconLit, IEEE Xplore y ACM Digital Library se
 considerarán únicamente tras el pilotaje si muestran una contribución
@@ -191,7 +197,8 @@ PubMed combinará texto libre de título/resumen con MeSH verificado. Una eventu
 ejecución manual de Embase combinará texto libre con Emtree solo después de
 comprobar los descriptores en la plataforma autorizada. PsycINFO mantendrá
 términos libres y descriptores del APA Thesaurus traducidos específicamente a
-EBSCOhost; Web of Science utilizará `TS=` si llega a ejecutarse manualmente. No
+EBSCOhost; Web of Science compara `TI`/`AB` con `TS=` sin tratarlos como campos
+equivalentes. No
 se copiará sintaxis entre bases.
 
 ## Validación y estados

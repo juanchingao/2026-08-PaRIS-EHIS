@@ -2,6 +2,64 @@ source(testthat::test_path("..", "..", "R", "bibliographic_search.R"))
 source(testthat::test_path("..", "..", "R", "bibliographic_deduplication.R"))
 source(testthat::test_path("..", "..", "R", "ris_import.R"))
 source(testthat::test_path("..", "..", "R", "bibliographic_corpus.R"))
+source(testthat::test_path("..", "..", "R", "wos_starter.R"))
+
+testthat::test_that("WP1 evidence streams and historical aliases remain separate", {
+  root <- testthat::test_path("..", "..")
+  master <- readr::read_csv(
+    file.path(root, "research", "scoping-review", "strategies",
+              "master-search-register.csv"), show_col_types = FALSE
+  )
+  aliases <- readr::read_csv(
+    file.path(root, "research", "scoping-review", "strategies",
+              "search-id-crosswalk.csv"), show_col_types = FALSE
+  )
+  testthat::expect_setequal(
+    unique(master$work_package), c("WP1A", "WP1B", "WP1B-FUTURE")
+  )
+  testthat::expect_true(all(c("NR-PUBMED-01", "NR-PUBMED-02") %in%
+                              aliases$historical_search_id))
+  testthat::expect_true(all(aliases$historical_results_changed == FALSE))
+  testthat::expect_true(all(master$status %in% c(
+    "DRAFT", "PILOTED", "READY", "EXECUTED", "SUPERSEDED",
+    "REQUIRES_REVIEW"
+  )))
+})
+
+testthat::test_that("WoS Starter normalization retains UT and separate keyword fields", {
+  strategy <- list(
+    search_strategy_id = "WP1A-WOS-01", search_line = "WP1A",
+    query_version = "1.0", stream_tags = "WP1A_METHODS"
+  )
+  hits <- list(list(
+    uid = "WOS:0001", title = "Example", identifiers = list(doi = "10.1/a"),
+    names = list(authors = list(displayName = "A. Author")),
+    source = list(sourceTitle = "Journal", publishYear = 2026),
+    keywords = list(authorKeywords = c("harmonisation", "survey"),
+                    keywordsPlus = c("methods")), types = "Article"
+  ))
+  result <- normalise_wos_hits(hits, strategy, "raw/page.json",
+                               "2026-09-01T00:00:00Z")
+  testthat::expect_equal(result$wos_ut, "WOS:0001")
+  testthat::expect_match(result$keywords, "harmonisation")
+  testthat::expect_match(result$keywords_plus, "methods")
+  testthat::expect_equal(result$stream_tags, "WP1A_METHODS")
+})
+
+testthat::test_that("WoS UT is an exact conservative deduplication rule", {
+  records <- tibble::tibble(
+    record_id = c("W1", "W2"), source_database = "Web of Science Core Collection",
+    source_record_id = "WOS:1", search_line = c("WP1A", "WP1A"),
+    search_strategy_id = c("WP1A-WOS-01", "WP1A-WOS-02"),
+    search_version = "1.0", search_date = "2026-09-01",
+    title = c("Different supplied title", "Another supplied title"),
+    wos_ut = "WOS:1"
+  ) |>
+    conform_bibliographic_schema()
+  corpus <- build_bibliographic_corpus(records)
+  testthat::expect_equal(nrow(corpus$works), 1L)
+  testthat::expect_true("WOS_UT" %in% corpus$deduplication_decisions$rule)
+})
 
 testthat::test_that("search strategy register contains independent A B C lines", {
   strategies <- load_scoping_search_strategies(testthat::test_path("..", ".."))

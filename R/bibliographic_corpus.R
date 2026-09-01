@@ -214,10 +214,16 @@ build_bibliographic_corpus <- function(records) {
 
   doi_key <- normalize_bibliographic_doi(records$doi)
   pmid_key <- normalise_bibliographic_pmid(records$pmid)
+  wos_key <- trimws(ifelse(is.na(records$wos_ut), "", records$wos_ut))
+  scopus_key <- trimws(ifelse(is.na(records$scopus_eid), "", records$scopus_eid))
+  embase_key <- trimws(ifelse(is.na(records$embase_id), "", records$embase_id))
   title_key <- normalize_bibliographic_title(records$title)
   year_key <- normalise_bibliographic_year(records$year)
   apply_exact_rule(doi_key, "DOI")
   apply_exact_rule(pmid_key, "PMID")
+  apply_exact_rule(wos_key, "WOS_UT")
+  apply_exact_rule(scopus_key, "SCOPUS_EID")
+  apply_exact_rule(embase_key, "EMBASE_ID")
   apply_exact_rule(ifelse(nzchar(title_key) & nzchar(year_key),
                           paste(title_key, year_key, sep = "|"), ""), "TITLE_YEAR")
 
@@ -236,6 +242,7 @@ build_bibliographic_corpus <- function(records) {
       journal = select_representative_value(journal),
       doi = select_representative_value(doi),
       pmid = select_representative_value(pmid),
+      wos_ut = select_representative_value(wos_ut),
       scopus_eid = select_representative_value(scopus_eid),
       embase_id = select_representative_value(embase_id),
       source_count = dplyr::n_distinct(source_database),
@@ -280,7 +287,8 @@ build_bibliographic_corpus <- function(records) {
     work_sources = record_sources |>
       dplyr::select(
         work_id, record_id, source_database, source_record_id, search_line,
-        search_strategy_id, search_version, search_date, raw_file, raw_batch
+        search_strategy_id, search_version, search_date, stream_tags,
+        raw_file, raw_batch
       ),
     deduplication_decisions = dplyr::bind_rows(decisions),
     approximate_candidates = dplyr::bind_rows(approximate)
