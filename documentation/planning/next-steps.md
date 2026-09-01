@@ -5,6 +5,18 @@
 **Punto de reentrada:** reformulación y aprobación científica de la pregunta
 antes de congelar y ejecutar la búsqueda definitiva de WP1
 
+## Identidad y dominio
+
+`ALIGN Health` queda adoptado como nombre de trabajo actual, con el descriptor
+`Health survey harmonisation for policy`. La web utiliza esta identidad desde
+el 2026-09-01. Su carácter de nombre de trabajo no autoriza a renombrar
+repositorio, paquetes, identificadores, DOI, citas, metadatos históricos ni
+URLs técnicas.
+
+La elección, registro y migración a un dominio propio se posponen hasta una
+decisión específica posterior. Mientras tanto se conservan las rutas y dominios
+técnicos existentes.
+
 ## Contribución propuesta
 
 El proyecto desarrollará y evaluará un framework reproducible de armonización

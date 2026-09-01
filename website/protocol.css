@@ -1,16 +1,21 @@
 :root {
-  --protocol-ink: #18221f;
-  --protocol-muted: #5d6a66;
-  --protocol-paper: #f4f1ea;
-  --protocol-surface: #fffdf8;
-  --protocol-line: #d7d7cc;
-  --protocol-green: #176c59;
+  --brand-petrol: #174A5B;
+  --brand-sage: #6F9B8E;
+  --brand-coral: #D97762;
+  --brand-ivory: #F5F6F2;
+  --brand-graphite: #202A2E;
+  --protocol-ink: var(--brand-graphite);
+  --protocol-muted: #536269;
+  --protocol-paper: var(--brand-ivory);
+  --protocol-surface: #ffffff;
+  --protocol-line: #cbd4d1;
+  --protocol-green: var(--brand-petrol);
 }
 
 body {
   color: var(--protocol-ink);
   background: var(--protocol-paper);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Source Sans 3", "Source Sans Pro", "Segoe UI", Arial, sans-serif;
 }
 
 .protocol-site-header {
@@ -85,4 +90,15 @@ main.content pre { padding: 1rem; background: #edf0eb; border: 1px solid var(--p
   .protocol-site-header { align-items: flex-start; flex-direction: column; }
   .protocol-site-header nav { width: 100%; overflow-x: auto; padding-bottom: .35rem; }
   .protocol-site-header nav a { flex: 0 0 auto; }
+}
+
+.protocol-brand-logo { display: block; width: 220px; height: 58px; object-fit: contain; object-position: left center; }
+.protocol-brand-icon { display: none; width: 44px; height: 44px; }
+.protocol-site-header a:focus-visible { outline: 3px solid var(--brand-coral); outline-offset: 3px; }
+@media (max-width: 640px) {
+  .protocol-brand-logo { display: none; }
+  .protocol-brand-icon { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }

@@ -4,6 +4,9 @@
 
 ### Added
 
+- Integrada la identidad visual provisional ALIGN Health: logotipo horizontal,
+  isotipo, favicon, icono de aplicación y guía de marca en `assets/brand/`.
+
 - Separadas las corrientes WP1A, WP1B y WP1B-FUTURE, con protocolos,
   correspondencia histórica, registro maestro y registro no bibliográfico.
 - Incorporado un cliente reproducible para Web of Science Starter API con
@@ -28,6 +31,15 @@
   remota se verificó activa y con rol `REVIEWER`.
 
 ### Changed
+
+- Adoptado ALIGN Health como nombre de trabajo actual y aplazada la selección
+  de un dominio propio; no cambian repositorio, URLs, identificadores, citas ni
+  metadatos históricos.
+
+- Actualizada la interfaz pública y el protocolo Quarto con tokens de color,
+  tipografías, cabeceras, navegación, estados de foco y pies coherentes con
+  ALIGN Health. La infografía de WPs se conserva también en su versión anterior
+  y se añade una variante con la nueva marca.
 
 - La búsqueda histórica se preserva y reclasifica como WP1A; la deduplicación
   admite WoS UT y etiquetas múltiples de procedencia.

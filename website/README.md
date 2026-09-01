@@ -1,5 +1,10 @@
 # Sitio público PaRIS–EHIS
 
+La identidad pública de trabajo es **ALIGN Health**, con el descriptor *Health
+survey harmonisation for policy*. El nombre técnico del repositorio y las URLs
+existentes se conservan. La elección de un dominio propio queda pendiente de
+una decisión posterior.
+
 Sitio híbrido para Workers Static Assets. El programa, los paquetes de trabajo,
 el marco/DataSchema, las encuestas/métodos, el roadmap y el catálogo WP1A son
 HTML/CSS/JavaScript propios; únicamente el protocolo se renderiza con Quarto
